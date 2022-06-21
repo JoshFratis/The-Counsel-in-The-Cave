@@ -109,15 +109,36 @@ p {
     color: #888;
     line-height: 1.7em;
     font-weight: lighter;
+    margin-top: 0px;
+    margin-bottom: 2em;
 }
 
+p.direction {
+    text-align: right;
+    font-style: italic;
+  }
+  
+  p.dialogue {
+    text-align: center;
+    font-style: normal;
+  }
+  
+  p.inflection {
+    text-align: center;
+    font-style: italic;
+  }
+
+  p.cue {
+    padding-top: 2em;
+    margin-bottom: 0;
+  }
+
 a {
-    font-weight: 700;
-    color: #b97c2c;
-    font-family: sans-serif;
+    font-weight: normal;
+    color: cornflowerblue;
     transition: color 0.6s;
     text-decoration: none;
-}
+  }
 
 a:hover {
     color: black;
@@ -155,13 +176,13 @@ img {
 .choice {
     text-align: center;
     line-height: 1.7em;
+    margin: 1em;
 }
 
 /* 
   Class applied to first choice
 */
 :not(.choice)+.choice {
-    padding-top: 1em;
 }
 
 /*
@@ -237,7 +258,7 @@ body.dark {
 }
 
 .dark a {
-    color: #cc8f1a;
+    color: cornflowerblue;
     transition: color 0.6s;
 }
 

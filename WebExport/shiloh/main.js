@@ -31,8 +31,11 @@
         }
     }
 
+    var titleContainer = document.querySelector('#title');
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
+
+    var style = "dialogue";
 
     // page features setup
     setupTheme(globalTagTheme);
@@ -124,11 +127,36 @@
                     customClasses.push(splitTag.val);
                 }
 
+                else if (splitTag && splitTag.property == "TITLE") {
+                    var titleElement = document.createElement('h1');
+                    titleElement.innerHTML = splitTag.val;
+                    titleContainer.appendChild(titleElement);
+
+                    showAfter(delay, titleElement);
+                    delay += 200.0;
+                }
+
+                else if (tag == "DIA") {
+                    style = "dialogue";
+                }
+
+                else if (tag == "DIR") {
+                    style = "direction";
+                }
+
+                else if (tag == "INF") {
+                    style = "inflection";
+                }
+
+                else if (tag == "BR") {
+                    storyContainer.appendChild(document.createElement('br'));
+                    storyContainer.appendChild(document.createElement('br'));
+                }
+
                 // CLEAR - removes all existing content.
                 // RESTART - clears everything and restarts the story from the beginning
                 else if( tag == "CLEAR" || tag == "RESTART" ) {
-                    removeAll("p");
-                    removeAll("img");
+                    removeAllElements();
 
                     // Comment out this line if you want to leave the header visible when clearing
                     setVisible(".header", false);
@@ -143,6 +171,15 @@
             // Create paragraph element (initially hidden)
             var paragraphElement = document.createElement('p');
             paragraphElement.innerHTML = paragraphText;
+            paragraphElement.classList.add(style);
+
+            // Line Breaks
+            if ((paragraphText.toUpperCase() == paragraphText)
+                && paragraphText != paragraphText.toLowerCase()){
+                //storyContainer.appendChild(document.createElement('br'));
+                paragraphElement.classList.add("cue");
+            }
+            
             storyContainer.appendChild(paragraphElement);
 
             // Add any custom classes derived from ink tags
@@ -160,6 +197,7 @@
             // Create paragraph with anchor element
             var choiceParagraphElement = document.createElement('p');
             choiceParagraphElement.classList.add("choice");
+            choiceParagraphElement.classList.add(style);
             choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`
             storyContainer.appendChild(choiceParagraphElement);
 
@@ -265,6 +303,15 @@
         }
     }
 
+    function removeTitle(selector)
+    {
+        var allElements = titleContainer.querySelectorAll(selector);
+        for(var i=0; i<allElements.length; i++) {
+            var el = allElements[i];
+            el.parentNode.removeChild(el);
+        }
+    }
+
     // Used for hiding and showing the header when you CLEAR or RESTART the story respectively.
     function setVisible(selector, visible)
     {
@@ -335,8 +382,7 @@
 
         let rewindEl = document.getElementById("rewind");
         if (rewindEl) rewindEl.addEventListener("click", function(event) {
-            removeAll("p");
-            removeAll("img");
+            removeAllElements();
             setVisible(".header", false);
             restart();
         });
@@ -361,8 +407,7 @@
             if (reloadEl.getAttribute("disabled"))
                 return;
 
-            removeAll("p");
-            removeAll("img");
+            removeAllElements();
             try {
                 let savedState = window.localStorage.getItem('save-state');
                 if (savedState) story.state.LoadJson(savedState);
@@ -377,6 +422,13 @@
             document.body.classList.add("switched");
             document.body.classList.toggle("dark");
         });
+    }
+
+    function removeAllElements() {
+        removeAll("p");
+        removeAll("img");
+        removeAll("br");
+        removeTitle("h1");
     }
 
 })(storyContent);

@@ -6,7 +6,8 @@
     var savePoint = "";
 
     // Set default theme as 'white'
-    themeClass = 'white';
+    var defaultThemeClass = 'white';
+    var themeClass = 'white';
 
     // Global tags - those at the top of the ink file
     // We support:
@@ -21,6 +22,9 @@
             // THEME: color
             if( splitTag && splitTag.property == "THEME" ) {
                 themeClass = splitTag.val;
+            }
+            if( splitTag && splitTag.property == "DEFAULTTHEME" ) {
+                defaultThemeClass = splitTag.val;
             }
             
             // author: Your Name
@@ -147,15 +151,29 @@
                 // THEME: color
                 else if (splitTag && splitTag.property == "THEME") {
                     console.log(tag);
-                    //var themedElements = document.getElementsByClassName(themeClass);
+
                     var themedElements = document.getElementsByClassName('themed');
+                    
+                    // Fade to default theme
                     for(var i = 0; i < themedElements.length; i++) {
                         var el = themedElements[i];
-                        console.log(el);
-                        el.classList.replace(themeClass, splitTag.val);
+                        el.classList.replace(themeClass, defaultThemeClass);
+                        console.log("Replacing "+themeClass+" theme with "+defaultThemeClass+" theme for element: "+el);
                     } 
-                    themeClass = splitTag.val;
-                    console.log('themeClass = '+splitTag.val);
+
+                    // Wait  
+                    setTimeout(() => {  
+                        // Fade to new theme
+                        for(var i = 0; i < themedElements.length; i++) {
+                            var el = themedElements[i];
+                            el.classList.replace(defaultThemeClass, splitTag.val);
+                            console.log("Replacing "+defaultThemeClass+" theme with "+splitTag.val+" theme for element: "+el);
+                        } 
+                        themeClass = splitTag.val;
+                    }, 1000);
+
+
+                    
                 }
 
                 // Text Styles

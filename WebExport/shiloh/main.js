@@ -4,11 +4,13 @@
     var story = new inkjs.Story(storyContent);
 
     var savePoint = "";
+
+    // Set default theme as 'white'
     themeClass = 'white';
 
     // Global tags - those at the top of the ink file
     // We support:
-    //  # THEME: 
+    //  # THEME: color
     //  # author: Your Name
     var globalTags = story.globalTags;
     if( globalTags ) {
@@ -16,7 +18,7 @@
             var globalTag = story.globalTags[i];
             var splitTag = splitPropertyTag(globalTag);
             
-            // THEME: dark
+            // THEME: color
             if( splitTag && splitTag.property == "THEME" ) {
                 themeClass = splitTag.val;
             }
@@ -32,7 +34,14 @@
     var titleContainer = document.querySelector('#title');
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
-    outerScrollContainer.classList.add(themeClass);
+
+    // Set theme to all elements with 'themed' class
+    var themedElements = document.getElementsByClassName('themed');
+    for(var i = 0; i < themedElements.length; i++) {
+        var el = themedElements[i];
+        console.log(el);
+        el.classList.add(themeClass);
+    } 
    
     var style = "dialogue";
 
@@ -138,7 +147,8 @@
                 // THEME: color
                 else if (splitTag && splitTag.property == "THEME") {
                     console.log(tag);
-                    var themedElements = document.getElementsByClassName(themeClass);
+                    //var themedElements = document.getElementsByClassName(themeClass);
+                    var themedElements = document.getElementsByClassName('themed');
                     for(var i = 0; i < themedElements.length; i++) {
                         var el = themedElements[i];
                         console.log(el);

@@ -10,6 +10,7 @@ VAR MayHasSpider = false
 
 = start
 #IMAGE: img/shiloh.jpg
+#THEME: lime
 #TITLE: THE COUNSEL IN THE CAVE
 #TITLE: ACT I, SCENE I
 #TITLE: SHILOH HILLS
@@ -45,7 +46,7 @@ MAY
 
 = three 
 JASON
-#COLOR:themeLime
+#THEME: red
 I can’t believe graduation is only… What, six weeks away? 
 
 It seems like yesterday I was walking down here with my kindergarten class. On days like these, days close to summer, we’d take breaks in the afternoons to come down from the school. 

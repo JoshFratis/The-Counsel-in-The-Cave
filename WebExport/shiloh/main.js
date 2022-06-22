@@ -8,6 +8,7 @@
     // Set default theme as 'white'
     var defaultThemeClass = 'white';
     var themeClass = 'white';
+    var storyHeight = 0;
 
     // Global tags - those at the top of the ink file
     // We support:
@@ -178,6 +179,7 @@
 
                 else if (tag == "PB") {
                     storyContainer.style.height = "auto";
+                    storyHeight = contentBottomEdgeY();
                     storyContainer = document.createElement('div');
                     storyContainer.classList.add('container', 'storyContainer', 'card');
                     outerScrollContainer.append(storyContainer);
@@ -275,7 +277,7 @@
         // Extend height to fit
         // We do this manually so that removing elements and creating new ones doesn't
         // cause the height (and therefore scroll) to jump backwards temporarily.
-        storyContainer.style.height = contentBottomEdgeY()+"px";
+        storyContainer.style.height = contentBottomEdgeY()-storyHeight+"px";
 
         if( !firstTime )
             scrollDown(previousBottomEdge);

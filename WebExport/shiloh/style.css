@@ -60,6 +60,10 @@ body.switched {
     background-repeat: no-repeat;
 }
 
+.colored {
+    background-color:rgb(222, 130, 130);
+}
+
 @media screen and (max-width: 980px) {
     .outerContainer {
         margin-top: 44px;
@@ -70,8 +74,8 @@ body.switched {
 
 /* Header Container for Title */ 
 .header {
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 /* Body Container for Story */
@@ -90,7 +94,7 @@ body.switched {
 
 #story {
     margin-top: 1em;
-    padding: 4em;
+    padding: 5em;
     height: fit-content;
 }
 
@@ -244,7 +248,6 @@ strong {
     right: 14px;
     top: 4px;
     user-select: none;
-    background: white;
     transition: color 0.6s, background 0.6s;
 }
 

@@ -88,10 +88,14 @@ body.switched {
     transition: background-color 0.6s;
 }
 
+.storyContainer {
+    margin-top: 2em;
+    padding: 5em;
+}
+
 #story {
     margin-top: 1em;
     padding: 5em;
-    height: fit-content;
 }
 
 /* Drop Shadow */

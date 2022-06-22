@@ -34,6 +34,7 @@ Two teenagers, Jason and May, enter the foreground from a gravel path that overl
 -> two 
 
 = two
+#PB
 #DIA
 JASON
 Check out all these clovers! How they flood the hill? They’re different each time we come here, you know. Remember last time? It was only dry grasses? Those huge dragonflies? Now there are all these little round flowers.
@@ -46,6 +47,7 @@ MAY
 --> three 
 
 = three 
+#PB
 #THEME: red
 JASON
 I can’t believe graduation is only… What, six weeks away? 
@@ -82,6 +84,7 @@ Something about those days has always stuck with me. Each year, there comes a da
 -->->
 
 = four 
+#PB
 #DIR 
 Jason points to a transmission tower in the distance. 
 #DIA 
@@ -105,6 +108,7 @@ The two step down onto the path they trod before, following beneath the power li
 -> five 
 
 = five
+#PB
 #DIA 
 JASON
 I can’t wait to get out of this place. I couldn’t spend another year in the suburbs. 

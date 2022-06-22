@@ -176,6 +176,13 @@
                     
                 }
 
+                else if (tag == "PB") {
+                    storyContainer.style.height = "auto";
+                    storyContainer = document.createElement('div');
+                    storyContainer.classList.add('container', 'storyContainer', 'card');
+                    outerScrollContainer.append(storyContainer);
+                }
+
                 // Text Styles
                 // Cue / Line of Dialogue 
                 else if (tag == "DIA") {

@@ -17,12 +17,12 @@
         for(var i=0; i<story.globalTags.length; i++) {
             var globalTag = story.globalTags[i];
             var splitTag = splitPropertyTag(globalTag);
-
+            
             // THEME: dark
             if( splitTag && splitTag.property == "theme" ) {
                 globalTagTheme = splitTag.val;
             }
-
+            
             // author: Your Name
             else if( splitTag && splitTag.property == "author" ) {
                 var byline = document.querySelector('.byline');
@@ -34,6 +34,9 @@
     var titleContainer = document.querySelector('#title');
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
+
+    var themeClass = 'themeWhite';
+    outerScrollContainer.classList.add(themeClass);
 
     var style = "dialogue";
 
@@ -136,6 +139,20 @@
                     delay += 200.0;
                 }
 
+                else if (splitTag && splitTag.property == "COLOR") {
+                    /* 
+                        var coloredElements = document.getElementsByClassName('colored');
+                        for(var i = 0; i < coloredElements.length; i++) {
+                            var el = coloredElements[i];
+                            el.style.backgroundColor = splitTag.val;
+                        } 
+                    */
+                   console.log(tag);
+                    outerScrollContainer.classList.replace(themeClass, splitTag.val);
+                    colorClass = splitTag.val;
+                }
+
+
                 else if (tag == "DIA") {
                     style = "dialogue";
                 }
@@ -147,12 +164,7 @@
                 else if (tag == "INF") {
                     style = "inflection";
                 }
-
-                else if (tag == "BR") {
-                    storyContainer.appendChild(document.createElement('br'));
-                    storyContainer.appendChild(document.createElement('br'));
-                }
-
+                
                 // CLEAR - removes all existing content.
                 // RESTART - clears everything and restarts the story from the beginning
                 else if( tag == "CLEAR" || tag == "RESTART" ) {

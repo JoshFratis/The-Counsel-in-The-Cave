@@ -45,6 +45,7 @@ MAY
 
 = three 
 JASON
+#COLOR:themeLime
 I can’t believe graduation is only… What, six weeks away? 
 
 It seems like yesterday I was walking down here with my kindergarten class. On days like these, days close to summer, we’d take breaks in the afternoons to come down from the school. 

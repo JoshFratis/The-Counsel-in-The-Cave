@@ -60,10 +60,6 @@ body.switched {
     background-repeat: no-repeat;
 }
 
-.colored {
-    background-color:rgb(222, 130, 130);
-}
-
 @media screen and (max-width: 980px) {
     .outerContainer {
         margin-top: 44px;
@@ -314,4 +310,22 @@ body.dark {
 
 .dark #controls {
     background: black;
+}
+
+/* 
+    THEMES
+*/
+/* White */
+.themeWhite {
+    background-color: white;
+}
+
+/* Red */
+.themeRed {
+    background-color: red;
+}
+
+/* Lime */
+.themeLime {
+    background-color: lime;
 }

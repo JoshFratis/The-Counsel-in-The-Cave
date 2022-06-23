@@ -11,10 +11,11 @@ VAR MayHasSpider = false
 = start
 #IMAGE: img/shiloh.jpg
 #THEME: white
-# DEFAULTTHEME: white
+#DEFAULTTHEME: white
 #TITLE: THE COUNSEL IN THE CAVE
 #TITLE: ACT I, SCENE I
 #TITLE: SHILOH HILLS
+#SCENETITLE: --- SHILOH HILLS ---
 -> one
 
 = one 
@@ -47,8 +48,6 @@ MAY
 --> three 
 
 = three 
-#PB
-#THEME: red
 JASON
 I can’t believe graduation is only… What, six weeks away? 
 
@@ -62,7 +61,6 @@ MAY
     -> threeB ->
 + I moved here in middle school, remember? 
     ~ MayMoved = true
-    #THEME: lime
     ++ It was hard making new friends. 
     ++ It was good to get a fresh start. 
 - 
@@ -78,18 +76,15 @@ Something about those days has always stuck with me. Each year, there comes a da
 -->->
 
 = threeB
- #THEME: lime
 + I always hate telling people that. 
 + I usually forget about it too. 
 -->->
 
 = four 
-#PB
 #DIR 
 Jason points to a transmission tower in the distance. 
 #DIA 
 JASON
-#THEME: red
 Do you know what they’re called? No one has a name for them, since no one ever needs them. They just stand there. 
 
 MAY
@@ -100,15 +95,15 @@ MAY
         ++ It didn’t look like it belonged there. 
         ++ I liked seeing it. 
     */
-- #THEME: lime
+-
 JASON
 They’ve always looked to me like titans. As if at night, they put down their wires. And instead of staying here, wander the earth in search of something greater. 
+#PB
 #DIR 
 The two step down onto the path they trod before, following beneath the power lines. They briefly disappear from sight before breaching the next hilltop further upstage. 
 -> five 
 
 = five
-#PB
 #DIA 
 JASON
 I can’t wait to get out of this place. I couldn’t spend another year in the suburbs. 
@@ -120,7 +115,7 @@ MAY
         - MayMoved == true: 
             -> fiveA ->
     }
-- #THEME: red
+-
 JASON
 I’ve got places to be, May! I need to see the world. 
 No schools around here are any good for music. But in a few months I’ll be on my way to the city, where it really happens. Then this time next year, I’ll be playing with the best.
@@ -138,7 +133,7 @@ Jason laughs, shakes his head, and looks out at the distance.
 ->->
 
 = six 
-# THEME: lime
+#PB
 {
     - sixO == 0: The two pause for a moment. They take in the land around them.
     - sixO == 1: Jason notices May has stopped following.
@@ -247,6 +242,7 @@ MAY
 -> six
 
 = seven
+#PB
 JASON
 You still haven’t thought any more about Lehigh? 
 

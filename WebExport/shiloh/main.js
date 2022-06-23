@@ -9,6 +9,9 @@
     var defaultThemeClass = 'white';
     var themeClass = 'white';
 
+    // Set default scene title
+    var sceneTitle = 'THE COUNSEL IN THE CAVE';
+
     // Initialize height tracker for accumulated pages 
     var storyHeight = 0;
     var pageNumber = 1;
@@ -24,8 +27,13 @@
             if( splitTag && splitTag.property == "THEME" ) {
                 themeClass = splitTag.val;
             }
-            if( splitTag && splitTag.property == "DEFAULTTHEME" ) {
+            else if( splitTag && splitTag.property == "DEFAULTTHEME" ) {
                 defaultThemeClass = splitTag.val;
+            }
+
+            // SCENETITLE
+            else if ( splitTag && splitTag.property == "SCENETITLE") {
+                sceneTitle = splitTag.val;
             }
             
             // author: Your Name
@@ -44,7 +52,6 @@
     var themedElements = document.getElementsByClassName('themed');
     for(var i = 0; i < themedElements.length; i++) {
         var el = themedElements[i];
-        console.log(el);
         el.classList.add(themeClass);
     } 
    
@@ -174,6 +181,10 @@
                     }, 1000);
                 }
 
+                else if ( splitTag && splitTag.property == "SCENETITLE") {
+                    sceneTitle = splitTag.val;
+                }
+
                 // Page Break
                 else if (tag == "PB") {
                     // Cut page
@@ -181,8 +192,8 @@
                     storyHeight = contentBottomEdgeY();
 
                     // Add page number
-                    pageNumberElement = document.createElement('p');
-                    pageNumberElement.innerHTML = pageNumber.toString();
+                    pageNumberElement = document.createElement('h3');
+                    pageNumberElement.innerHTML = '- '+pageNumber.toString()+' -';
                     pageNumberElement.classList.add('pageNumber');
                     storyContainer.append(pageNumberElement);
                     pageNumber++;
@@ -199,6 +210,16 @@
                      // Fade in new page after a short delay
                      showAfter(delay, storyContainer);
                      delay += 200.0;
+
+                     // Add page header
+                     pageHeaderElement = document.createElement('h3');
+                     pageHeaderElement.innerHTML = '- '+sceneTitle+' -';
+                     pageHeaderElement.classList.add('pageHeader');
+                     storyContainer.append(pageHeaderElement);
+        
+                      // Fade in new page after a short delay
+                      showAfter(delay, pageHeaderElement);
+                      delay += 200.0;
                 }
 
                 // Text Styles

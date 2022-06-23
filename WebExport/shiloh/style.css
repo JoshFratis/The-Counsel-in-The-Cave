@@ -91,6 +91,7 @@ body.switched {
 .storyContainer {
     margin-top: 2em;
     padding: 5em;
+    padding-top: 3em;
     padding-bottom: 3em;
     height: 0;
 }
@@ -149,6 +150,28 @@ h2 {
     color: #BBB;
 }
 
+h3 {
+    text-align: center;
+    font-family: "Quattrocento", Georgia, 'Times New Roman', Times, serif;
+    color: #888;
+}
+
+/* Page Header */
+.pageHeader {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0em;
+    margin-bottom: 2em;
+}
+
+/* Page Footer */
+.pageNumber {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2em;
+    margin-bottom: 0em;
+}
+
 /* Paragraphs */
 p {
     font-size: 13pt;
@@ -157,13 +180,6 @@ p {
     font-weight: lighter;
     margin-top: 0px;
     margin-bottom: 2em;
-}
-
-p.pageNumber {
-    text-align: center;
-    text-decoration: overline;
-    margin-bottom: 0em;
-    margin-top: 2em;
 }
 
 p.direction {

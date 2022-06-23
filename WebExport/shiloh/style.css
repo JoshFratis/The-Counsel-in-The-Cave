@@ -91,17 +91,13 @@ body.switched {
 .storyContainer {
     margin-top: 2em;
     padding: 5em;
+    padding-bottom: 3em;
     height: 0;
-}
-
-#story {
-    margin-top: 1em;
-    padding: 5em;
 }
 
 /* Drop Shadow */
 div.card {
-    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 4px 14px 6px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
   }
 
@@ -161,6 +157,13 @@ p {
     font-weight: lighter;
     margin-top: 0px;
     margin-bottom: 2em;
+}
+
+p.pageNumber {
+    text-align: center;
+    text-decoration: overline;
+    margin-bottom: 0em;
+    margin-top: 2em;
 }
 
 p.direction {

@@ -8,12 +8,12 @@
     // Set default theme as 'white'
     var defaultThemeClass = 'white';
     var themeClass = 'white';
+
+    // Initialize height tracker for accumulated pages 
     var storyHeight = 0;
+    var pageNumber = 1;
 
     // Global tags - those at the top of the ink file
-    // We support:
-    //  # THEME: color
-    //  # author: Your Name
     var globalTags = story.globalTags;
     if( globalTags ) {
         for(var i=0; i<story.globalTags.length; i++) {
@@ -172,17 +172,33 @@
                         } 
                         themeClass = splitTag.val;
                     }, 1000);
-
-
-                    
                 }
 
+                // Page Break
                 else if (tag == "PB") {
+                    // Cut page
                     storyContainer.style.height = "auto";
                     storyHeight = contentBottomEdgeY();
+
+                    // Add page number
+                    pageNumberElement = document.createElement('p');
+                    pageNumberElement.innerHTML = pageNumber.toString();
+                    pageNumberElement.classList.add('pageNumber');
+                    storyContainer.append(pageNumberElement);
+                    pageNumber++;
+
+                    // Fade in page number after a short delay
+                    showAfter(delay, pageNumberElement);
+                    delay += 200.0;
+                    
+                    // Create new page
                     storyContainer = document.createElement('div');
                     storyContainer.classList.add('container', 'storyContainer', 'card');
                     outerScrollContainer.append(storyContainer);
+
+                     // Fade in new page after a short delay
+                     showAfter(delay, storyContainer);
+                     delay += 200.0;
                 }
 
                 // Text Styles
@@ -277,7 +293,7 @@
         // Extend height to fit
         // We do this manually so that removing elements and creating new ones doesn't
         // cause the height (and therefore scroll) to jump backwards temporarily.
-        storyContainer.style.height = contentBottomEdgeY()-storyHeight+"px";
+        storyContainer.style.height = contentBottomEdgeY() - storyHeight + "px";
 
         if( !firstTime )
             scrollDown(previousBottomEdge);

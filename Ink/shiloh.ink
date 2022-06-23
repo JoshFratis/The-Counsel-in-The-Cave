@@ -10,9 +10,12 @@ VAR MayHasSpider = false
 
 = start
 #IMAGE: img/shiloh.jpg
+#THEME: white
+#DEFAULTTHEME: white
 #TITLE: THE COUNSEL IN THE CAVE
 #TITLE: ACT I, SCENE I
 #TITLE: SHILOH HILLS
+#SCENETITLE: SHILOH HILLS
 -> one
 
 = one 
@@ -32,6 +35,7 @@ Two teenagers, Jason and May, enter the foreground from a gravel path that overl
 -> two 
 
 = two
+#PB
 #DIA
 JASON
 Check out all these clovers! How they flood the hill? They’re different each time we come here, you know. Remember last time? It was only dry grasses? Those huge dragonflies? Now there are all these little round flowers.
@@ -94,6 +98,7 @@ MAY
 -
 JASON
 They’ve always looked to me like titans. As if at night, they put down their wires. And instead of staying here, wander the earth in search of something greater. 
+#PB
 #DIR 
 The two step down onto the path they trod before, following beneath the power lines. They briefly disappear from sight before breaching the next hilltop further upstage. 
 -> five 
@@ -128,6 +133,7 @@ Jason laughs, shakes his head, and looks out at the distance.
 ->->
 
 = six 
+#PB
 {
     - sixO == 0: The two pause for a moment. They take in the land around them.
     - sixO == 1: Jason notices May has stopped following.
@@ -236,6 +242,7 @@ MAY
 -> six
 
 = seven
+#PB
 JASON
 You still haven’t thought any more about Lehigh? 
 

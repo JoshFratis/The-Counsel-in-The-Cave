@@ -5,24 +5,37 @@
 
     var savePoint = "";
 
-    let savedTheme;
-    let globalTagTheme;
+    // Set default theme as 'white'
+    var defaultThemeClass = 'white';
+    var themeClass = 'white';
+
+    // Set default scene title
+    var sceneTitle = 'THE COUNSEL IN THE CAVE';
+
+    // Initialize height tracker for accumulated pages 
+    var storyHeight = 0;
+    var pageNumber = 1;
 
     // Global tags - those at the top of the ink file
-    // We support:
-    //  # theme: dark
-    //  # author: Your Name
     var globalTags = story.globalTags;
     if( globalTags ) {
         for(var i=0; i<story.globalTags.length; i++) {
             var globalTag = story.globalTags[i];
             var splitTag = splitPropertyTag(globalTag);
-
-            // THEME: dark
-            if( splitTag && splitTag.property == "theme" ) {
-                globalTagTheme = splitTag.val;
+            
+            // THEME: color
+            if( splitTag && splitTag.property == "THEME" ) {
+                themeClass = splitTag.val;
+            }
+            else if( splitTag && splitTag.property == "DEFAULTTHEME" ) {
+                defaultThemeClass = splitTag.val;
             }
 
+            // SCENETITLE
+            else if ( splitTag && splitTag.property == "SCENETITLE") {
+                sceneTitle = splitTag.val;
+            }
+            
             // author: Your Name
             else if( splitTag && splitTag.property == "author" ) {
                 var byline = document.querySelector('.byline');
@@ -35,10 +48,16 @@
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
 
+    // Set theme to all elements with 'themed' class
+    var themedElements = document.getElementsByClassName('themed');
+    for(var i = 0; i < themedElements.length; i++) {
+        var el = themedElements[i];
+        el.classList.add(themeClass);
+    } 
+   
     var style = "dialogue";
 
     // page features setup
-    setupTheme(globalTagTheme);
     var hasSave = loadSavePoint();
     setupButtons(hasSave);
 
@@ -127,6 +146,7 @@
                     customClasses.push(splitTag.val);
                 }
 
+                // TITLE: title
                 else if (splitTag && splitTag.property == "TITLE") {
                     var titleElement = document.createElement('h1');
                     titleElement.innerHTML = splitTag.val;
@@ -136,23 +156,88 @@
                     delay += 200.0;
                 }
 
+                // THEME: color
+                else if (splitTag && splitTag.property == "THEME") {
+                    console.log(tag);
+
+                    var themedElements = document.getElementsByClassName('themed');
+                    
+                    // Fade to default theme
+                    for(var i = 0; i < themedElements.length; i++) {
+                        var el = themedElements[i];
+                        el.classList.replace(themeClass, defaultThemeClass);
+                        console.log("Replacing "+themeClass+" theme with "+defaultThemeClass+" theme for element: "+el);
+                    } 
+
+                    // Wait  
+                    setTimeout(() => {  
+                        // Fade to new theme
+                        for(var i = 0; i < themedElements.length; i++) {
+                            var el = themedElements[i];
+                            el.classList.replace(defaultThemeClass, splitTag.val);
+                            console.log("Replacing "+defaultThemeClass+" theme with "+splitTag.val+" theme for element: "+el);
+                        } 
+                        themeClass = splitTag.val;
+                    }, 1000);
+                }
+
+                else if ( splitTag && splitTag.property == "SCENETITLE") {
+                    sceneTitle = splitTag.val;
+                }
+
+                // Page Break
+                else if (tag == "PB") {
+                    // Cut page
+                    storyContainer.style.height = "auto";
+                    storyHeight = contentBottomEdgeY();
+
+                    // Add page number
+                    pageNumberElement = document.createElement('h3');
+                    pageNumberElement.innerHTML = '- '+pageNumber.toString()+' -';
+                    pageNumberElement.classList.add('pageNumber');
+                    storyContainer.append(pageNumberElement);
+                    pageNumber++;
+
+                    // Fade in page number after a short delay
+                    showAfter(delay, pageNumberElement);
+                    delay += 200.0;
+                    
+                    // Create new page
+                    storyContainer = document.createElement('div');
+                    storyContainer.classList.add('container', 'storyContainer', 'card');
+                    outerScrollContainer.append(storyContainer);
+
+                     // Fade in new page after a short delay
+                     showAfter(delay, storyContainer);
+                     delay += 200.0;
+
+                     // Add page header
+                     pageHeaderElement = document.createElement('h3');
+                     pageHeaderElement.innerHTML = '- '+sceneTitle+' -';
+                     pageHeaderElement.classList.add('pageHeader');
+                     storyContainer.append(pageHeaderElement);
+        
+                      // Fade in new page after a short delay
+                      showAfter(delay, pageHeaderElement);
+                      delay += 200.0;
+                }
+
+                // Text Styles
+                // Cue / Line of Dialogue 
                 else if (tag == "DIA") {
                     style = "dialogue";
                 }
 
+                // Stage Directions
                 else if (tag == "DIR") {
                     style = "direction";
                 }
 
+                // Line of Dialogue Inflection
                 else if (tag == "INF") {
                     style = "inflection";
                 }
-
-                else if (tag == "BR") {
-                    storyContainer.appendChild(document.createElement('br'));
-                    storyContainer.appendChild(document.createElement('br'));
-                }
-
+                
                 // CLEAR - removes all existing content.
                 // RESTART - clears everything and restarts the story from the beginning
                 else if( tag == "CLEAR" || tag == "RESTART" ) {
@@ -229,7 +314,7 @@
         // Extend height to fit
         // We do this manually so that removing elements and creating new ones doesn't
         // cause the height (and therefore scroll) to jump backwards temporarily.
-        storyContainer.style.height = contentBottomEdgeY()+"px";
+        storyContainer.style.height = contentBottomEdgeY() - storyHeight + "px";
 
         if( !firstTime )
             scrollDown(previousBottomEdge);
@@ -357,26 +442,6 @@
         return false;
     }
 
-    // Detects which theme (light or dark) to use
-    function setupTheme(globalTagTheme) {
-
-        // load theme from browser memory
-        var savedTheme;
-        try {
-            savedTheme = window.localStorage.getItem('theme');
-        } catch (e) {
-            console.debug("Couldn't load saved theme");
-        }
-
-        // Check whether the OS/browser is configured for dark mode
-        var browserDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        if (savedTheme === "dark"
-            || (savedTheme == undefined && globalTagTheme === "dark")
-            || (savedTheme == undefined && globalTagTheme == undefined && browserDark))
-            document.body.classList.add("dark");
-    }
-
     // Used to hook up the functionality for global functionality buttons
     function setupButtons(hasSave) {
 
@@ -392,7 +457,6 @@
             try {
                 window.localStorage.setItem('save-state', savePoint);
                 document.getElementById("reload").removeAttribute("disabled");
-                window.localStorage.setItem('theme', document.body.classList.contains("dark") ? "dark" : "");
             } catch (e) {
                 console.warn("Couldn't save state");
             }
@@ -415,12 +479,6 @@
                 console.debug("Couldn't load save state");
             }
             continueStory(true);
-        });
-
-        let themeSwitchEl = document.getElementById("theme-switch");
-        if (themeSwitchEl) themeSwitchEl.addEventListener("click", function(event) {
-            document.body.classList.add("switched");
-            document.body.classList.toggle("dark");
         });
     }
 

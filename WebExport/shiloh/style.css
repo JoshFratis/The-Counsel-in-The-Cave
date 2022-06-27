@@ -195,6 +195,7 @@ p.direction {
   p.inflection {
     text-align: center;
     font-style: italic;
+    margin: 0;
   }
 
   p.cue {

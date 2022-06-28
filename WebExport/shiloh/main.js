@@ -44,6 +44,7 @@
         }
     }
 
+    var pageContainer = document.querySelector('#page')
     var titleContainer = document.querySelector('#title');
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
@@ -191,35 +192,74 @@
                     storyContainer.style.height = "auto";
                     storyHeight = contentBottomEdgeY();
 
-                    // Add page number
+                    console.log("Cut page");
+
+                    // Create footer container
+                    footerContainer = document.createElement('div');
+                    footerContainer.classList.add('container', 'footerContainer');
+                    pageContainer.append(footerContainer);
+
+                    console.log("Created footer container");
+
+                    // Create footer element
                     pageNumberElement = document.createElement('h3');
                     pageNumberElement.innerHTML = '- '+pageNumber.toString()+' -';
                     pageNumberElement.classList.add('pageNumber');
-                    storyContainer.append(pageNumberElement);
+                    footerContainer.append(pageNumberElement);
                     pageNumber++;
+
+                    console.log("Created footer element");
 
                     // Fade in page number after a short delay
                     showAfter(delay, pageNumberElement);
                     delay += 200.0;
+
+                    console.log("Faded in page number");
                     
                     // Create new page
+                    pageContainer = document.createElement('div');
+                    pageContainer.classList.add('card');
+
+                    console.log("Created new page ");
+
+                    // Create header container
+                    headerContainer = document.createElement('div');
+                    headerContainer.classList.add('container', 'headerContainer');
+                    pageContainer.append(headerContainer);
+
+                    console.log("Created header container");
+
+                     // Create header element
+                     pageHeaderElement = document.createElement('h3');
+                     pageHeaderElement.innerHTML = '- '+sceneTitle+' -';
+                     pageHeaderElement.classList.add('pageHeader');
+                     headerContainer.append(pageHeaderElement);
+
+                     console.log("Created header element");
+
+                     // Create body container
                     storyContainer = document.createElement('div');
-                    storyContainer.classList.add('container', 'storyContainer', 'card');
-                    outerScrollContainer.append(storyContainer);
+                    storyContainer.classList.add('container', 'storyContainer');
+                    pageContainer.append(storyContainer);
+
+                    console.log("Created body container");
+
+                    // Add new page
+                    outerScrollContainer.append(pageContainer);
+
+                    console.log("added new page");
 
                      // Fade in new page after a short delay
                      showAfter(delay, storyContainer);
                      delay += 200.0;
 
-                     // Add page header
-                     pageHeaderElement = document.createElement('h3');
-                     pageHeaderElement.innerHTML = '- '+sceneTitle+' -';
-                     pageHeaderElement.classList.add('pageHeader');
-                     storyContainer.append(pageHeaderElement);
+                     console.log("faded in new page");
         
                       // Fade in new page after a short delay
                       showAfter(delay, pageHeaderElement);
                       delay += 200.0;
+
+                      console.log("faded in header");
                 }
 
                 // Text Styles
@@ -261,7 +301,6 @@
             // Line Breaks
             if ((paragraphText.toUpperCase() == paragraphText)
                 && paragraphText != paragraphText.toLowerCase()){
-                //storyContainer.appendChild(document.createElement('br'));
                 paragraphElement.classList.add("cue");
             }
             

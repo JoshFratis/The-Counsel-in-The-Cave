@@ -68,20 +68,23 @@ body.switched {
     }
 }
 
-/* Header Container for Title */ 
-.header {
+/* Title Page Container for Title */ 
+.titleContainer {
     padding-top: 2em;
     padding-bottom: 2em;
 }
 
+/* Header Container for Title */
+.headerContainer {
+}
+
+/* Footer Container for Page Numer */
+.footerContainer {
+}
+
 /* Body Container for Story */
 .container {
-    display: block;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 4em;
-    background: white;
+    text-align: center;
 }
 
 .switched .container {
@@ -89,17 +92,24 @@ body.switched {
 }
 
 .storyContainer {
-    margin-top: 2em;
-    padding: 5em;
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding: 2em;
+    padding-bottom: 0em;
     height: 0;
 }
 
-/* Drop Shadow */
+/* Drop Shadow for Page */
 div.card {
+    
+    display: block;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 3em;
+    
+    background: white;
     box-shadow: 0px 4px 14px 6px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
   }
 
 /* Fade Function */
@@ -160,16 +170,12 @@ h3 {
 .pageHeader {
     text-align: center;
     font-weight: bold;
-    margin-top: 0em;
-    margin-bottom: 2em;
 }
 
 /* Page Footer */
 .pageNumber {
     text-align: center;
     font-weight: bold;
-    margin-top: 2em;
-    margin-bottom: 0em;
 }
 
 /* Paragraphs */
@@ -199,7 +205,7 @@ p.direction {
   }
 
   p.cue {
-    padding-top: 2em;
+    margin-top: 2em;
     margin-bottom: 0;
   }
 

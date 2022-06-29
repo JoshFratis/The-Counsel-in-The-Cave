@@ -11,32 +11,6 @@ body.switched {
     transition: color 0.6s, background-color 0.6s;
 }
 
-h1,
-h2 {
-    text-align: center;
-    font-family: "Quattrocento", Georgia, 'Times New Roman', Times, serif;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    font-size: 30pt;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 14pt;
-    font-style: italic;
-    font-family: sans-serif;
-    font-weight: lighter;
-    color: #BBB;
-}
-
-.header {
-    padding-top: 3em;
-    padding-bottom: 3em;
-}
-
 /*
   Built-in class:
     # author: Name
@@ -45,6 +19,7 @@ h2 {
     font-style: italic;
 }
 
+/* "Written in Ink" Header */
 .written-in-ink {
     z-index: 3;
     font-size: 9pt;
@@ -63,9 +38,11 @@ h2 {
     top: 0;
 }
 
-/* 
-  Enables <iframe> support work on itch.io when using mobile iOS
+/*
+    CONTAINERS 
 */
+/* Outer Container */
+/* Enables <iframe> support work on itch.io when using mobile iOS */
 .outerContainer {
     position: absolute;
     display: block;
@@ -91,50 +68,51 @@ h2 {
     }
 }
 
+/* Title Page Container for Title */ 
+.titleContainer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+/* Header Container for Title */
+.headerContainer {
+}
+
+/* Footer Container for Page Numer */
+.footerContainer {
+}
+
+/* Body Container for Story */
 .container {
-    display: block;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 4em;
-    background: white;
+    text-align: center;
 }
 
 .switched .container {
     transition: background-color 0.6s;
 }
 
-p {
-    font-size: 13pt;
-    color: #888;
-    line-height: 1.7em;
-    font-weight: lighter;
+.storyContainer {
+    padding: 2em;
+    padding-bottom: 0em;
+    height: 0;
 }
 
-a {
-    font-weight: 700;
-    color: #b97c2c;
-    font-family: sans-serif;
-    transition: color 0.6s;
-    text-decoration: none;
-}
-
-a:hover {
-    color: black;
-    transition: color 0.1s;
-}
-
-strong {
-    color: black;
-    font-weight: bold;
-}
-
-img {
+/* Drop Shadow for Page */
+div.card {
+    
     display: block;
-    margin: 0 auto;
-    max-width: 100%;
-}
 
+    max-width: 700px;
+
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 3em;
+    
+    background: white;
+    box-shadow: 0px 4px 14px 6px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+/* Fade Function */
 .container .hide {
     opacity: 0.0;
 }
@@ -148,6 +126,108 @@ img {
     transition: opacity 1.0s;
 }
 
+/* 
+    IMAGE 
+*/
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* 
+    TEXT 
+*/
+/* Headers */
+h1,
+h2 {
+    text-align: center;
+    font-family: "Quattrocento", Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 30pt;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 14pt;
+    font-style: italic;
+    font-family: sans-serif;
+    font-weight: lighter;
+    color: #BBB;
+}
+
+h3 {
+    text-align: center;
+    font-family: "Quattrocento", Georgia, 'Times New Roman', Times, serif;
+    color: #888;
+}
+
+/* Page Header */
+.pageHeader {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Page Footer */
+.pageNumber {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Paragraphs */
+p {
+    font-size: 13pt;
+    color: #888;
+    line-height: 1.7em;
+    font-weight: lighter;
+    margin-top: 0px;
+    margin-bottom: 2em;
+}
+
+p.direction {
+    text-align: right;
+    font-style: italic;
+  }
+  
+  p.dialogue {
+    text-align: center;
+    font-style: normal;
+  }
+  
+  p.inflection {
+    text-align: center;
+    font-style: italic;
+    margin: 0;
+  }
+
+  p.cue {
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+
+/* Links */
+a {
+    font-weight: normal;
+    color: cornflowerblue;
+    transition: color 0.6s;
+    text-decoration: none;
+  }
+
+a:hover {
+    color: black;
+    transition: color 0.1s;
+}
+
+strong {
+    color: black;
+    font-weight: bold;
+}
+
+/* Choices */
 /*
   Class applied to all choices
   (Will always appear inside <p> element by default.)
@@ -155,13 +235,13 @@ img {
 .choice {
     text-align: center;
     line-height: 1.7em;
+    margin: 1em;
 }
 
 /* 
   Class applied to first choice
 */
 :not(.choice)+.choice {
-    padding-top: 1em;
 }
 
 /*
@@ -183,6 +263,9 @@ img {
     padding-bottom: 20px;
 }
 
+/* 
+    BUTTONS 
+*/
 #controls {
     z-index: 4;
     font-size: 9pt;
@@ -192,7 +275,6 @@ img {
     right: 14px;
     top: 4px;
     user-select: none;
-    background: white;
     transition: color 0.6s, background 0.6s;
 }
 
@@ -215,48 +297,23 @@ img {
 }
 
 /* 
-  Dark Theme (Added in Inky 0.10.0)
-    # theme: dark
+    THEMES
 */
-
-body.dark {
-    background: black;
-    color: white;
+.themed {
+    transition: background-color 1.2s;
 }
 
-.dark h2 {
-    color: #666;
+/* White */
+.white {
+    background-color: white;
 }
 
-.dark .container {
-    background: black;
+/* Red */
+.red {
+    background-color: red;
 }
 
-.dark .written-in-ink {
-    background: black;
-}
-
-.dark a {
-    color: #cc8f1a;
-    transition: color 0.6s;
-}
-
-.dark a:hover {
-    color: white;
-}
-
-.dark strong {
-    color: white;
-}
-
-.dark #controls [disabled] {
-    color: #444;
-}
-
-.dark .end {
-    color: white;
-}
-
-.dark #controls {
-    background: black;
+/* Lime */
+.lime {
+    background-color: lime;
 }

@@ -1,4 +1,4 @@
--> shiloh.nine
+-> shiloh.start
 === shiloh ===
 VAR MayMoved = false
 VAR MayMovedFromSouthDakota = false
@@ -10,9 +10,16 @@ VAR MayHasSpider = false
 
 = start
 #IMAGE: img/shiloh.jpg
+#THEME: white
+#DEFAULTTHEME: white
+#TITLE: THE COUNSEL IN THE CAVE
+#TITLE: ACT I, SCENE I
+#TITLE: SHILOH HILLS
+#SCENETITLE: SHILOH HILLS
 -> one
 
 = one 
+#DIR 
 We look out over a steep green hill covered in clovers. To our right, tall trees line the edge of a small wood. In the forest’s center, not far from here, is a well kept lawn and a sturdy pavilion for picnic benches. Sidewalk chalk decorates its floor. All around it, gravel walking paths weave between the trees. Some extend further past the forest’s other side, through soccer fields and parking lots, to Shiloh Hills Elementary School. 
 
 Below us on the left, unkempt vegetation grows more wild. Low tangled trees root from rocky creek-beds. Dense brushes push against one another. Mosquitoes buzz and hum. This jumbled brush carries out to a low fence line, barely able to be seen as it is, flooded in leaves. Beyond this, the distance is occupied by rolling squares of farmland.   
@@ -20,13 +27,16 @@ Below us on the left, unkempt vegetation grows more wild. Low tangled trees root
 Between the forest and the brush, a narrow field of clovers falls dramatically up and down in a series of steep hills, formed by man-made creeks that run right to left across the stage. They guide runoff from the forest to the reservoir below, hidden somewhere in the brush. 
 
 Power lines are strung above the hills. They zig-zag into the distance, anchored by transmission towers, massive lattices of steel that stand out on the hilltop. 
-
+ 
 The field exists in some space between the lofty wooded park and the unkempt abandon. It’s kept clean of trees for the power lines above, but is not without thick washes of long kept clovers. Your feet would sink down if you stepped into the field, leaving tracks of trampled clovers where you went. 
 
 Two teenagers, Jason and May, enter the foreground from a gravel path that overlooks the green. Jason wears baggy jeans and an old striped shirt. May wears shorts and a heavy work shirt. They face away from us and look into the distance. 
+
 -> two 
 
 = two
+#PB
+#DIA
 JASON
 Check out all these clovers! How they flood the hill? They’re different each time we come here, you know. Remember last time? It was only dry grasses? Those huge dragonflies? Now there are all these little round flowers.
 
@@ -71,8 +81,9 @@ Something about those days has always stuck with me. Each year, there comes a da
 -->->
 
 = four 
+#DIR 
 Jason points to a transmission tower in the distance. 
-
+#DIA 
 JASON
 Do you know what they’re called? No one has a name for them, since no one ever needs them. They just stand there. 
 
@@ -87,11 +98,13 @@ MAY
 -
 JASON
 They’ve always looked to me like titans. As if at night, they put down their wires. And instead of staying here, wander the earth in search of something greater. 
-
+#PB
+#DIR 
 The two step down onto the path they trod before, following beneath the power lines. They briefly disappear from sight before breaching the next hilltop further upstage. 
 -> five 
 
 = five
+#DIA 
 JASON
 I can’t wait to get out of this place. I couldn’t spend another year in the suburbs. 
 
@@ -120,6 +133,7 @@ Jason laughs, shakes his head, and looks out at the distance.
 ->->
 
 = six 
+#PB
 {
     - sixO == 0: The two pause for a moment. They take in the land around them.
     - sixO == 1: Jason notices May has stopped following.
@@ -143,8 +157,9 @@ Jason laughs, shakes his head, and looks out at the distance.
 ->->
 
 = sixA 
+#DIR 
 We see a simple chain link fence at the bottom of the hill, beyond low bushes that crowd the small stream-bed. It drives a long line across the landscape. Bundles of little trees press up against one side of the fence. 
-	
+#DIA 
 MAY
 + It all looks like one wave, caught up before its crashing.  
     /* 
@@ -168,8 +183,9 @@ MAY
 }
 
 = sixB 
+#DIR
 Small squares of tilled farmland are patched into the distant hills. Each one's shade is a different green or yellow. 
-
+#DIA 
 MAY
 + It’s like a quilt for giants. 
 	See where the squares meet each other? 	
@@ -192,22 +208,23 @@ MAY
 --> six 
 
 = sixC 
+# DIR 
 Beyond the dense thicket at the bottom of the hill, a short white silo stands against the blue sky.
-
+# DIA 
 MAY 
 Jason, do you see that silo? It's beautiful. 
-
+# DIR 
 Jason pauses. He stands beside her, watching. 
-
+# DIA 
 JASON
-
 See May, this is why I love you. 
 I never would have thought, out of all the things to see, to pick that. But you’re right. It’s kind of beautiful. It is. 
 -> six 
 
 = sixD 
+# DIR 
 Nestled in the dense thicket that nests between two hills, a pickup truck sits crooked. It has no tires or windshield. It’s colonized by rust. 
-	
+# DIA 	
 MAY
 + It’s like a little copper-colored dragon. 
 
@@ -224,7 +241,8 @@ MAY
 
 -> six
 
-= seven 
+= seven
+#PB
 JASON
 You still haven’t thought any more about Lehigh? 
 
@@ -250,7 +268,7 @@ MAY
         
         Beside the transmission tower, a government sign stands vigilant in the center of the path. 
 }
-
+# DIR 
 * May reads the sign. 
     -> eightO-> eightA
 * May approaches the tower. 
@@ -267,6 +285,7 @@ MAY
 ->->
     
 = eightA 
+# DIA 
 “Danger. 
 Do not go beyond this point
 without 
@@ -281,8 +300,9 @@ have been known to get lost.”
 }
 
 = eightAA 
+# DIR 
 Jason circles the sign, then gasps. He leans in close. 
-
+# DIA 
 JASON
 May! Check out this spider web! Look how far it stretches, all the way from the tower over there. Isn’t that incredible? 
 
@@ -292,6 +312,7 @@ I wonder where it went.
 -> eight 
 
 = eightAB 
+# DIR 
 A little strand of spider silk is sticking to the sign. May finds the spider crawling up her arm. 
 + May lets the spider find its way into her shirt pocket. 
     ~ MayHasSpider = true
@@ -299,6 +320,7 @@ A little strand of spider silk is sticking to the sign. May finds the spider cra
 --> eight
 
 = eightB 
+# DIR 
 The tower’s legs are made of a latticework of welded metal. Its steel boots are buried in the clovers, rooted here like a tree. 
 
 {
@@ -309,8 +331,9 @@ The tower’s legs are made of a latticework of welded metal. Its steel boots ar
 }
 
 = eightBA 
+# DIR 
 Jason circles the transmission tower, then gasps. He leans in close. 
-
+# DIA 
 JASON
 May! Check out this spider web! Look how far it stretches, all the way from the signpost there. Isn’t that incredible?
 
@@ -320,6 +343,7 @@ I wonder where it went.
 -> eight 
 
 = eightBB
+# DIR
 The spider web is set in a corner of the tower’s frame. May finds the spider crawling up her arm. 
 + May lets the spider find its way into her shirt pocket. 
     ~ MayHasSpider = true
@@ -327,6 +351,7 @@ The spider web is set in a corner of the tower’s frame. May finds the spider c
 --> eight
 
 = nine 
+# DIA 
 JASON
 I wish I could help you make your decision. 
 
@@ -345,11 +370,14 @@ MAY
 + Really? Can we see them now? 
 	
     JASON
+    # INF
 	(laughing)
+	# DIA 
 	It’s Sunday, May! They’re not there right now! But we can go tomorrow. 
 --> ten 
 
 = ten 
+# DIR 
 Now we watch them sit there– One, Two beneath the power lines, their backs to the signpost forbidding them go further. 
 
 Jason leans back to look up into the power lines. 

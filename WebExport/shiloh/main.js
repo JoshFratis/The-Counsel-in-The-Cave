@@ -273,6 +273,11 @@
                     style = "direction";
                 }
 
+                // Plain Text Paragraph
+                else if (tag == "GRAPH") {
+                    style = "graph";
+                }
+
                 /*
                     // Line of Dialogue Inflection
                     else if (tag == "INF") {

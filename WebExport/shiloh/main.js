@@ -332,8 +332,20 @@
             // Create paragraph with anchor element
             var choiceParagraphElement = document.createElement('p');
             choiceParagraphElement.classList.add("choice");
-            choiceParagraphElement.classList.add(style);
+
+            // Check for Page Turn Symbol ('<') to Style
+            if (choice.text == "<") {
+                choiceParagraphElement.classList.add(pageTurnLeft);
+            }
+            else if (choice.text == ">") {
+                choiceParagraphElement.classList.add(pageTurnRight);
+            }
+            else {
+                choiceParagraphElement.classList.add(style);
+            }
+
             choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`
+
             storyContainer.appendChild(choiceParagraphElement);
 
             // Fade choice in after a short delay

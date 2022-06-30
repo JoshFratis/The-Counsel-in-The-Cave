@@ -198,21 +198,31 @@ p.direction {
     font-style: italic;
   }
   
-  p.dialogue {
+p.dialogue {
     text-align: center;
     font-style: normal;
-  }
-  
-  p.inflection {
+}
+
+p.inflection {
     text-align: center;
     font-style: italic;
     margin: 0;
-  }
+}
 
-  p.cue {
+p.cue {
     margin-top: 2em;
     margin-bottom: 0;
-  }
+}
+
+p.pageTurnLeft {
+    text-align: left;
+    font-style: normal;
+}
+
+p.pageTurnRight {
+    text-align: right;
+    font-style: normal;
+}
 
 /* Links */
 a {
@@ -220,7 +230,7 @@ a {
     color: cornflowerblue;
     transition: color 0.6s;
     text-decoration: none;
-  }
+}
 
 a:hover {
     color: black;

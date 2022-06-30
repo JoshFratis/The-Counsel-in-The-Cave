@@ -273,10 +273,12 @@
                     style = "direction";
                 }
 
-                // Line of Dialogue Inflection
-                else if (tag == "INF") {
-                    style = "inflection";
-                }
+                /*
+                    // Line of Dialogue Inflection
+                    else if (tag == "INF") {
+                        style = "inflection";
+                    }
+                */
                 
                 // CLEAR - removes all existing content.
                 // RESTART - clears everything and restarts the story from the beginning
@@ -302,6 +304,10 @@
             if ((paragraphText.toUpperCase() == paragraphText)
                 && paragraphText != paragraphText.toLowerCase()){
                 paragraphElement.classList.add("cue");
+            }
+
+            if (paragraphText.charAt(0) == "(") {
+                paragraphElement.classList.add("inflection");
             }
             
             storyContainer.appendChild(paragraphElement);

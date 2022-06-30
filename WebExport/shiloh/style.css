@@ -92,14 +92,13 @@ body.switched {
 }
 
 .storyContainer {
+    bottom: 0em;
     padding: 2em;
-    padding-bottom: 0em;
     height: 0;
 }
 
 /* Drop Shadow for Page */
 div.card {
-    
     display: block;
 
     max-width: 700px;
@@ -124,6 +123,11 @@ div.card {
 .container>* {
     opacity: 1.0;
     transition: opacity 1.0s;
+}
+
+/* Container for Page Turn Buttons */
+.pageTurnContainer {
+    position: relative;
 }
 
 /* 
@@ -215,11 +219,23 @@ p.cue {
 }
 
 p.pageTurnLeft {
+    position: absolute;
+
+    margin: 0em;
+    bottom: 0em;
+    left: 0em;
+    
     text-align: left;
     font-style: normal;
 }
 
 p.pageTurnRight {
+    position: absolute;
+    
+    margin: 0em;
+    bottom: 0em;
+    right: 0em;
+    
     text-align: right;
     font-style: normal;
 }
@@ -250,7 +266,7 @@ strong {
 .choice {
     text-align: center;
     line-height: 1.7em;
-    margin: 1em;
+    margin-bottom: 2em;
 }
 
 /* 

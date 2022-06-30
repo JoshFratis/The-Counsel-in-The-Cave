@@ -1,10 +1,9 @@
-INCLUDE characters.ink
 INCLUDE shiloh2.ink
 INCLUDE sanctuary.ink
 INCLUDE fishermanFinaleOne.ink
 INCLUDE fishermanFinaleTwoTogether.ink
 INCLUDE fishermanFinaleTwoApart
-INCLUDE credits.ink
+INCLUDE script.ink
 
 
 
@@ -28,11 +27,4 @@ VAR JasonEntersLayers = false
 
 VAR MoondogFishesFireEscape = false
 VAR MoondogFishesGondola = false
--> main.start
-=== main ===
-= start
-#DEFAULTTHEME: white
-#TITLE: THE COUNSEL IN THE CAVE 
-+ Continue 
-    -> sanctuary.start
---> DONE
+-> script.contents

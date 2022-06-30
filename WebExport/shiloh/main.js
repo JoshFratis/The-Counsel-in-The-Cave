@@ -331,46 +331,62 @@
 
             // Create paragraph with anchor element
             var choiceParagraphElement = document.createElement('p');
-            choiceParagraphElement.classList.add("choice");
 
-            // Check for Page Turn Symbol ('<') to Style
-            if (choice.text == "<") {
-                choiceParagraphElement.classList.add(pageTurnLeft);
+            // Check for exception to choice
+            if (choice.text.substring(0,3) == "ACT") {
+                choiceParagraphElement.classList.add("cue");
+                choiceParagraphElement.innerHTML = choice.text;
             }
-            else if (choice.text == ">") {
-                choiceParagraphElement.classList.add(pageTurnRight);
+            // Style as choice, link to choice
+            else {
+                choiceParagraphElement.classList.add("choice");
+                choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`
+            }
+        
+            // Check for Page Turn Symbol ('<') to Style
+            if ((choice.text == "<") || (choice.text == ">")) {
+                if (choice.text == "<") {
+                    choiceParagraphElement.classList.add("pageTurnLeft");
+                }
+                else if (choice.text == ">") {
+                    choiceParagraphElement.classList.add("pageTurnRight");
+                }
+                pageTurnContainer = document.createElement('div');
+                pageTurnContainer.classList.add("pageTurnContainer");
+                pageTurnContainer.appendChild(choiceParagraphElement);
+                storyContainer.appendChild(pageTurnContainer);
             }
             else {
                 choiceParagraphElement.classList.add(style);
+                storyContainer.appendChild(choiceParagraphElement);
             }
-
-            choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`
-
-            storyContainer.appendChild(choiceParagraphElement);
 
             // Fade choice in after a short delay
             showAfter(delay, choiceParagraphElement);
             delay += 200.0;
 
             // Click on choice
-            var choiceAnchorEl = choiceParagraphElement.querySelectorAll("a")[0];
-            choiceAnchorEl.addEventListener("click", function(event) {
+            if (choiceParagraphElement.classList.contains("choice")) {
 
-                // Don't follow <a> link
-                event.preventDefault();
+                var choiceAnchorEl = choiceParagraphElement.querySelectorAll("a")[0];
+                choiceAnchorEl.addEventListener("click", function(event) {
 
-                // Remove all existing choices
-                removeAll(".choice");
+                    // Don't follow <a> link
+                    event.preventDefault();
 
-                // Tell the story where to go next
-                story.ChooseChoiceIndex(choice.index);
+                    // Remove all existing choices
+                    removeAll(".choice");
 
-                // This is where the save button will save from
-                savePoint = story.state.toJson();
+                    // Tell the story where to go next
+                    story.ChooseChoiceIndex(choice.index);
 
-                // Aaand loop
-                continueStory();
-            });
+                    // This is where the save button will save from
+                    savePoint = story.state.toJson();
+
+                    // Aaand loop
+                    continueStory();
+                });
+            }
         });
 
         // Extend height to fit

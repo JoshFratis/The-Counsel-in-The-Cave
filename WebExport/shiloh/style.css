@@ -222,22 +222,16 @@ p.pageTurnLeft {
     position: absolute;
 
     margin: 0em;
-    bottom: 0em;
+    top: 4em;
     left: 0em;
-    
-    text-align: left;
-    font-style: normal;
 }
 
 p.pageTurnRight {
     position: absolute;
-    
+
     margin: 0em;
-    bottom: 0em;
+    top: 4em;
     right: 0em;
-    
-    text-align: right;
-    font-style: normal;
 }
 
 /* Links */

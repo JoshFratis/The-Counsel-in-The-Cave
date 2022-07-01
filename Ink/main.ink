@@ -27,4 +27,4 @@ VAR JasonEntersLayers = false
 
 VAR MoondogFishesFireEscape = false
 VAR MoondogFishesGondola = false
--> script.contents
+-> script.cover

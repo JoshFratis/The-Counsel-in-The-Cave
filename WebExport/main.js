@@ -192,14 +192,14 @@
                     storyContainer.style.height = "auto";
                     storyHeight = contentBottomEdgeY();
 
-                    console.log("Cut page");
+                  //  console.log("Cut page");
 
                     // Create footer container
                     footerContainer = document.createElement('div');
                     footerContainer.classList.add('container', 'footerContainer');
                     pageContainer.append(footerContainer);
 
-                    console.log("Created footer container");
+                 //   console.log("Created footer container");
 
                     // Create footer element
                     pageNumberElement = document.createElement('h3');
@@ -208,26 +208,26 @@
                     footerContainer.append(pageNumberElement);
                     pageNumber++;
 
-                    console.log("Created footer element");
+                   // console.log("Created footer element");
 
                     // Fade in page number after a short delay
                     showAfter(delay, pageNumberElement);
                     delay += 200.0;
 
-                    console.log("Faded in page number");
+                   // console.log("Faded in page number");
                     
                     // Create new page
                     pageContainer = document.createElement('div');
                     pageContainer.classList.add('card');
 
-                    console.log("Created new page ");
+                    //console.log("Created new page ");
 
                     // Create header container
                     headerContainer = document.createElement('div');
                     headerContainer.classList.add('container', 'headerContainer');
                     pageContainer.append(headerContainer);
 
-                    console.log("Created header container");
+                   // console.log("Created header container");
 
                      // Create header element
                      pageHeaderElement = document.createElement('h3');
@@ -235,31 +235,31 @@
                      pageHeaderElement.classList.add('pageHeader');
                      headerContainer.append(pageHeaderElement);
 
-                     console.log("Created header element");
+                     //console.log("Created header element");
 
                      // Create body container
                     storyContainer = document.createElement('div');
                     storyContainer.classList.add('container', 'storyContainer');
                     pageContainer.append(storyContainer);
 
-                    console.log("Created body container");
+                    //console.log("Created body container");
 
                     // Add new page
                     outerScrollContainer.append(pageContainer);
 
-                    console.log("added new page");
+                    //console.log("added new page");
 
                      // Fade in new page after a short delay
                      showAfter(delay, storyContainer);
                      delay += 200.0;
 
-                     console.log("faded in new page");
+                    // console.log("faded in new page");
         
                       // Fade in new page after a short delay
                       showAfter(delay, pageHeaderElement);
                       delay += 200.0;
 
-                      console.log("faded in header");
+                     // console.log("faded in header");
                 }
 
                 // Text Styles
@@ -277,18 +277,13 @@
                 else if (tag == "GRAPH") {
                     style = "graph";
                 }
-
-                /*
-                    // Line of Dialogue Inflection
-                    else if (tag == "INF") {
-                        style = "inflection";
-                    }
-                */
                 
                 // CLEAR - removes all existing content.
                 // RESTART - clears everything and restarts the story from the beginning
                 else if( tag == "CLEAR" || tag == "RESTART" ) {
+                    console.log('removing all elements...');
                     removeAllElements();
+                    console.log('all elements removed.');
 
                     // Comment out this line if you want to leave the header visible when clearing
                     //setVisible(".header", false);
@@ -561,10 +556,58 @@
     }
 
     function removeAllElements() {
+        
+        var cards = document.getElementsByClassName('card');
+        console.log('removing '+cards.length+' cards...');
+        for(var i = cards.length-1; i >= 0; i--) {
+            var card = cards[i];
+            outerScrollContainer.removeChild(card); 
+            console.log('removing card '+i+': '+card);
+        }
+
         removeAll("p");
         removeAll("img");
         removeAll("br");
         removeTitle("h1");
+
+
+        recreateFirstPage();
+    }
+
+    function recreateFirstPage() {
+        // Recreate Elements of First Page
+        console.log('recreating elements fo first page...');
+        titleContainerInner = document.createElement('div');
+        titleContainerInner.classList.add('container');
+        titleContainerInner.style.padding = '0em';
+        byline = document.createElement('h2');
+        byline.classList.add('byline');
+        titleContainer = document.createElement('div');
+        titleContainer.classList.add('titleContainer');
+        storyContainer = document.createElement('div')
+        storyContainer.classList.add('storyContainer');
+        pageContainer  = document.createElement('div');
+        pageContainer.classList.add('card');
+        console.log('elements of first page recreated.');
+
+        // Construct First Page from Recreated Elements
+        console.log('constructing first page from recreated elements...');
+        titleContainer.appendChild(titleContainerInner);
+        titleContainer.appendChild(byline);
+
+        pageContainer.appendChild(titleContainer);
+        pageContainer.appendChild(storyContainer);
+
+        outerScrollContainer.appendChild(pageContainer);
+        console.log('first page reconstructed...');
+
+        /*
+        // Fade in new page after a short delay
+        console.log('fading in first page...');
+        showAfter(delay, pageContainer);
+        delay += 200.0;
+        console.log('first page faded in');
+        */
     }
 
 })(storyContent);

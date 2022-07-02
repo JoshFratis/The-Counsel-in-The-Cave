@@ -162,7 +162,7 @@ May descends into the Layers, her quest to find herself only just begun.
 = continue 
 + >
     # CLEAR
-    -> complete -> script
+    -> complete -> script.contents
 
 
 

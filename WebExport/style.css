@@ -1,8 +1,6 @@
-/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700|Quattrocento:700');
-*/xs
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700|Quattrocento:700');
 body {
-    font-family:Arial, Helvetica, sans-serif;
-    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     background: white;
     overflow: hidden;
@@ -69,21 +67,7 @@ body.switched {
     }
 }
 
-/* Title Page Container for Title */ 
-.titleContainer {
-    padding-top: 2em;
-    padding-bottom: 2em;
-}
-
-/* Header Container for Title */
-.headerContainer {
-}
-
-/* Footer Container for Page Numer */
-.footerContainer {
-}
-
-/* Body Container for Story */
+/* Container for fading */
 .container {
     text-align: center;
 }
@@ -92,6 +76,7 @@ body.switched {
     transition: background-color 0.6s;
 }
 
+/* Body Container for Story */
 .storyContainer {
     bottom: 0em;
     padding: 2em;
@@ -164,7 +149,6 @@ h2 {
     font-weight: lighter;
     color: #BBB;
 }
-
 h3 {
     text-align: center;
     font-family: "Quattrocento", Georgia, 'Times New Roman', Times, serif;

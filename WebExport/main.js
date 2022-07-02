@@ -151,12 +151,16 @@
                 // TITLE: title
                 else if (splitTag && splitTag.property == "TITLE") {
 
-                    // Clear header
-                    headerContainer.innerHTML = "";
+                    // Clear header of default scene title 
+                    sceneTitleElement = headerContainer.querySelector('.pageHeader');
+                    if (sceneTitleElement != null) {
+                        headerContainer.removeChild(sceneTitleElement);
+                    }
 
                     // Add title to header
                     var titleElement = document.createElement('h1');
                     titleElement.innerHTML = splitTag.val;
+                    headerContainer.style.paddingTop = '2em';
                     headerContainer.appendChild(titleElement);
                 }
 
@@ -195,14 +199,10 @@
                     storyContainer.style.height = "auto";
                     storyHeight = contentBottomEdgeY();
 
-                  //  console.log("Cut page");
-
                     // Create footer container
                     footerContainer = document.createElement('div');
                     footerContainer.classList.add('container', 'footerContainer');
                     pageContainer.append(footerContainer);
-
-                 //   console.log("Created footer container");
 
                     // Create footer element
                     pageNumberElement = document.createElement('h3');
@@ -229,10 +229,10 @@
 
                      // Create header element
                      if (headerContainer.hasChildNodes() == false) {
-                        pageHeaderElement = document.createElement('h3');
-                        pageHeaderElement.innerHTML = '- '+sceneTitle+' -';
-                        pageHeaderElement.classList.add('pageHeader');
-                        headerContainer.append(pageHeaderElement);
+                        sceneTitleElement = document.createElement('h3');
+                        sceneTitleElement.innerHTML = '- '+sceneTitle+' -';
+                        sceneTitleElement.classList.add('pageHeader');
+                        headerContainer.append(sceneTitleElement);
                      }
 
                      // Create body container
@@ -240,19 +240,15 @@
                     storyContainer.classList.add('container', 'storyContainer');
                     pageContainer.append(storyContainer);
 
-                    //console.log("Created body container");
-
                     // Add new page
                     outerScrollContainer.append(pageContainer);
-
-                    //console.log("added new page");
 
                      // Fade in new page after a short delay
                      showAfter(delay, storyContainer);
                      delay += 200.0;
         
                       // Fade in new page after a short delay
-                      showAfter(delay, pageHeaderElement);
+                      showAfter(delay, sceneTitleElement);
                       delay += 200.0;
                 }
 
@@ -290,29 +286,42 @@
             }
 
             // Create paragraph element (initially hidden)
-            var paragraphElement = document.createElement('p');
-            paragraphElement.innerHTML = paragraphText;
-            paragraphElement.classList.add(style);
+            
+            if (paragraphText != "") {
+                var paragraphElement = document.createElement('p');
+                paragraphElement.innerHTML = paragraphText;
+                paragraphElement.classList.add(style);
 
-            // Line Breaks
-            if ((paragraphText.toUpperCase() == paragraphText)
-                && paragraphText != paragraphText.toLowerCase()){
-                paragraphElement.classList.add("cue");
-            }
+                // Automatic line breaks (not after cue)
+                if ((paragraphText.toUpperCase() == paragraphText)
+                    && paragraphText != paragraphText.toLowerCase()){
+                    paragraphElement.classList.add("cue");
+                }
 
-            if (paragraphText.charAt(0) == "(") {
-                paragraphElement.classList.add("inflection");
+                // Automatic styling for inflection encased in parentheses
+                if (paragraphText.charAt(0) == "(") {
+                    paragraphElement.classList.add("inflection");
+                }
+                
+                // Add line to story
+                storyContainer.appendChild(paragraphElement);
+
+                // Set first line's top margin to 0
+                console.log('line: '+paragraphText+'. paragraphElement: '+paragraphElement+'. storyContainer.firstChild: '+storyContainer.firstChild);
+                if (paragraphElement == storyContainer.firstChild) {
+                    paragraphElement.style.marginTop = '0';
+                    console.log("margin-top set to 0 for line: "+paragraphText);
+                }
+
+                // Add any custom classes derived from ink tags
+                for(var i=0; i<customClasses.length; i++)
+                    paragraphElement.classList.add(customClasses[i]);
+
+                // Fade in paragraph after a short delay
+                showAfter(delay, paragraphElement);
+                delay += 200.0;
             }
             
-            storyContainer.appendChild(paragraphElement);
-
-            // Add any custom classes derived from ink tags
-            for(var i=0; i<customClasses.length; i++)
-                paragraphElement.classList.add(customClasses[i]);
-
-            // Fade in paragraph after a short delay
-            showAfter(delay, paragraphElement);
-            delay += 200.0;
         }
 
         // Create HTML choices from ink choices
@@ -326,13 +335,14 @@
                 choiceParagraphElement.classList.add("cue");
                 choiceParagraphElement.innerHTML = choice.text;
             }
-            // Style as choice, link to choice
+            // If not exception, style as choice, link to choice
             else {
                 choiceParagraphElement.classList.add("choice");
                 choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`
             }
         
             // Check for Page Turn Symbol ('<') to Style
+            // Add choice to story
             if ((choice.text == "<") || (choice.text == ">")) {
                 if (choice.text == "<") {
                     choiceParagraphElement.classList.add("pageTurnLeft");
@@ -348,6 +358,12 @@
             else {
                 choiceParagraphElement.classList.add(style);
                 storyContainer.appendChild(choiceParagraphElement);
+            }
+
+            // Set first line's top margin to 0
+            if (choiceParagraphElement == storyContainer.firstChild) {
+                choiceParagraphElement.style.marginTop = '0';
+                console.log("margin-top set to 0 for line: "+choice.text);
             }
 
             // Fade choice in after a short delay

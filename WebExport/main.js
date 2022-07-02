@@ -573,16 +573,8 @@
         // Recreate Elements of First Page
         console.log('recreating elements fo first page...');
 
-        titleContainerInner = document.createElement('div');
-        titleContainerInner.classList.add('container');
-        titleContainerInner.style.padding = '0em';
-        byline = document.createElement('h2');
-        byline.classList.add('byline');
-        titleContainer = document.createElement('div');
-        titleContainer.classList.add('titleContainer');
-
         headerContainer = document.createElement('div');
-        headerContainer.classList.add('container, headerContainer');
+        headerContainer.classList.add('container', 'headerContainer');
 
         storyContainer = document.createElement('div')
         storyContainer.classList.add('storyContainer');

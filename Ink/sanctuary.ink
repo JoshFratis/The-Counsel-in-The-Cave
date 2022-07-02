@@ -62,6 +62,7 @@ A pause. It’s not like May expects an answer.
     ->->
 
 = three
+# PB
 # DIA 
 JASON
 May?
@@ -83,6 +84,7 @@ MAY
 --> four 
 
 = four 
+# PB
 JASON 
 I- I came for you, May.
 + I came to rescue you.
@@ -100,6 +102,7 @@ I- I came for you, May.
 
 = five 
 # DIR 
+# PB
 Jason looks timid. Overwhelmed. He's reluctant to speak at all. 
 # DIA 
 JASON
@@ -134,7 +137,6 @@ It rained the whole time. The puddles on the glass were like double-sided mirror
 = six 
 MAY
 What dungeon, Jason?
-
 # DIR 
 Jason’s smoky body shudders, as if blown by a gust of wind. The bones inside him rattle and buzz.
 
@@ -146,6 +148,7 @@ I tried to leave there too. But I didn’t know which way to go. I only ended up
 -> seven 
 
 = seven
+# PB
 MAY
 Who, Jason? Met who?
 
@@ -173,6 +176,7 @@ Its coils trailed away into the shadows of the dungeon. They were flat, like scr
 ->->
 
 = eight
+# PB
 MAY
 What did he say to you, Jason?
 # DIR 
@@ -205,6 +209,7 @@ He told me… things he shouldn’t have known. Things about myself… only I kn
 ->->
 
 = nine 
+# PB
 I don’t know how I managed it, but somehow I got away. It’s all become a blur. I escaped. But again, I was lost. And before I left, it bit me. 
 # DIR 
 Jason turns his head to show May two wounds, puncturing his neck. Through his translucent frame, she can see how deep they go. Down to the glowing bone. 
@@ -252,6 +257,7 @@ I don’t know if I can! I was so set on graduating. On leaving Berks County. Fo
 -> eleven 
 
 = eleven 
+# PB
 MAY
 + You're going to be okay, Jason.
     That snake was only trying to trick you.
@@ -267,6 +273,7 @@ That doubt you feel? That’s not what’s stopping you. It’s your despair. Th
 -> twelve 
 
 = twelve 
+# PB
 JASON
 May… where is this coming from? Last time we talked… you weren’t okay. I came here because I thought you needed my help. 
 
@@ -294,7 +301,7 @@ Miners collect the crystals that grow there in the atmosphere. The ever-shifting
 ->->
 
 = thirteen 
-+ But there I met Old Moondog, fishing in the {twelveA:snow}{twelveB:strands}{twelveC:clouds}.
++ But there I met Roger the Automaton, the Lighthouse-keeper.
     -> thirteenA ->
 + That's where I saw The Crazed Cartographer, with all his nonsense maps. 
     -> thirteenB ->
@@ -303,11 +310,9 @@ Miners collect the crystals that grow there in the atmosphere. The ever-shifting
 --> fourteen 
 
 = thirteenA
-He didn’t strike me as all-knowing, how I imagined the Counselor would be. But he knows The Layers well, and gave me some good advice. 
-He told me to go out on my own. To let myself wander. 
-(smiling) 
-And then he told me not to take his words too seriously.
-He’s been a good friend ever since. 
+He tends the lighthouse on the Subterranean Sea while the old man is away. When I came to his home, I was so tired. He took me in and we talked long into the night. 
+He didn't say much. He mostly listened. He didn't give me much advice at all, really. I think that's what I needed, though.
+I never thought a counselor would say so little. But that's what he was. At least to me, in that moment.
 ->->
 
 = thirteenB
@@ -355,6 +360,7 @@ From there, I found my way here to you.
 ->->
 
 = fifteen
+# PB
 I’ve met a lot of people on my way, Jason. Most of them, the happy ones, are wanderers like us. The difference is, they’re okay with being lost. 
 It’s beautiful what they can be. 
 + Once they forget who they’re supposed to be.
@@ -389,13 +395,14 @@ I tried my best to find them. I searched for so long. But then I realized…
         - fourteenC: The Atlas-Origin. 
     }
     I found what I was really searching for–
-    + Somewhere I can feel safe
-    + Who I really want to be
+    ++ Somewhere I can feel safe
+    ++ Who I really want to be
     - <>–
     from within myself. That’s when I realized that I didn’t need to look for them. I could find my own way by letting myself be lost.
 --> seventeen
 
 = seventeen
+# PB
 # DIR 
 Jason looks down through his fading hands, as if that's the last thing he wanted to hear. 
 # DIA 
@@ -412,6 +419,7 @@ This isn’t a crypt, Jason. It’s no place to die. This is where you can decid
 --> eighteen
 
 = eighteen 
+# PB
 # DIR 
 May motions upwards through the cylinder of starlight. 
 {
@@ -437,6 +445,7 @@ That’s why I’m here. I’ve decided.
 --> twenty
 
 = nineteenA
+# PB
 // MAY GRADUATES
 ~ MayGraduates = true
 I’m done letting doubt stand between me and the world.  
@@ -474,6 +483,7 @@ I’m done letting doubt stand between me and the world.
 -->->
 
 = nineteenB
+# PB
 // MAY GOES HOME
 ~ MayGoesHome = true
 I've come to love Layers' Edge, despite its constant twists and turns.
@@ -505,6 +515,7 @@ I’m different here. I know I’d be different at college. And that would be ok
 ->->
 
 = nineteenC
+# PB
 // MAY GOES TO LAYERS
 ~ MayEntersLayers = true
 I’ve learned so much on Layers’ Edge. I think I finally understand why I never could decide if I should leave my home for Lehigh, or build my future in Berks County. Because neither are what I need, at least right now.  
@@ -516,6 +527,7 @@ But Jason, your doubt is eating you away!
 ->->
 
 = twenty
+# PB
 You're turning into a ghost! If you let it, it will keep you here. Until you don't exist at all.
 
 JASON

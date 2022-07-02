@@ -612,9 +612,12 @@ May’s eyes scan the distance while she tears at clovers.
 -> continue 
 
 = continue
-+ >
++ <
     #CLEAR 
-    -> script.contents
+    -> script.cover
++ > 
+    # CLEAR 
+    -> sanctuary.start
 
 
 

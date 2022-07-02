@@ -5,6 +5,7 @@
 -> one 
 
 = one 
+# PB
 # DIR 
 May and Jason turn to each other. 
 
@@ -47,6 +48,7 @@ Fishing.
 -> continue
 
 = threeA
+# PB
 // FIRE ESCAPE
 May leads the way. She grabs ahold of the spiral fire escape.
 {
@@ -56,6 +58,7 @@ May leads the way. She grabs ahold of the spiral fire escape.
 ->->
 
 = threeB
+# PB
 // GONDOLA
 May leads the way. She climbs aboard the balloon-less basket. 
 {
@@ -112,9 +115,9 @@ Together, the two descend into the Layers. Their quests to find themselves have 
 ->->
 
 = continue 
-+ >
++ <
     # CLEAR
-    -> complete -> script
+    -> complete -> script.cover
     
     
     

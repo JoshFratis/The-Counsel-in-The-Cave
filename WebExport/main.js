@@ -46,7 +46,7 @@
     }
 
     var pageContainer = document.querySelector('#page')
-    var titleContainer = document.querySelector('#title');
+    var headerContainer = document.querySelector('#header');
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
 
@@ -150,12 +150,14 @@
 
                 // TITLE: title
                 else if (splitTag && splitTag.property == "TITLE") {
+
+                    // Clear header
+                    headerContainer.innerHTML = "";
+
+                    // Add title to header
                     var titleElement = document.createElement('h1');
                     titleElement.innerHTML = splitTag.val;
-                    titleContainer.appendChild(titleElement);
-
-                    showAfter(delay, titleElement);
-                    delay += 200.0;
+                    headerContainer.appendChild(titleElement);
                 }
 
                 // THEME: color
@@ -226,12 +228,12 @@
                     pageContainer.append(headerContainer);
 
                      // Create header element
-                     pageHeaderElement = document.createElement('h3');
-                     pageHeaderElement.innerHTML = '- '+sceneTitle+' -';
-                     pageHeaderElement.classList.add('pageHeader');
-                     headerContainer.append(pageHeaderElement);
-
-                     //console.log("Created header element");
+                     if (headerContainer.hasChildNodes() == false) {
+                        pageHeaderElement = document.createElement('h3');
+                        pageHeaderElement.innerHTML = '- '+sceneTitle+' -';
+                        pageHeaderElement.classList.add('pageHeader');
+                        headerContainer.append(pageHeaderElement);
+                     }
 
                      // Create body container
                     storyContainer = document.createElement('div');
@@ -456,7 +458,7 @@
 
     function removeTitle(selector)
     {
-        var allElements = titleContainer.querySelectorAll(selector);
+        var allElements = headerContainer.querySelectorAll(selector);
         for(var i=0; i<allElements.length; i++) {
             var el = allElements[i];
             el.parentNode.removeChild(el);
@@ -570,6 +572,7 @@
     function recreateFirstPage() {
         // Recreate Elements of First Page
         console.log('recreating elements fo first page...');
+
         titleContainerInner = document.createElement('div');
         titleContainerInner.classList.add('container');
         titleContainerInner.style.padding = '0em';
@@ -577,16 +580,17 @@
         byline.classList.add('byline');
         titleContainer = document.createElement('div');
         titleContainer.classList.add('titleContainer');
+
+        headerContainer = document.createElement('div');
+        headerContainer.classList.add('container, headerContainer');
+
         storyContainer = document.createElement('div')
         storyContainer.classList.add('storyContainer');
         pageContainer  = document.createElement('div');
         pageContainer.classList.add('card');
 
         // Construct First Page from Recreated Elements
-        titleContainer.appendChild(titleContainerInner);
-        titleContainer.appendChild(byline);
-
-        pageContainer.appendChild(titleContainer);
+        pageContainer.appendChild(headerContainer);
         pageContainer.appendChild(storyContainer);
 
         outerScrollContainer.appendChild(pageContainer);

@@ -584,8 +584,11 @@
         // Construct First Page from Recreated Elements
         pageContainer.appendChild(headerContainer);
         pageContainer.appendChild(storyContainer);
-
         outerScrollContainer.appendChild(pageContainer);
+
+        // Set first page height
+        storyContainer.style.height = "auto";
+        storyHeight = contentBottomEdgeY();
 
         /*
         // Fade in new page after a short delay

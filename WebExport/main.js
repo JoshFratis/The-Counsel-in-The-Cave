@@ -15,6 +15,7 @@
     // Initialize height tracker for accumulated pages 
     var storyHeight = 0;
     var pageNumber = 1;
+    console.log('initialize pageNumber = 1')
 
     // Global tags - those at the top of the ink file
     var globalTags = story.globalTags;
@@ -207,27 +208,22 @@
                     pageNumberElement.classList.add('pageNumber');
                     footerContainer.append(pageNumberElement);
                     pageNumber++;
+                    console.log('pagenumber = '+pageNumber);
 
-                   // console.log("Created footer element");
-
-                    // Fade in page number after a short delay
-                    showAfter(delay, pageNumberElement);
-                    delay += 200.0;
-
-                   // console.log("Faded in page number");
+                    /*
+                        // Fade in page number after a short delay
+                        showAfter(delay, pageNumberElement);
+                        delay += 50.0;
+                    */
                     
                     // Create new page
                     pageContainer = document.createElement('div');
                     pageContainer.classList.add('card');
 
-                    //console.log("Created new page ");
-
                     // Create header container
                     headerContainer = document.createElement('div');
                     headerContainer.classList.add('container', 'headerContainer');
                     pageContainer.append(headerContainer);
-
-                   // console.log("Created header container");
 
                      // Create header element
                      pageHeaderElement = document.createElement('h3');
@@ -252,14 +248,10 @@
                      // Fade in new page after a short delay
                      showAfter(delay, storyContainer);
                      delay += 200.0;
-
-                    // console.log("faded in new page");
         
                       // Fade in new page after a short delay
                       showAfter(delay, pageHeaderElement);
                       delay += 200.0;
-
-                     // console.log("faded in header");
                 }
 
                 // Text Styles
@@ -395,6 +387,7 @@
     }
 
     function restart() {
+        pageNumber = 1;
         story.ResetState();
 
         setVisible(".header", true);
@@ -588,10 +581,8 @@
         storyContainer.classList.add('storyContainer');
         pageContainer  = document.createElement('div');
         pageContainer.classList.add('card');
-        console.log('elements of first page recreated.');
 
         // Construct First Page from Recreated Elements
-        console.log('constructing first page from recreated elements...');
         titleContainer.appendChild(titleContainerInner);
         titleContainer.appendChild(byline);
 
@@ -599,7 +590,6 @@
         pageContainer.appendChild(storyContainer);
 
         outerScrollContainer.appendChild(pageContainer);
-        console.log('first page reconstructed...');
 
         /*
         // Fade in new page after a short delay

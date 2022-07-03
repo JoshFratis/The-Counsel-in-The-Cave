@@ -1,4 +1,3 @@
--> layersedge.start
 === layersedge ===
 -> start 
 
@@ -361,41 +360,10 @@ May nods. As if they had been listening, the surrounding stones slowly float to 
 = complete 
 ->-> 
 
-= continue 
--> complete -> DONE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+= continue
++ <
+    #CLEAR 
+    -> script.cover
++ > 
+    # CLEAR 
+    -> sanctuary.start

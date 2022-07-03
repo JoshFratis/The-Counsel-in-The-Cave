@@ -1,0 +1,171 @@
+===fishermanFinaleTwoApart===
+-> start 
+
+= start
+-> one 
+
+= one 
+# PB
+# DIR 
+May and Jason turn to each other. 
+
+# DIA 
+JASON
+Well, May. I guess this is goodbye. 
+
+MAY
+For now. No one knows what's next.
+
+JASON
+I guess I’ll see you around then. So long!
+{
+    - MoondogFishesFireEscape: -> oneA ->
+    - MoondogFishesGondola: -> oneB ->
+}
+-> two
+
+= oneA
+# DIR 
+Jason grabs ahold of the spiral fire escape. 
+-> oneC -> 
+-
+{
+    - JasonGraduates: -> oneAA ->
+    - JasonEntersLayers: -> oneAB ->
+}
+->->
+
+= oneAA
+Then he sets his eyes on the band room above and begins to climb away, back to finally graduate. May watches as he fades from view. 
+->->
+
+= oneAB
+Then he takes his first step further into the unknown and descends into The Layers. May watches Jason disappear beneath the Sea of Stars. 
+->->
+
+= oneB 
+Jason climbs aboard the balloon-less basket. 
+-> oneC ->
+{
+    - JasonGraduates: -> oneBA ->
+    - JasonEntersLayers: -> oneBB ->
+}
+->->
+
+= oneBA
+Then he releases the basket’s sandbags and lets it ascend to the surface, where he goes to graduate. May watches as he fades from view.
+->->
+
+= oneBB
+Then Moondog unspools his line and lets the basket gently fall. May watches  Jason disappear beneath the Sea of Stars. 
+->->
+
+= oneC
++ He takes a deep breath, eyes trained ahead. 
++ He turns to give May a sweet little salute. 
+-->->
+
+= two
+# PB
+There is a pause. 
+{MoondogFishesGondola} The basket soon returns on Moondog's line, empty. 
+
+MOONDOG
+Well, kid? You gonna see this through? 
+
+MAY
+(shaken from a daydream)
+Yes. Yes, I’m coming. 
+
+MOONDOG
+Good! I’ve got places to be!
+
+MAY
++ Sorry, Moondog! Just daydreaming. 
+	
+	MOONDOG
+	Kids these days have no respect for the angular arts.
+	
+    MAY
+    “Angular?”
+
++ Where in the world do you have to be, Moondog? 
+    Time doesn’t even exist here. 
+
+- MOONDOG
+(snorts)
+Fishing. 
++ Now quit yammering and hop aboard. 
++ Now quit second-guessing. You’re ready for this, May. 
+--> three -> four
+
+= three 
+# PB
+{
+    - MoondogFishesFireEscape: -> threeA ->
+    - MoondogFishesGondola: -> threeB ->
+}
+->->
+
+= threeA 
+May grabs ahold of the spiral fire escape.
+{
+    - MayEntersLayers: -> threeAB -> 
+    - else: -> threeAA -> 
+}
+->->
+
+= threeAA 
+After one final look out over Layers’ Edge, she begins her return to the surface. She passes by the fisherman with an excited smile. 
+->->
+
+= threeAB
+After one final look into the mundane world above, May sets her sights on the unknown below. She waves goodbye to the fisherman, knowing full well she’ll see him soon. 
+->->
+
+= threeB 
+May climbs aboard the balloon-less basket. 
+{
+    - MayEntersLayers: -> threeBB -> 
+    - else: -> threeBA -> 
+}
+->->
+
+= threeBA 
+After one final look out over Layers’ Edge, she begins her return to the surface as Moondog reels in the basket. She passes him by with an excited smile. 
+->->
+
+= threeBB 
+After one final look into the mundane world above, May sets her sights on the unknown below. She waves goodbye to the fisherman, knowing full well she’ll see him soon, and he lets out his line. 
+->->
+
+= four 
+{
+    - MayGoesHome: -> fourA ->
+    - MayGraduates: -> fourB ->
+    - MayEntersLayers: -> fourC ->
+}
+-> continue
+
+= fourA
+May continues to the surface. Her long journey home has come to a close.
+->->
+
+= fourB
+May continues to the surface and the world beyond her home. She's finally reached the end of her path to graduation. 
+->->
+
+= fourC
+May descends into the Layers, her quest to find herself only just begun.
+->->
+
+= complete 
+->->
+
+= continue 
++ <
+    # CLEAR
+    -> complete -> script.cover
+
+
+

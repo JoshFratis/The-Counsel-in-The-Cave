@@ -35,14 +35,23 @@ Jason is the creator of his high school’s D&D club. When he’s not practicing
 # TITLE: TABLE OF CONTENTS
 # DIA 
 + ACT I, SCENE I # NC
+    # CLEAR 
     -> shiloh.start
 + SHILOH HILLS 
     # CLEAR 
     -> shiloh.start
 # BR
++ ACT II, SCENE I # NC 
+    # CLEAR 
+    -> layersedge.start
++ LOST ON LAYERS' EDGE 
+    # CLEAR 
+    -> layersedge.start
+#BR
 + ACT III, FINALE # NC
+    # CLEAR 
     -> sanctuary.start
-+ SUBTERRANEAN SANCTUARY
++ COUNSEL IN THE CAVE
     # CLEAR 
     -> sanctuary.start
     

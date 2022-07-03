@@ -12,11 +12,11 @@ JASON
 ->->
 
 = start
-#THEME: white
-#DEFAULTTHEME: white
-#TITLE: THE COUNSEL IN THE CAVE
-#TITLE: ACT I, SCENE I
-#TITLE: SHILOH HILLS
+# THEME: white
+# DEFAULTTHEME: white
+# TITLE: THE COUNSEL IN THE CAVE
+# TITLE: ACT I, SCENE I
+# TITLE: SHILOH HILLS
 -> one
 
 = one 
@@ -617,7 +617,4 @@ May’s eyes scan the distance while she tears at clovers.
     -> script.cover
 + > 
     # CLEAR 
-    -> sanctuary.start
-
-
-
+    -> layersedge.start

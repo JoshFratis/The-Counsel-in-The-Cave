@@ -4,12 +4,17 @@
 #TITLE: THE COUNSEL IN THE CAVE 
 #SCENETITLE: THE COUNSEL IN THE CAVE 
 #IMAGE: img/shiloh.jpg
+# DIA 
 By Joshua Fratis
+-> characters
+/*
 + > 
-    #CLEAR 
     -> characters
+    */
     
 = characters
+# PB 
+# DIA 
 #TITLE: CHARACTERS
 MAY
 Late teens, woman.
@@ -23,39 +28,21 @@ Another teenager soon to graduate, fixated on a future he envisions for himself.
 Jason was always the kid that couldn't wait to grow up. But despite his best efforts, he's retained his childlike knack for imagining the fantastic, for better or worse. This habit is so instinctual that he often inspires, and frightens, himself. Jason is more excitable and more vulnerable than he realizes. He’s dead set on proving himself as he moves towards graduation, even if he doesn’t yet know what that means. 
 Jason has been accepted to Temple University, a prestigious school for music in the heart of Philadelphia, where he intends to compete in trumpet performance. 
 Jason is the creator of his high school’s D&D club. When he’s not practicing trumpet or otherwise wandering with his head in the clouds, he can usually be found playing or planning a game or two. 
-+ < 
-    # CLEAR
-    -> cover
-+ >   
-    # CLEAR
-    -> contents
+-> contents
     
 = contents
+# PB
 # TITLE: TABLE OF CONTENTS
+# DIA 
 + ACT I, SCENE I # NC
-    # CLEAR 
     -> shiloh.start
 + SHILOH HILLS 
     # CLEAR 
     -> shiloh.start
 # BR
 + ACT III, FINALE # NC
-    # CLEAR 
     -> sanctuary.start
 + SUBTERRANEAN SANCTUARY
     # CLEAR 
     -> sanctuary.start
-# BR
-+ <
-    # CLEAR
-    -> characters
-+ >
-    # CLEAR
-    -> title
-
-= title
-# TITLE: THE COUNSEL IN THE CAVE 
-+ >
-    #CLEAR 
-    -> shiloh.start
---> DONE
+    

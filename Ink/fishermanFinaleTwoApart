@@ -5,6 +5,7 @@
 -> one 
 
 = one 
+# PB
 # DIR 
 May and Jason turn to each other. 
 
@@ -13,7 +14,7 @@ JASON
 Well, May. I guess this is goodbye. 
 
 MAY
-For now. Who knows what comes next? 
+For now. No one knows what's next.
 
 JASON
 I guess I’ll see you around then. So long!
@@ -24,6 +25,7 @@ I guess I’ll see you around then. So long!
 -> two
 
 = oneA
+# DIR 
 Jason grabs ahold of the spiral fire escape. 
 -> oneC -> 
 -
@@ -34,11 +36,11 @@ Jason grabs ahold of the spiral fire escape.
 ->->
 
 = oneAA
-Then he sets his eyes on the band room above and begins to climb away, back to finally graduate. May watches as he returns and the vision fades from view. 
+Then he sets his eyes on the band room above and begins to climb away, back to finally graduate. May watches as he fades from view. 
 ->->
 
 = oneAB
-Then he takes his first step further into the unknown and descends into The Layers. May watches as he disappears beneath the Sea of Stars. 
+Then he takes his first step further into the unknown and descends into The Layers. May watches Jason disappear beneath the Sea of Stars. 
 ->->
 
 = oneB 
@@ -51,41 +53,54 @@ Jason climbs aboard the balloon-less basket.
 ->->
 
 = oneBA
-Then he releases the basket’s sandbags and lets it carry him to the surface, where he goes to graduate. May watches as he returns and the vision fades from view.
+Then he releases the basket’s sandbags and lets it ascend to the surface, where he goes to graduate. May watches as he fades from view.
 ->->
 
 = oneBB
-Then the fisherman unspools his line and lets the basket gently fall. May watches as Jason disappears beneath the Sea of Stars. 
+Then Moondog unspools his line and lets the basket gently fall. May watches  Jason disappear beneath the Sea of Stars. 
 ->->
 
 = oneC
 + He takes a deep breath, eyes trained ahead. 
-+ He turns to give May a sweet salute. 
++ He turns to give May a sweet little salute. 
 -->->
 
 = two
+# PB
 There is a pause. 
-	The basket soon returns on the fisherman’s line, empty. 
+{MoondogFishesGondola} The basket soon returns on Moondog's line, empty. 
 
 MOONDOG
-Well, kid? You going to see this through? 
+Well, kid? You gonna see this through? 
 
 MAY
+(shaken from a daydream)
 Yes. Yes, I’m coming. 
 
 MOONDOG
 Good! I’ve got places to be!
 
 MAY
-Where in the world do you have to be? Time doesn’t even exist here, Moondog. 
++ Sorry, Moondog! Just daydreaming. 
+	
+	MOONDOG
+	Kids these days have no respect for the angular arts.
+	
+    MAY
+    “Angular?”
 
-MOONDOG
++ Where in the world do you have to be, Moondog? 
+    Time doesn’t even exist here. 
+
+- MOONDOG
+(snorts)
 Fishing. 
 + Now quit yammering and hop aboard. 
 + Now quit second-guessing. You’re ready for this, May. 
 --> three -> four
 
 = three 
+# PB
 {
     - MoondogFishesFireEscape: -> threeA ->
     - MoondogFishesGondola: -> threeB ->
@@ -101,7 +116,7 @@ May grabs ahold of the spiral fire escape.
 ->->
 
 = threeAA 
-After one final look out over Layers’ Edge, she begins her ascent back to the surface. She passes by the fisherman with an excited smile. 
+After one final look out over Layers’ Edge, she begins her return to the surface. She passes by the fisherman with an excited smile. 
 ->->
 
 = threeAB
@@ -117,7 +132,7 @@ May climbs aboard the balloon-less basket.
 ->->
 
 = threeBA 
-After one final look out over Layers’ Edge, she begins her ascent back to the surface as Moondog reels in the basket. She passes him by with an excited smile. 
+After one final look out over Layers’ Edge, she begins her return to the surface as Moondog reels in the basket. She passes him by with an excited smile. 
 ->->
 
 = threeBB 
@@ -133,22 +148,24 @@ After one final look into the mundane world above, May sets her sights on the un
 -> continue
 
 = fourA
-May continues to the surface. Her long journey home has come to an end.
+May continues to the surface. Her long journey home has come to a close.
 ->->
 
 = fourB
-May continues on to the surface and the world beyond her home. She has finally reached the end of her path to graduation. 
+May continues to the surface and the world beyond her home. She's finally reached the end of her path to graduation. 
 ->->
 
 = fourC
-May descends into the Layers. Her quest to find herself has only just begun.
+May descends into the Layers, her quest to find herself only just begun.
 ->->
 
 = complete 
 ->->
 
 = continue 
--> complete -> credits
++ <
+    # CLEAR
+    -> complete -> script.cover
 
 
 

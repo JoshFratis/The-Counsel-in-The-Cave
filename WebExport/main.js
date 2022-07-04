@@ -199,10 +199,7 @@
 
                 // Page Break
                 else if (tag == "PB") {
-                    // Cut page
-                    storyContainer.style.height = "auto";
-                    storyHeight = contentBottomEdgeY();
-
+                    
                     // Create footer container
                     footerContainer = document.createElement('div');
                     footerContainer.classList.add('container', 'footerContainer');
@@ -214,6 +211,10 @@
                     pageNumberElement.classList.add('pageNumber');
                     footerContainer.append(pageNumberElement);
                     pageNumber++;
+
+                    // Prepare to cut current page after new page is added
+                    var oldStoryContainer = storyContainer
+                    storyHeight = contentBottomEdgeY();
 
                     /*
                         // Fade in page number after a short delay
@@ -238,7 +239,7 @@
                         headerContainer.append(sceneTitleElement);
                      }
 
-                     // Create body container
+                    // Create body container
                     storyContainer = document.createElement('div');
                     storyContainer.classList.add('container', 'storyContainer');
                     pageContainer.append(storyContainer);
@@ -246,8 +247,11 @@
                     // Add new page
                     outerScrollContainer.append(pageContainer);
 
+                    // Cut old page body
+                    oldStoryContainer.style.height = "auto";
+
                      // Fade in new page after a short delay
-                     showAfter(delay, storyContainer);
+                     showAfter(delay, pageContainer);
                      delay += 200.0;
         
                       // Fade in new page after a short delay

@@ -68,6 +68,7 @@
     // Kick off the start of the story!
     var previousBottomEdge = 0;
     console.log('previousBottomEdge: '+previousBottomEdge);
+    var delay = 0;
     continueStory(true);
 
     // Main story processing function. Each time this is called it generates
@@ -77,7 +78,7 @@
         var firstTimeScroll = firstTime
 
         var paragraphIndex = 0;
-        var delay = 0.0;
+        delay = 0.0;
 
         // Don't over-scroll past new content
         //var previousBottomEdge = firstTime ? 0 : contentBottomEdgeY();
@@ -166,6 +167,10 @@
                     titleElement.innerHTML = splitTag.val;
                     headerContainer.style.paddingTop = '2em';
                     headerContainer.appendChild(titleElement);
+
+                    // Fade in header on new page after a short delay
+                    showAfter(delay, titleElement);
+                    delay += 200.0;
                 }
 
                 // THEME: color
@@ -178,7 +183,6 @@
                     for(var i = 0; i < themedElements.length; i++) {
                         var el = themedElements[i];
                         el.classList.replace(themeClass, defaultThemeClass);
-                        //console.log("Replacing "+themeClass+" theme with "+defaultThemeClass+" theme for element: "+el);
                     } 
 
                     // Wait  
@@ -187,7 +191,6 @@
                         for(var i = 0; i < themedElements.length; i++) {
                             var el = themedElements[i];
                             el.classList.replace(defaultThemeClass, splitTag.val);
-                            //console.log("Replacing "+defaultThemeClass+" theme with "+splitTag.val+" theme for element: "+el);
                         } 
                         themeClass = splitTag.val;
                     }, 1000);
@@ -202,25 +205,19 @@
                     
                     // Create footer container
                     footerContainer = document.createElement('div');
-                    footerContainer.classList.add('container', 'footerContainer');
+                    footerContainer.classList.add('fadeable', 'footerContainer');
                     pageContainer.append(footerContainer);
 
                     // Create footer element
                     pageNumberElement = document.createElement('h3');
                     pageNumberElement.innerHTML = '- '+pageNumber.toString()+' -';
-                    pageNumberElement.classList.add('pageNumber');
+                    pageNumberElement.classList.add('pageNumber', 'fadeable');
                     footerContainer.append(pageNumberElement);
                     pageNumber++;
 
                     // Prepare to cut current page after new page is added
                     var oldStoryContainer = storyContainer
                     storyHeight = contentBottomEdgeY();
-
-                    /*
-                        // Fade in page number after a short delay
-                        showAfter(delay, pageNumberElement);
-                        delay += 50.0;
-                    */
                     
                     // Create new page
                     pageContainer = document.createElement('div');
@@ -228,20 +225,20 @@
 
                     // Create header container
                     headerContainer = document.createElement('div');
-                    headerContainer.classList.add('container', 'headerContainer');
+                    headerContainer.classList.add('fadeable', 'headerContainer');
                     pageContainer.append(headerContainer);
 
                      // Create header element
                      if (headerContainer.hasChildNodes() == false) {
                         sceneTitleElement = document.createElement('h3');
                         sceneTitleElement.innerHTML = '- '+sceneTitle+' -';
-                        sceneTitleElement.classList.add('pageHeader');
+                        sceneTitleElement.classList.add('pageHeader', 'fadeable');
                         headerContainer.append(sceneTitleElement);
                      }
 
                     // Create body container
                     storyContainer = document.createElement('div');
-                    storyContainer.classList.add('container', 'storyContainer');
+                    storyContainer.classList.add('fadeable', 'storyContainer');
                     pageContainer.append(storyContainer);
 
                     // Add new page
@@ -250,13 +247,26 @@
                     // Cut old page body
                     oldStoryContainer.style.height = "auto";
 
-                     // Fade in new page after a short delay
-                     showAfter(delay, pageContainer);
-                     delay += 200.0;
+                    // Fade in new containers and elements in order
+                    // Fade in footer after a short delay
+                    showAfter(delay, footerContainer);
+                    delay += 50.0;
+
+                    // Fade in page number after a short delay
+                    showAfter(delay, pageNumberElement);
+                    delay += 50.0;
+
+                    // Fade in new page after a short delay
+                    showCard(delay, pageContainer);
+                    delay += 200.0;
         
-                      // Fade in new page after a short delay
-                      showAfter(delay, sceneTitleElement);
-                      delay += 200.0;
+                    // Fade in header on new page after a short delay
+                    showAfter(delay, headerContainer);
+                    delay += 200.0;
+
+                    // Fade in header on new page after a short delay
+                    showAfter(delay, sceneTitleElement);
+                    delay += 200.0;
                 }
 
                 // Text Styles
@@ -438,6 +448,10 @@
         setTimeout(function() { el.classList.remove("hide") }, delay);
     }
 
+    function showCard(delay, el) {
+        setTimeout(function() { el.classList.add("cardShown") }, delay);
+    }
+
     // Scrolls the page down, but no further than the bottom edge of what you could
     // see previously, so it doesn't go too far.
     function scrollDown(previousBottomEdge) {
@@ -607,10 +621,10 @@
 
         // Recreate Elements of First Page
         headerContainer = document.createElement('div');
-        headerContainer.classList.add('container', 'headerContainer');
+        headerContainer.classList.add('fadeable', 'headerContainer');
 
         storyContainer = document.createElement('div')
-        storyContainer.classList.add('storyContainer');
+        storyContainer.classList.add('storyContainer', 'fadeable');
         pageContainer  = document.createElement('div');
         pageContainer.classList.add('card');
 
@@ -627,13 +641,13 @@
         console.log('Scrolling to (0, 0) from recreateFirstPage()');
         outerScrollContainer.scrollTo(0, 0);
 
-        /*
         // Fade in new page after a short delay
-        console.log('fading in first page...');
-        showAfter(delay, pageContainer);
+        showCard(delay, pageContainer);
         delay += 200.0;
-        console.log('first page faded in');
-        */
+
+        // Fade in header on new page after a short delay
+        showAfter(delay, headerContainer);
+        delay += 200.0;
     }
 
 })(storyContent);

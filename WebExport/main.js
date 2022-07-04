@@ -439,7 +439,7 @@
 
         // We do this to extent the 'page' card 
         // so the text doesn't 'run off the page'
-        storyContainer.style.height = contentBottomEdgeY() - storyHeight + "px";
+        //storyContainer.style.height = contentBottomEdgeY() - storyHeight + "px";
     }
 
     function restart() {

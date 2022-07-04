@@ -44,7 +44,8 @@
         }
     }
 
-    var pageContainer = document.querySelector('#page')
+    var cardCover = document.querySelector('#cardCover');
+    var pageContainer = document.querySelector('#page');
     var headerContainer = document.querySelector('#header');
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
@@ -203,6 +204,7 @@
                 // Page Break
                 else if (tag == "PB") {
                     
+                    // Create new elements for current page
                     // Create footer container
                     footerContainer = document.createElement('div');
                     footerContainer.classList.add('fadeable', 'footerContainer');
@@ -215,20 +217,34 @@
                     footerContainer.append(pageNumberElement);
                     pageNumber++;
 
-                    // Prepare to cut current page after new page is added
-                    var oldStoryContainer = storyContainer
+                    // Freeze cardCover in place while it fades
+                    cardCover.style.position = "static";
+
+                    // Get current height of story
                     storyHeight = contentBottomEdgeY();
+
+                    // Prepare to cut current page after new page is added
+                    var oldCardCover = cardCover;
+                    var oldPageContainer = pageContainer;
+                    var oldStoryContainer = storyContainer
                     
                     // Create new page
                     pageContainer = document.createElement('div');
                     pageContainer.classList.add('card');
 
-                    // Create header container
+                    /*
+                    // Create Card Cover for New Page
+                    cardCover = document.createElement('div');
+                    cardCover.classList.add('cardCover');
+                    pageContainer.append(cardCover);
+                    */
+
+                    // Create Header Container for New Page
                     headerContainer = document.createElement('div');
                     headerContainer.classList.add('fadeable', 'headerContainer');
                     pageContainer.append(headerContainer);
 
-                     // Create header element
+                     // Create Scene Title Element for Header Container if no title element already exists
                      if (headerContainer.hasChildNodes() == false) {
                         sceneTitleElement = document.createElement('h3');
                         sceneTitleElement.innerHTML = '- '+sceneTitle+' -';
@@ -236,35 +252,39 @@
                         headerContainer.append(sceneTitleElement);
                      }
 
-                    // Create body container
+                    // Create Body Container for New Page
                     storyContainer = document.createElement('div');
                     storyContainer.classList.add('fadeable', 'storyContainer');
                     pageContainer.append(storyContainer);
 
-                    // Add new page
+                    // Add New Page
                     outerScrollContainer.append(pageContainer);
 
-                    // Cut old page body
+                    // Cut Old Page
                     oldStoryContainer.style.height = "auto";
 
-                    // Fade in new containers and elements in order
-                    // Fade in footer after a short delay
+                    // Fade in New Container, Elements in order
+                    // Fade out previous page's Card Cover
+                     oldCardCover.classList.add("hide");
+
+                    // Fade in previous page's Footer Container 
                     showAfter(delay, footerContainer);
                     delay += 50.0;
 
-                    // Fade in page number after a short delay
+                    // Fade in previous page's Page Number 
                     showAfter(delay, pageNumberElement);
                     delay += 50.0;
 
-                    // Fade in new page after a short delay
+                    // Fade in New Page 
                     showCard(delay, pageContainer);
                     delay += 200.0;
         
-                    // Fade in header on new page after a short delay
+                    // Fade in new page's Header Container 
                     showAfter(delay, headerContainer);
                     delay += 200.0;
 
-                    // Fade in header on new page after a short delay
+                    // Fade in new page's Scene Title
+                    // needs condition?
                     showAfter(delay, sceneTitleElement);
                     delay += 200.0;
                 }

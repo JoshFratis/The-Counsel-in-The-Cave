@@ -44,7 +44,6 @@
         }
     }
 
-    var cardCover = document.querySelector('#cardCover');
     var pageContainer = document.querySelector('#page');
     var headerContainer = document.querySelector('#header');
     var storyContainer = document.querySelector('#story');
@@ -68,14 +67,13 @@
 
     // Kick off the start of the story!
     var previousBottomEdge = 0;
-    console.log('previousBottomEdge: '+previousBottomEdge);
     var delay = 0;
+
     continueStory(true);
 
     // Main story processing function. Each time this is called it generates
     // all the next content up as far as the next set of choices.
     function continueStory(firstTime) {
-        console.log('continueStory('+firstTime+')');
         var firstTimeScroll = firstTime
 
         var paragraphIndex = 0;
@@ -83,7 +81,6 @@
 
         // Don't over-scroll past new content
         //var previousBottomEdge = firstTime ? 0 : contentBottomEdgeY();
-        //console.log('previousBottomEdge: '+previousBottomEdge);
 
         // Generate story text - loop through available content
         while(story.canContinue) {
@@ -176,7 +173,6 @@
 
                 // THEME: color
                 else if (splitTag && splitTag.property == "THEME") {
-                    //console.log(tag);
 
                     var themedElements = document.getElementsByClassName('themed');
                     
@@ -217,27 +213,16 @@
                     footerContainer.append(pageNumberElement);
                     pageNumber++;
 
-                    // Freeze cardCover in place while it fades
-                    cardCover.style.position = "static";
-
                     // Get current height of story
                     storyHeight = contentBottomEdgeY();
 
                     // Prepare to cut current page after new page is added
-                    var oldCardCover = cardCover;
                     var oldPageContainer = pageContainer;
                     var oldStoryContainer = storyContainer
                     
                     // Create new page
                     pageContainer = document.createElement('div');
                     pageContainer.classList.add('card');
-
-                    /*
-                    // Create Card Cover for New Page
-                    cardCover = document.createElement('div');
-                    cardCover.classList.add('cardCover');
-                    pageContainer.append(cardCover);
-                    */
 
                     // Create Header Container for New Page
                     headerContainer = document.createElement('div');
@@ -264,9 +249,6 @@
                     oldStoryContainer.style.height = "auto";
 
                     // Fade in New Container, Elements in order
-                    // Fade out previous page's Card Cover
-                     oldCardCover.classList.add("hide");
-
                     // Fade in previous page's Footer Container 
                     showAfter(delay, footerContainer);
                     delay += 50.0;
@@ -308,7 +290,6 @@
                 // CLEAR - removes all existing content.
                 // RESTART - clears everything and restarts the story from the beginning
                 else if( tag == "CLEAR" || tag == "RESTART" ) {
-                    console.log('CLEAR');
                     firstTimeScroll = true;
                     removeAllElements();
 
@@ -316,7 +297,6 @@
                     //setVisible(".header", false);
 
                     if( tag == "RESTART" ) {
-                        console.log('RESTART');
                         restart();
                         return;
                     }
@@ -425,7 +405,6 @@
 
                     previousBottomEdge = firstTime ? 0 : contentBottomEdgeY();
                     previousBottomEdge = contentBottomEdgeY();
-                    console.log('previousBottomEdge: '+previousBottomEdge);
 
                     // Aaand loop
                     continueStory(false);
@@ -443,9 +422,6 @@
     }
 
     function restart() {
-        console.log('restart');
-
-        pageNumber = 1;
         story.ResetState();
 
         setVisible(".header", true);
@@ -453,8 +429,15 @@
         // set save point to here
         savePoint = story.state.toJson();
 
+        // Reset delay and elements for fading in
+        pageNumber = 1;
+        delay = 0;
+        removeAllElements();
+
+        // Restart story
         continueStory(true);
 
+        // Scroll to top
         outerScrollContainer.scrollTo(0, 0);
     }
 
@@ -488,7 +471,6 @@
         var dist = target - start;
         var duration = 300 + 300*dist/100;
         var startTime = null;
-        console.log('Scrolling to '+target+' from scrollDown('+previousBottomEdge+')');
         function step(time) {
             if( startTime == null ) startTime = time;
             var t = (time-startTime) / duration;
@@ -504,12 +486,9 @@
     function contentBottomEdgeY() {
 
         var bottomElement = storyContainer.lastElementChild;
-        //console.log('Bottom Element: '+bottomElement);
         if (bottomElement != null) {
-            //console.log('Scroll to: '+bottomElement.offsetTop + bottomElement.offsetHeight);
         }
         var result = bottomElement ? bottomElement.offsetTop + bottomElement.offsetHeight : previousBottomEdge;
-        console.log('contentBottomEdgeY() = ' + result )
         return result;
     }
 
@@ -517,7 +496,6 @@
     // you've picked one, as well as for the CLEAR and RESTART tags.
     function removeAll(selector)
     {
-        //console.log('removeAll('+selector+')');
         var allElements = storyContainer.querySelectorAll(selector);
         for(var i=0; i<allElements.length; i++) {
             var el = allElements[i];
@@ -620,8 +598,6 @@
     }
 
     function removeAllElements() {
-        console.log('removeAllElements()');
-        
         var cards = document.getElementsByClassName('card');
         for(var i = cards.length-1; i >= 0; i--) {
             var card = cards[i];
@@ -637,8 +613,6 @@
     }
 
     function recreateFirstPage() {
-        console.log('recreateFirstPage()');
-
         // Recreate Elements of First Page
         headerContainer = document.createElement('div');
         headerContainer.classList.add('fadeable', 'headerContainer');
@@ -658,7 +632,6 @@
         storyHeight = contentBottomEdgeY();
 
         // Do not scroll to bottom of new content
-        console.log('Scrolling to (0, 0) from recreateFirstPage()');
         outerScrollContainer.scrollTo(0, 0);
 
         // Fade in new page after a short delay

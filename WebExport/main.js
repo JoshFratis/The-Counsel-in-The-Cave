@@ -402,17 +402,10 @@
         // Extend height to fit
         // We do this manually so that removing elements and creating new ones doesn't
         // cause the height (and therefore scroll) to jump backwards temporarily.
+
+        // We do this to extent the 'page' card 
+        // so the text doesn't 'run off the page'
         storyContainer.style.height = contentBottomEdgeY() - storyHeight + "px";
-
-        console.log('previousBottomEdge: '+previousBottomEdge);
-        if( !firstTimeScroll ) {
-            console.log('Not first time. Scrolling down...');
-            scrollDown(previousBottomEdge);
-        }
-        else {
-            console.log('First time. Not scrolling down');
-        }
-
     }
 
     function restart() {

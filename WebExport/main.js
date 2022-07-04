@@ -15,7 +15,6 @@
     // Initialize height tracker for accumulated pages 
     var storyHeight = 0;
     var pageNumber = 1;
-    console.log('initialize pageNumber = 1')
 
     // Global tags - those at the top of the ink file
     var globalTags = story.globalTags;
@@ -67,17 +66,22 @@
     savePoint = story.state.toJson();
 
     // Kick off the start of the story!
+    var previousBottomEdge = 0;
+    console.log('previousBottomEdge: '+previousBottomEdge);
     continueStory(true);
 
     // Main story processing function. Each time this is called it generates
     // all the next content up as far as the next set of choices.
     function continueStory(firstTime) {
+        console.log('continueStory('+firstTime+')');
+        var firstTimeScroll = firstTime
 
         var paragraphIndex = 0;
         var delay = 0.0;
 
         // Don't over-scroll past new content
-        var previousBottomEdge = firstTime ? 0 : contentBottomEdgeY();
+        //var previousBottomEdge = firstTime ? 0 : contentBottomEdgeY();
+        //console.log('previousBottomEdge: '+previousBottomEdge);
 
         // Generate story text - loop through available content
         while(story.canContinue) {
@@ -166,7 +170,7 @@
 
                 // THEME: color
                 else if (splitTag && splitTag.property == "THEME") {
-                    console.log(tag);
+                    //console.log(tag);
 
                     var themedElements = document.getElementsByClassName('themed');
                     
@@ -174,7 +178,7 @@
                     for(var i = 0; i < themedElements.length; i++) {
                         var el = themedElements[i];
                         el.classList.replace(themeClass, defaultThemeClass);
-                        console.log("Replacing "+themeClass+" theme with "+defaultThemeClass+" theme for element: "+el);
+                        //console.log("Replacing "+themeClass+" theme with "+defaultThemeClass+" theme for element: "+el);
                     } 
 
                     // Wait  
@@ -183,7 +187,7 @@
                         for(var i = 0; i < themedElements.length; i++) {
                             var el = themedElements[i];
                             el.classList.replace(defaultThemeClass, splitTag.val);
-                            console.log("Replacing "+defaultThemeClass+" theme with "+splitTag.val+" theme for element: "+el);
+                            //console.log("Replacing "+defaultThemeClass+" theme with "+splitTag.val+" theme for element: "+el);
                         } 
                         themeClass = splitTag.val;
                     }, 1000);
@@ -210,7 +214,6 @@
                     pageNumberElement.classList.add('pageNumber');
                     footerContainer.append(pageNumberElement);
                     pageNumber++;
-                    console.log('pagenumber = '+pageNumber);
 
                     /*
                         // Fade in page number after a short delay
@@ -271,14 +274,15 @@
                 // CLEAR - removes all existing content.
                 // RESTART - clears everything and restarts the story from the beginning
                 else if( tag == "CLEAR" || tag == "RESTART" ) {
-                    console.log('removing all elements...');
+                    console.log('CLEAR');
+                    firstTimeScroll = true;
                     removeAllElements();
-                    console.log('all elements removed.');
 
                     // Comment out this line if you want to leave the header visible when clearing
                     //setVisible(".header", false);
 
                     if( tag == "RESTART" ) {
+                        console.log('RESTART');
                         restart();
                         return;
                     }
@@ -307,10 +311,8 @@
                 storyContainer.appendChild(paragraphElement);
 
                 // Set first line's top margin to 0
-                console.log('line: '+paragraphText+'. paragraphElement: '+paragraphElement+'. storyContainer.firstChild: '+storyContainer.firstChild);
                 if (paragraphElement == storyContainer.firstChild) {
                     paragraphElement.style.marginTop = '0';
-                    console.log("margin-top set to 0 for line: "+paragraphText);
                 }
 
                 // Add any custom classes derived from ink tags
@@ -363,7 +365,6 @@
             // Set first line's top margin to 0
             if (choiceParagraphElement == storyContainer.firstChild) {
                 choiceParagraphElement.style.marginTop = '0';
-                console.log("margin-top set to 0 for line: "+choice.text);
             }
 
             // Fade choice in after a short delay
@@ -388,8 +389,12 @@
                     // This is where the save button will save from
                     savePoint = story.state.toJson();
 
+                    previousBottomEdge = firstTime ? 0 : contentBottomEdgeY();
+                    previousBottomEdge = contentBottomEdgeY();
+                    console.log('previousBottomEdge: '+previousBottomEdge);
+
                     // Aaand loop
-                    continueStory();
+                    continueStory(false);
                 });
             }
         });
@@ -399,12 +404,20 @@
         // cause the height (and therefore scroll) to jump backwards temporarily.
         storyContainer.style.height = contentBottomEdgeY() - storyHeight + "px";
 
-        if( !firstTime )
+        console.log('previousBottomEdge: '+previousBottomEdge);
+        if( !firstTimeScroll ) {
+            console.log('Not first time. Scrolling down...');
             scrollDown(previousBottomEdge);
+        }
+        else {
+            console.log('First time. Not scrolling down');
+        }
 
     }
 
     function restart() {
+        console.log('restart');
+
         pageNumber = 1;
         story.ResetState();
 
@@ -444,6 +457,7 @@
         var dist = target - start;
         var duration = 300 + 300*dist/100;
         var startTime = null;
+        console.log('Scrolling to '+target+' from scrollDown('+previousBottomEdge+')');
         function step(time) {
             if( startTime == null ) startTime = time;
             var t = (time-startTime) / duration;
@@ -457,14 +471,22 @@
     // The Y coordinate of the bottom end of all the story content, used
     // for growing the container, and deciding how far to scroll.
     function contentBottomEdgeY() {
+
         var bottomElement = storyContainer.lastElementChild;
-        return bottomElement ? bottomElement.offsetTop + bottomElement.offsetHeight : 0;
+        //console.log('Bottom Element: '+bottomElement);
+        if (bottomElement != null) {
+            //console.log('Scroll to: '+bottomElement.offsetTop + bottomElement.offsetHeight);
+        }
+        var result = bottomElement ? bottomElement.offsetTop + bottomElement.offsetHeight : previousBottomEdge;
+        console.log('contentBottomEdgeY() = ' + result )
+        return result;
     }
 
     // Remove all elements that match the given selector. Used for removing choices after
     // you've picked one, as well as for the CLEAR and RESTART tags.
     function removeAll(selector)
     {
+        //console.log('removeAll('+selector+')');
         var allElements = storyContainer.querySelectorAll(selector);
         for(var i=0; i<allElements.length; i++) {
             var el = allElements[i];
@@ -567,13 +589,12 @@
     }
 
     function removeAllElements() {
+        console.log('removeAllElements()');
         
         var cards = document.getElementsByClassName('card');
-        console.log('removing '+cards.length+' cards...');
         for(var i = cards.length-1; i >= 0; i--) {
             var card = cards[i];
             outerScrollContainer.removeChild(card); 
-            console.log('removing card '+i+': '+card);
         }
 
         removeAll("p");
@@ -581,14 +602,13 @@
         removeAll("br");
         removeTitle("h1");
 
-
         recreateFirstPage();
     }
 
     function recreateFirstPage() {
-        // Recreate Elements of First Page
-        console.log('recreating elements fo first page...');
+        console.log('recreateFirstPage()');
 
+        // Recreate Elements of First Page
         headerContainer = document.createElement('div');
         headerContainer.classList.add('container', 'headerContainer');
 
@@ -605,6 +625,10 @@
         // Set first page height
         storyContainer.style.height = "auto";
         storyHeight = contentBottomEdgeY();
+
+        // Do not scroll to bottom of new content
+        console.log('Scrolling to (0, 0) from recreateFirstPage()');
+        outerScrollContainer.scrollTo(0, 0);
 
         /*
         // Fade in new page after a short delay

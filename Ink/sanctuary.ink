@@ -2,6 +2,30 @@
 -> start 
 
 = start
+VAR sanctuaryTwoO = 0 
+VAR MaySawPortalMundane = false 
+VAR MaySawPortalLayers = false
+VAR MaySawAtlas = false
+
+VAR MayMetRoger = false
+VAR MayMetCartographer = false 
+VAR MayMetAstrologer = false
+
+VAR MayVisitedPaintedHarbor = false
+VAR MayVisitedDragonHive = false
+VAR MayVisitedAtlasOrigin = false
+
+~ JasonWanderedForest = false
+~ JasonWanderedCave = false
+~ JasonWanderedCity = false
+
+~ MayGoesHome = false
+~ MayGraduates = false
+~ MayEntersLayers = false
+
+~ JasonGraduates = false
+~ JasonEntersLayers = false
+
 # THEME: white
 # DEFAULTTHEME: white
 # TITLE: THE COUNSEL IN THE CAVE
@@ -19,29 +43,33 @@ It’s then Jason enters, also from the audience. He appears to be a ghost, flit
 
 = two 
 # DIR 
-* May gazes upwards, looking for the starlight's origin.
++ {MaySawPortalMundane == false} May gazes upwards, looking for the starlight's origin.
     -> twoO -> twoA -> two
-* May is drawn to center stage, where the starlight pools.
++ {MaySawPortalLayers == false} May is drawn to center stage, where the starlight pools.
     -> twoO -> twoB -> two 
-* {twoO >= 1} May approaches a broken pillar braced by an enormous statue.
++ {sanctuaryTwoO >= 1} May approaches a broken pillar braced by an enormous statue.
     -> twoO -> twoC -> three
-* {twoO >= 2} May notices the ghost passing between pillars.
++ {sanctuaryTwoO >= 2} May notices the ghost passing between pillars.
     -> twoO -> twoD -> three
 
 = twoO 
+~ sanctuaryTwoO = sanctuaryTwoO + 1 
 ->->
 
 = twoA 
+~ MaySawPortalMundane = true
 Far above, we see a reflection of the mundane world. Suspended, upside-down, is The Old Band Room, as if it were submerged in a body of water that we were observing from below. It’s filled with students playing music, arranged in rings that mirror the amphitheater. It waves like an image on restless water. It looks like a portal home. 
     ->-> 
 
 = twoB
+~ MaySawPortalLayers = true
 Looking through it, May can see another world, as if it were a portal to distant dimensions. Below, May beholds the full extention of The Layers. Convergent, distant lands. Intersecting, combining, reacting. 
 
 May leans over the edge to peer into the void, but stays careful not to fall.
     ->-> 
 
 = twoC
+~ MaySawAtlas = true
 The pillar's broken base lays crumbled on the floor. There kneels in the remains a titanic human figure, its palms pressed against the severed column's underside. The statue drives the pillar to the ceiling and braces the weight of the theater ceiling on its back.
 
 # DIA 
@@ -216,15 +244,15 @@ I don’t know how I managed it, but somehow I got away. It’s all become a blu
 Jason turns his head to show May two wounds, puncturing his neck. Through his translucent frame, she can see how deep they go. Down to the glowing bone. 
 # DIA 
 JASON
-I wandered deeper into the {fiveA: forest}{fiveB: cave}{fiveC:underground}. All the while I couldn’t stop thinking about what that snake said. I could feel myself begin to fade away. 
+I wandered deeper into the {JasonWanderedForest: forest}{JasonWanderedCave: cave}{JasonWanderedCity:underground}. All the while I couldn’t stop thinking about what that snake said. I could feel myself begin to fade away. 
 
 It was dark, May. And it was quiet. I was lost. But more than that, I didn’t know if I would ever find my way again. 
 
 I kept wandering. And eventually, <>
 {
-    - fiveA: the forest came unwound. Below I found a path of flying vines. 
-    - fiveB: the cave began to break apart. Below the mountain, I found a path of floating stones. 
-    - fiveC: the city’s bricks began to break apart. Beneath the strees I found suspended squares of sidewalk, like a path of floating stepping stones. 
+    - JasonWanderedForest: the forest came unwound. Below I found a path of flying vines. 
+    - JasonWanderedCave: the cave began to break apart. Below the mountain, I found a path of floating stones. 
+    - JasonWanderedCity: the city’s bricks began to break apart. Beneath the strees I found suspended squares of sidewalk, like a path of floating stepping stones. 
 }
 <> It led me here. 
 -> ten 
@@ -311,12 +339,14 @@ Miners collect the crystals that grow there in the atmosphere. The ever-shifting
 --> fourteen 
 
 = thirteenA
+~ MayMetRoger = true
 He tends the lighthouse on the Subterranean Sea while the old man is away. When I came to his home, I was so tired. He took me in and we talked long into the night. 
 He didn't say much. He mostly listened. He didn't give me much advice at all, really. I think that's what I needed, though.
 I never thought a counselor would say so little. But that's what he was. At least to me, in that moment.
 ->->
 
 = thirteenB
+~ MayMetCartographer = true
 He was such a funny guy. He always had his crooked nose buried in a project. He could barely take a minute for a real look around.
 He promised that his maps would lead me home. And at first I believed him. I followed them for days, hoping I could make something of the nonsense. But that’s all they ever were. 
 So I threw them out, and struck out on my own. 
@@ -325,6 +355,7 @@ I never thought The Cartographer would be the counselor I found. But I learned s
 ->->
 
 = thirteenC
+~ MayMetAstrologer = true
 At the root of her observatory, she thought she could see the stars. But all she ever saw were the glowing fish in the Lake of The Layers, far far below.
 She told me she could read my future. Show me my way home. And I believed her. I followed her predictions for days. But then I realized… how should she know? How should she know me, better than I know myself?
 So I struck out alone, finally wandering.
@@ -341,17 +372,20 @@ The Astrologer wasn’t the kind of counselor I expected to find. But I was lear
 --> fifteen 
 
 = fourteenA
+~ MayVisitedPaintedHarbor = true
 It's a town for passerbys. I don't think anyone really lives there. But it's a community all the same. The people there were kind. They set me on my way across the Sea of Stars to you. 
 ->->
 
 = fourteenB
+~ MayVisitedDragonHive = true
 I got to meet dragons, Jason! Dragons! I never would have thought of dragons colonized like bees. But somehow they, managed it, and built a massive hive! They took me in when I was tired, then set me on my way to you. 
 ->->
 
 = fourteenC
+~ MayVisitedAtlasOrigin = true
 A vast carven hand, wider than a mile, reaching up through the clouds to brace the Layers’ Edge. 
 {
-    - twoC:
+    - MaySawAtlas:
         #DIR 
         May motions to the statue that supports the broken pillar.
         #DIA 
@@ -386,14 +420,14 @@ I tried my best to find them. I searched for so long. But then I realized…
 + I didn’t need them any more. 
     There was a moment... <>
     {
-        - thirteenB: after I threw away the map the Cartographer gave me...
-        - thirteenC: after I disregarded the prediction the Astrologer gave me...
+        - MayMetCartographer: after I threw away the map the Cartographer gave me...
+        - MayMetAstrologer: after I disregarded the prediction the Astrologer gave me...
     }
     <> when I actually forgot my quest to find them. Not long after, I found <>
     {
-        - fourteenA: The Painted Harbor.
-        - fourteenB: The Dragon-Hive.
-        - fourteenC: The Atlas-Origin. 
+        - MayVisitedPaintedHarbor: The Painted Harbor.
+        - MayVisitedDragonHive: The Dragon-Hive.
+        - MayVisitedAtlasOrigin: The Atlas-Origin. 
     }
     I found what I was really searching for–
     ++ Somewhere I can feel safe
@@ -424,12 +458,12 @@ This isn’t a crypt, Jason. It’s no place to die. This is where you can decid
 # DIR 
 May motions upwards through the cylinder of starlight. 
 {
-    - twoA: <> She shows him the waving portal to the world they left behind. 
+    - MaySawPortalMundane: <> She shows him the waving portal to the world they left behind. 
     - else: -> twoA ->
 }
 Then she motions down, and Jason follows her gaze down along the starlight to its edge. 
 {
-    - twoB: <> Together they gaze into The Layers. 
+    - MaySawPortalLayers: <> Together they gaze into The Layers. 
     - else: -> twoB ->
 }
 -> nineteen

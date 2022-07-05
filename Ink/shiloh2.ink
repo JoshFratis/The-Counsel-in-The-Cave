@@ -12,6 +12,22 @@ JASON
 ->->
 
 = start
+VAR shilohTwoO = 0 
+VAR MaySawBrush = false 
+VAR MaySawForest = false 
+VAR MaySawFarmland = false
+VAR MaySawClovers = false
+
+VAR shilohSixO = 0
+VAR MaySawTruck = false 
+VAR MaySawCouch = false 
+VAR MaySawTransmissionTower = false     // these ones here 
+VAR MaySawOneWaySigns = false           // aren't currently used
+
+~ MayAndJasonPlayedPirates = false
+~ MayAndJasonPlayedGhostHunters = false
+~ MayAndJasonPlayedPaleontologists = false
+
 # THEME: white
 # DEFAULTTHEME: white
 # TITLE: THE COUNSEL IN THE CAVE
@@ -34,7 +50,7 @@ Two teenagers, Jason and May, enter the foreground from a gravel path that overl
 = two
 #PB
 { 
-    - twoO == 0: 
+    - shilohTwoO == 0: 
         # DIR 
         As they pass by the hill, May stops to look.
         # DIA 
@@ -42,20 +58,22 @@ Two teenagers, Jason and May, enter the foreground from a gravel path that overl
         Hold on, Jason. I want to take a minute. Just look at all of this.
 }
 # DIR
-* May gazes to the thicket growing wild on our left. 
++ {MaySawBrush == false} May gazes to the thicket growing wild on our left. 
     -> twoO -> twoB
-* May peers between the slender trees, waiting on the right. 
++ {MaySawForest == false} May peers between the slender trees, waiting on the right. 
     -> twoO -> twoA
-* {twoO >= 1} May scans the small squares of tilled farmland, patched into the distant hills.
++ {shilohTwoO >= 1} {MaySawFarmland == false} May scans the small squares of tilled farmland, patched into the distant hills.
     -> twoO -> twoC
-* {twoO >= 2} May inspects the clovers at her feet. 
++ {shilohTwoO >= 2} {MaySawClovers == false} May inspects the clovers at her feet. 
     -> twoO -> twoD
 //* twoD -> twoD
 
 = twoO
+~ shilohTwoO = shilohTwoO + 1
 ->->
 
 = twoA 
+~ MaySawForest = true
 #DIR 
 She remembers in the forest’s center, not far from here, there's a well kept lawn and a sturdy pavilion for picnic benches. Sidewalk chalk decorates its floor. All around it, gravel walking paths weave between the trees. Some extend further past the forest’s other side, through soccer fields and parking lots, to Shiloh Hills Elementary School. 
 #DIA
@@ -73,6 +91,7 @@ But it’s strange to think about, isn't it? We're about to graduate... to be a 
 -> two
 
 = twoAA 
+~ MayAndJasonPlayedPirates = true
 The pavillion was our island fortress, and some fallen log our ship? We would draw maps for ourselves in the dirt and pretend we knew where we were going. 
     
 JASON 
@@ -83,6 +102,7 @@ Of course I remember! How could I forget Captain May-Beard and Scallywag Jason?
 ->->
     
 = twoAB
+~ MayAndJasonPlayedGhostHunters = true
 We'd barely get ten feet into the trees before we ran out screaming. 
     
 JASON 
@@ -102,6 +122,7 @@ If that's how you rememeber it.
 ->->
 
 = twoAC
+~ MayAndJasonPlayedPaleontologists = true
 #DIA 
 And we'd make up our own names for the dinosaurs we discovered?
     
@@ -125,6 +146,7 @@ Yeah, I was pretty self-obsessed, wasn't I?
 ->->
 
 = twoB
+~ MaySawBrush = true
 # DIR 
 Low tangled trees root from rocky creek-beds. Dense brushes push against one another. Mosquitoes buzz and hum. 
 There, May spies an old rowboat split by a twisted vine. 
@@ -141,6 +163,7 @@ MAY
 --> two
 
 = twoC
+~ MaySawFarmland = true
 # DIR 
 Each one's shade is a different green or yellow. Dark lines between lend the texture of a coloring book. 
 
@@ -213,6 +236,7 @@ But still...
 -->->
 
 = twoD
+~ MaySawClovers = true
 # DIR 
 The field exists in some space between the lofty wooded park and the unkempt abandon. It’s kept clean of trees for the power lines above, but is not without thick washes of long kept clovers. Your feet would sink down if you stepped into the field, leaving tracks of trampled clovers where you went. 
 
@@ -228,11 +252,11 @@ The field exists in some space between the lofty wooded park and the unkempt aba
     JASON 
     What'd you wish for? 
     MAY 
-    + {twoAA} For one thousand gold dubloons... 
+    + {MayAndJasonPlayedPirates} For one thousand gold dubloons... 
         -> twoDAA ->
-    + {twoAB} To see a real ghost. 
+    + {MayAndJasonPlayedGhostHunters} To see a real ghost. 
         -> twoDAB ->
-    + {twoAC} That the Jason-osaurus was real. 
+    + {MayAndJasonPlayedPaleontologists} That the Jason-osaurus was real. 
         -> twoDAC ->
     + Only that I didn't have to graduate just yet.
         -> twoDB ->
@@ -341,24 +365,26 @@ Then the two continue on, briefly dipping out of sight before rising higher on t
 # PB
 # DIR 
 {
-    - sixO == 0: Then May stops walking to take in the view from above.
-    - sixO == 1: May isn't ready to move on.
-    - sixO == 2: Now Jason lingers on the landscape too.
-    - sixO == 3: Jason wonders what May's thinking. 
+    - shilohSixO == 0: Then May stops walking to take in the view from above.
+    - shilohSixO == 1: May isn't ready to move on.
+    - shilohSixO == 2: Now Jason lingers on the landscape too.
+    - shilohSixO == 3: Jason wonders what May's thinking. 
 }
-* May spots a rusty truck nestled in the underbrush. 
++ {MaySawTruck == false} May spots a rusty truck nestled in the underbrush. 
     -> sixO -> sixA
-* May sees a spotty couch left by the forest's edge. 
++ {MaySawCouch == false} May sees a spotty couch left by the forest's edge. 
     -> sixO -> sixB
-* {sixO >= 1} May sets her eyes on the transmission tower.
++ {shilohSixO >= 1} {MaySawTransmissionTower == false} May sets her eyes on the transmission tower.
     -> sixO -> sixC
-* {sixO >= 2} May spies two signposts sticking up from atop the hill. 
++ {shilohSixO >= 2} {MaySawOneWaySigns == false} May spies two signposts sticking up from atop the hill. 
     -> sixO -> sixD
 
 = sixO
+~ shilohSixO = shilohSixO + 1
 ->-> 
 
 = sixA
+~ MaySawTruck = true
 # DIR 
 Tanged in the thicket at the bottom of the hill, a pickup truck sits crooked. It has no tires or windshield. It’s colonized by rust, so much so that its blue paint can barely be seen beneath orange.
 # DIA 
@@ -400,6 +426,7 @@ MAY
 --> six
 
 = sixB
+~ MaySawCouch = true
 # DIR 
 The worn-out couch sits sheltered in the shade, though clearly it's seen better days. It faces west, as if someone sat here watching the sun go down. 
 # DIA 
@@ -470,6 +497,7 @@ You have a great story to tell!
 --> six
 
 = sixC
+~ MaySawTransmissionTower = true
 # DIA
 JASON
 When I was little, I thought those things were scarecrows for the cornfields.
@@ -510,6 +538,7 @@ Wow. That sounds incredible.
 -->->
 
 = sixD
+~ MaySawOneWaySigns = true
 # DIR 
 Stuck crooked in the clovers is a rusty metal rail, to the top of which is pinned a rectangular sign in black and white. Just past it is another  like it, leaning to the other side. May can't make out what either says from here. 
 # DIA 

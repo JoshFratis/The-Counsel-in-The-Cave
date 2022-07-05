@@ -2,6 +2,15 @@
 -> start 
 
 = start
+VAR sixAOVAR = 0 
+VAR sixBOVAR = 0 
+VAR sixCOVAR = 0 
+
+VAR sevenConditionOne = false
+VAR sevenConditionTwo = false
+
+VAR MayWasPoliteToMoondog = false
+
 # THEME: white
 # DEFAULTTHEME: white
 # TITLE: THE COUNSEL IN THE CAVE
@@ -78,7 +87,8 @@ MAY
     # DIA 
     MOONDOG
     Take a look around, my friend. 
-* It’s good to meet you too. 
++ {MayWasPoliteToMoondog} It’s good to meet you too. 
+    ~ MayWasPoliteToMoondog = true
     Moondog smiles, glad to see another friendly face.
     -> four 
 + What do you fish, out here in the clouds?
@@ -111,23 +121,23 @@ Moondog moves to May. He lets go of his rod, and it remains in place, floating i
  // One: See all three observations of one of three categories (Layers' Edge, The Layers, Moondog)
  // Two: See at least one observation from the sixB category (The Layers)
  # DIR 
-* {sixAO == 0} May tries to reach a little globe of gas, floating close at hand.
++ {sixAOVAR == 0} May tries to reach a little globe of gas, floating close at hand.
     -> sixAO -> sixAA ->
-* {sixAO == 1} May waves her hand into a colored cloud, wondering what they’re made of.
++ {sixAOVAR == 1} May waves her hand into a colored cloud, wondering what they’re made of.
     -> sixAO -> sixAB ->
-* {sixAO == 2} May looks on the landscape as if it were the surface of a lake, reflecting light and color.
++ {sixAOVAR == 2} May looks on the landscape as if it were the surface of a lake, reflecting light and color.
     -> sixAO -> sixAC ->
-* {sixBO == 0} Looking through The Layers, May can see flying manta rays passing between islands. 
++ {sixBOVAR == 0} Looking through The Layers, May can see flying manta rays passing between islands. 
     -> sixBO -> sixBA ->
-* {sixBO == 1} One world below reflects a field of purple grass, long and waving in the wind, atop towering sea-cliffs. 
++ {sixBOVAR == 1} One world below reflects a field of purple grass, long and waving in the wind, atop towering sea-cliffs. 
     -> sixBO -> sixBB ->
-* {sixBO == 2} As deep as she can see, May finds a lonely lighthouse on a subterranean sea.   
++ {sixBOVAR == 2} As deep as she can see, May finds a lonely lighthouse on a subterranean sea.   
     -> sixBO -> sixBC ->
-* {sixCO == 0} May examines Moondog’s weathered hands.
++ {sixCOVAR == 0} May examines Moondog’s weathered hands.
     -> sixCO -> sixCA ->
-* {sixCO == 1} May notices Moondog’s mismatched eyes.
-    -> sixCO -> sixCB ->
-* {sixCO == 2} May likes Moondog’s hat.
++ {sixCOVAR == 1} May notices Moondog’s mismatched eyes.
+   -> sixCO -> sixCB ->
++ {sixCOVAR == 2} May likes Moondog’s hat.
     -> sixCO -> sixCC ->
 -
 {
@@ -136,12 +146,15 @@ Moondog moves to May. He lets go of his rod, and it remains in place, floating i
 }
 
 = sixAO 
+~ sixAOVAR = sixAOVAR + 1
 ->->
 
 = sixBO
+~ sixBOVAR = sixBOVAR + 1
 ->->
 
 = sixCO
+~ sixCOVAR = sixCOVAR + 1
 ->->
 
 = sixAA 
@@ -177,7 +190,8 @@ You were stranded? My dad and I fix up boats for a living. Maybe I could help.
 
 MOONDOG
 Ha! You’re mighty kind. But I’m content to wander without a sail. Besides, I lost my ship long ago. She’s probably sunken somewhere far away by now. 
--> sevenConditionOne ->->
+~ sevenConditionOne = true
+->->
 
 = sixBA 
 # DIA 
@@ -189,7 +203,8 @@ How do they steer? I don’t see any reigns.
 
 MOONDOG
 Ha! They don’t! The riders surrender themselves to the creatures’ wills. That and the winds. See, the manta rays are blindfolded. They operate on instinct alone. 
--> sevenConditionTwo ->->
+~ sevenConditionTwo = true
+->->
 
 = sixBB
 # DIA 
@@ -210,7 +225,8 @@ Do you fish there?
 
 MOONDOG
 Nay. As if I could ever bring myself to break a constellation. Though I often go to visit my friend Roger the Automaton, who keeps The Lonely Lighthouse in my absence. That, and to simply see the star-fish.
--> sevenConditionOne ->->
+~ sevenConditionOne = true
+->->
 
 = sixCA 
  Moondog’s hands are cracked, but strong, like an old tree’s roots.
@@ -222,12 +238,7 @@ The old man wears an eye-patch over his right eye. His left is made of glass, bu
 
 = sixCC
 Moondog’s head is bare but for a comical night cap and little wisps of wiry white hair. His beard, however, is massive. 
--> sevenConditionOne ->->
-
-= sevenConditionOne
-->->
-
-= sevenConditionTwo
+~ sevenConditionOne = true
 ->->
 
 = seven

@@ -221,7 +221,7 @@ p.pageTurnLeft {
     position: absolute;
 
     margin: 0em;
-    top: 4em;
+    top: 0em;
     left: 0em;
 }
 
@@ -229,7 +229,7 @@ p.pageTurnRight {
     position: absolute;
 
     margin: 0em;
-    top: 4em;
+    top: 0em;
     right: 0em;
 }
 

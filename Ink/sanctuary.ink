@@ -31,6 +31,7 @@ VAR MayVisitedAtlasOrigin = false
 # TITLE: THE COUNSEL IN THE CAVE
 # TITLE: ACT III, FINALE
 # TITLE: COUNSEL IN THE CAVE
+# PN: 101
 -> one
 
 = one 

@@ -33,7 +33,8 @@ VAR MaySawOneWaySigns = false           // aren't currently used
 # TITLE: THE COUNSEL IN THE CAVE
 # TITLE: ACT I, SCENE I
 # TITLE: SHILOH HILLS
--> one
+# PN: 1
+-> ten
 
 = one 
 #DIA 

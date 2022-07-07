@@ -4,6 +4,7 @@
 #TITLE: THE COUNSEL IN THE CAVE 
 #SCENETITLE: THE COUNSEL IN THE CAVE 
 #IMAGE: img/shiloh.jpg
+# PN
 # DIA 
 By Joshua Fratis
 -> characters
@@ -16,12 +17,14 @@ By Joshua Fratis
 # PB 
 # DIA 
 #TITLE: CHARACTERS
+# PN: i
 MAY
 Late teens, woman.
 A teenage girl soon to graduate, caught between possible futures. 
 May is a wallflower. She's reserved, observant, and thoughtful. She notices people with careful consideration. She often sees through insecurity and never takes herself too seriously. May appreciates nature and loves to learn. She’s always reading something. 
 Recently accepted to Lehigh University, May has the unique opportunity to surround herself with young, thoughtful people much like herself. She has the opportunity to continue learning, growing, and changing. But May can’t bring herself to leave her hometown. She’s attached to this place in a way it seems no one else is.
 # PB 
+# PN: ii
 JASON
 Late teens, man. 
 Another teenager soon to graduate, fixated on a future he envisions for himself.
@@ -33,6 +36,7 @@ Jason is the creator of his high school’s D&D club. When he’s not practicing
 = contents
 # PB
 # TITLE: TABLE OF CONTENTS
+# PN: iii
 # DIA 
 + ACT I, SCENE I # NC
     # CLEAR 

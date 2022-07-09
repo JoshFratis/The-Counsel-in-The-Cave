@@ -39,6 +39,14 @@ VAR MayVisitedAtlasOrigin = false
 The curtain rises on a cavernous round room, lit solely by a long cylinder of starlight that falls down through its center. Wide rings of stone steps ripple out from where the light lands, as if this were an amphitheater, lit by a spotlight. 
 The sloped stone ceiling is held high by colossal pillars scattered randomly around the rings. The round room’s edges are unseen, like the backstage of a theater. 
 May enters from the audience. She should occupy the entirety of the performance space as if it were all part of the scene. As if the audience was seated within the scene itself. 
+
++ She wears a wizard's hat. 
+    <> It's blue with silver stars. 
++ She wears an anstronaut's space suit.
+    <> It's covered in patterned patches. 
++ She wears the same flannel she had on Shiloh Hills. 
+    <> Only there's a new patch sewn onto its shoulder. 
+-
 It’s then that we see Jason. He stands from a seat among the audience. He appears to be a ghost, passing through the rows and flitting between pillars. We can’t discern his precise form– it wavers and fades. But it's clear that he’s frightened, hiding in the dark.
 -> two 
 

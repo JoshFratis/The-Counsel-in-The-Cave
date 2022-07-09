@@ -10,6 +10,7 @@ VAR sevenConditionOne = false
 VAR sevenConditionTwo = false
 
 VAR MayWasPoliteToMoondog = false
+VAR MoondogMovedToMay = false
 
 # THEME: white
 # DEFAULTTHEME: white
@@ -21,19 +22,19 @@ VAR MayWasPoliteToMoondog = false
 
 = one 
 # DIR 
-May tumbles down through rows of smoke, turning over and over until she loses all sense of direction. She glimpses dizzy visions of her past and her future. 
+May tumbles down through rows of smoke, turning over and over until she loses all sense of direction. She glimpses dizzy visions of her past and of her future. 
 
-She sees herself and Jason searching their school in vain for their missing guidance counselor. She sees the clues come from the disappearance– and point to something magical at play. May watches as she wanders off alone on the trail of the Counselor, searching for secret worlds hidden beneath the school. She sees a portal open up before her– and she sees herself enter. 
+She sees herself and Jason searching their school in vain for their missing guidance counselor. She sees the clues come to light.– They point to something magical at play. May watches as she wanders off alone, searching for some secret world hidden beneath the school. She sees a portal open up before her. She sees herself enter. 
 
-May passes by her memories. She closes her eyes, unable to consider what she’s seen. She falls down, further down, into The Layers. 
+May passes by her memories. She closes her eyes, unable to consider what she’s seen. She falls down, further down into The Layers. 
 
 Blackout. 
 
-By a single spotlight, we see May alone. She’s resting on a wide slab of stone. As she wakes, the lights rise. Together we see where she’s landed. 
+By a single spotlight, we see May alone. She’s resting on a wide slab of stone. A jagged chunk of earth paved with cobblestone, like a broken piece of road. As she wakes, the lights rise. Together we see where May has arrived. 
 
-The stone is floating, suspended in a sea of colorful clouds. They drift past on little bits of wind, which mix the colors within. There’s no land below, nor clear sky above. All around, paths of floating stepping stones arc into the distant clouds. 
+The stone is suspended in a sea of clouds. They drift through slanted rays of multicolored light. There’s no land below, nor clear sky above. All around, paths of floating stepping stones arc into the distant mists. Glowing globes of gas float along the air, creating little constellations close at hand. 
 
-Aboard one small stone, not far away, sits an old man (MOONDOG). He holds a fishing rod. His line is cast into a cloud. 
+Aboard one small stone, not far away, sits an old man (MOONDOG). He holds a fishing rod. His line is cast into a colored cloud. 
 -> two 
 
 = two 
@@ -46,7 +47,7 @@ MAY
 
 = three
 # DIR 
-The old man overhears, then turns to May to greet her. 
+The old man overhears. He turns to May to greet her. 
 # DIA 
 MOONDOG
 Hello there! How do you fare on such a fine summer’s evening? 
@@ -74,7 +75,8 @@ MAY
 MAY
 + Layers’ Edge?
     # DIR 
-    Moondog’s eyes alight with blue fire. At once, he lets go of his rod, and it remains in place, floating in the air. The old man steps off from his floating stone, as if he were to plummet into the abyss below. But another floating stepping stone appears beneath his feet. He continues this way down to where May stands, walking on a hardly-formed path. 
+    Moondog’s eyes alight. At once, he steps his floating stone, as if he wished to cast himself into the clouds. But another floating stepping stone appears beneath his feet. He continues this way to where May stands, walking on a hardly-formed path. He leaves his rod behind and it remains in place, floating in the air.
+    ~ MoondogMovedToMay = true
     # DIA 
     MOONDOG
     Aye, Layers’ Edge. A border between worlds! The one above you come from…
@@ -82,17 +84,17 @@ MAY
     Moondog motions vaguely upward. 
     # DIA 
     MOONDOG
-    And naturally the greater Layers below. 
+    And The Layers below. 
     # DIR 
-    Moondog makes wide sweeping gestures below and around him.
+    Moondog makes wide sweeping gestures all around him.
     # DIA 
     MOONDOG
     Take a look around, my friend. 
-+ {MayWasPoliteToMoondog} It’s good to meet you too. 
++ {MayWasPoliteToMoondog == false} It’s good to meet you too. 
     ~ MayWasPoliteToMoondog = true
     Moondog smiles, glad to see another friendly face.
     -> four 
-+ What do you fish, out here in the clouds?
++ What do you fish out here in the clouds?
     MOONDOG
     Oh, many curiosities. Once, I caught a window frame that led to somewhere else. When I spied through it, I could see another land. 
     
@@ -110,15 +112,19 @@ MAY
 --> five
 
 = five 
-May peers over the bright abyss below. Glowing globes of gas float between the clouds, creating little constellations close at hand. 
+# DIR 
+May peers into the bright abyss below. 
 
-Peering even deeper is like looking in a lake, where one’s view shifts between the mirrored sky and darkened depths below the surface. Here, layer upon layer of such surfaces intersect one another. They’re stacked down, further down into infinity. Each one reflects a unique reality.
+It's like looking in a lake, where one’s view shifts between the mirrored sky and darkened depths below the surface. Here, layer upon layer of such surfaces intersect one another. They’re stacked down, further down into infinity. Each one reflects a unique reality.
 
-Moondog moves to May. He lets go of his rod, and it remains in place, floating in the air. The old man steps off from his floating stone, as if he were to plummet into the abyss below. But another floating stepping stone appears beneath his feet. He continues this way down to where May stands, walking on a hardly-formed path. 
+{
+    - MoondogMovedToMay == false: Moondog’s eyes alight. At once, he steps his floating stone, as if he wished to cast himself into the clouds. But another floating stepping stone appears beneath his feet. He continues this way to where May stands, walking on a hardly-formed path. He leaves his rod behind and it remains in place, floating in the air.
+        ~ MoondogMovedToMay = true
+}
  -> six 
  
  = six 
- // Requires player to fulfil two conditions to move on 
+ // Requires player to fulfill two conditions to move on 
  // One: See all three observations of one of three categories (Layers' Edge, The Layers, Moondog)
  // Two: See at least one observation from the sixB category (The Layers)
  # DIR 
@@ -183,6 +189,7 @@ They get their color from the overlapping of the Layers. All their lights inters
 ->->
 
 = sixAC 
+# DIA 
 MOONDOG
 Layers’ Edge is called by some The Sea of Stars. Makes sense to me. I first arrived aboard a ship, before I was stranded. 
 
@@ -212,8 +219,7 @@ Ha! They don’t! The riders surrender themselves to the creatures’ wills. Tha
 MOONDOG
 I remember an old empire staked its claim atop those cliffs. Now of them you won’t hear more than mention. Save from the speaking reeds that echo calls of dead men.
 
-Things often go awry where The Layers intersect. Here, The Subterranean Sea crashes 
-against The Fields of Speaking Reeds. From the confluence comes disaster for any would-be conqueror. 
+Things often go awry where The Layers intersect. Here, The Subterranean Sea crashes against The Fields of Speaking Reeds. From the confluence comes disaster for any would-be conqueror. 
 ->->
 
 = sixBC 
@@ -282,7 +288,7 @@ MAY
 + Haven't you explored? Tried to understand this place? 
 
     MOONDOG
-    Oh, I did when I was younger. But those days have long since passed. Now I’m content to let The Layers be what they may. I’ve learned to let the fish find me, so to speak. 
+    Oh, I did when I was younger. But those days have long since passed. Now I’m content to let The Layers be what they may. I’ve learned to let the fish find me, so to speak. That’s what I’d recommend, if you wish to find your way within The Layers.
 --> nine
 
 = nine 
@@ -303,62 +309,8 @@ Moondog gives a little whistle and his rod returns to him. Then he reels it in. 
 MOONDOG
 Take this on your journey. Good luck, my friend. You’re well on your way.   
 --> ten 
-
+    
 = nineB
-# DIA 
-+ Won’t you help me pick a place to start searching?
-    -> nineBA 
-+ I can do it on my own. 
-    -> nineBB 
-    
-= nineBA 
-# PB 
-# DIA 
-MOONDOG
-Nay. My tales would be no use. But if your mind cannot be swayed, there are some I know who tell me they are worthy guides. 
-
-Never saw much sense in it myself, but some attempt to chart The Layers. The Crazed Cartographer’s been at it for years. They’re your best bet, if you’re looking for a map. They abide within the old root-house here on Layers’ Edge. 
-
-Echo the Astrologer is a well known lass, indeed. She’s a scientist turned fortune teller. She works in her Inverted Observatory out over the lake, charting stars to see the future. I'd say there’s not much sense in it, but most folk seem to disagree. If you want to know your destiny… most folk would turn to her. 
-
-My friend Roger the Automaton is the first I’d recommend, though the last most folk would seek. He doesn’t travel far from The Lone Lighthouse. He doesn’t speak much at all. He may not have much for directions, but certainly he’d listen. 
-
-Take that with what you may. Is there one that strikes your fancy? If indeed, I can send you on your way. I’m not much for directions, but I know how to find my friends. 
-
-MAY 
-+ I could use a map. The Cartographer it is!
-    -> nineBAA
-+ Echo sounds like she’d know what I should do. 
-    -> nineBAB
-+ I’d like to talk to Roger.
-    -> nineBAC
-+ I think I’ll try to find my Counselor myself. 
-    -> nineBB
-+ Actually, I think I might try fishing, like you said before. 
-    -> nineA
-    
-= nineBAA 
-MOONDOG
-Aye. I thought that's what you’d say. Finding that old loon is rather simple. Follow this path of floating stones until you reach a weathervane. Disregarding its direction, go whichever way the wind is pointed. From there you won’t be far from the old root-house. 
-
-I wish you luck, my friend. I’ll be seeing you soon.
--> ten 
-
-= nineBAB
-MOONDOG
-Ha! That’s not what I expected. Still, I wish you luck. The Inverted Observatory isn’t difficult to find. Follow the paths of floating stones until you reach a spiral stair. Travel down thirty flights, then turn around and climb upwards twenty more. The tower should be waiting for you there. 
-
-I wish you luck, my friend. I’ll be seeing you soon. 
--> ten 
-
-= nineBAC 
-MOONDOG 
-He’ll be glad to see some company. And you won’t have trouble finding him, what with him being stationed at a beacon and all. Just continue to descend until you reach the water. Once you find a boat, it won’t be long til you arrive. 
-
-Tell him I say hello! 
--> ten 
-    
-= nineBB 
 # DIA 
 MOONDOG
 Aye, suit yourself. The Layers’ Edge will take you as you are. I wish you the best of luck, my friend.

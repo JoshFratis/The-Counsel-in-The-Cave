@@ -470,8 +470,33 @@ I tried my best to find them. I searched for so long. But then I realized…
 
 = seventeen
 # PB
-# DIR 
-Jason looks down through his fading hands, as if that's the last thing he wanted to hear. 
+//# DIR 
+//Jason looks down through his fading hands, as if that's the last thing he wanted to hear. 
+
+# DIA 
+JASON 
+We're a long ways from Shiloh Hills, aren't we, May? 
+
+MAY 
+{ 
+    - MayAndJasonPlayedPirates: 
+        (teasing) 
+        That's "Captain May-Beard" to you, Scallywag Jason. 
+    - MayAndJasonPlayedGhostHunters: 
+        (teasing) 
+        Well, I'm still finding ghosts where I least expect them. 
+    - MayAndJasonPlayedPaleontologists:   
+        Well, to me it just looks like you kept digging up fossils. 
+       
+        JASON 
+        What? 
+        
+        May 
+        (teasing) 
+        So many that you started to look like one.  
+}
+We're not that far from home, Jason. We're still stuck in our imagination.
+
 # DIA 
 JASON
 So why are you here, May? You’re no ghost. If you understand The Layers, you can leave this crypt. 

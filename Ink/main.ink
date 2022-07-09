@@ -11,6 +11,13 @@ VAR MayAndJasonPlayedPirates = false
 VAR MayAndJasonPlayedGhostHunters = false
 VAR MayAndJasonPlayedPaleontologists = false
 
+// Set in Layers' Edge
+// Used in Sanctuary 
+VAR MayGotFishingPole = false
+VAR MayCaughtCrowsNest = false 
+VAR MayCaughtSocks = false 
+VAR MayCaughtFlyingFish = false
+
 // Set in Sanctuary
 // Used in FinaleOne 
 VAR JasonWanderedForest = false

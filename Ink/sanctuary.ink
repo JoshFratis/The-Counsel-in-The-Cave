@@ -306,7 +306,29 @@ May… where is this coming from? Last time we talked… you weren’t okay. I c
 
 MAY
 I thought I needed help too. That’s why I came looking for The Counselor. But I’ve learned so much since then. 
-At first, I was lost too.
+I met a friend who helped me as best he could.
+
+{
+    - MayGotFishingPole: 
+        He's the one who gave me this! 
+        # DIR 
+        May holds up her fishing pole. She still has it. 
+        # DIA 
+        MAY 
+        It's more helpful than you'd think. <>
+        
+        <> The <>
+        {
+            - MayCaughtCrowsNest: <>crow's nest<>
+            - MayCaughtSocks:  <>socks<>
+            - MayCaughtFlyingFish: <>flying fish<>
+        }
+        <> I caught led me across Layers' Edge. 
+        
+    - else: 
+        I don't think it's his fault he couldn't help me find them. It's not really what you do on Layers' edge. But that's what I expected anyway, so it didn't take  long for me to get totally lost. 
+}
+
 + I wandered to the Darkened University, floating in the snow.
     -> twelveA ->
 + I climbed along the Silken Trails, where giant spiders prey. 

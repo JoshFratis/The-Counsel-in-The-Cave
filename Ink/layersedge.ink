@@ -12,6 +12,11 @@ VAR sevenConditionTwo = false
 VAR MayWasPoliteToMoondog = false
 VAR MoondogMovedToMay = false
 
+~ MayGotFishingPole = false
+~ MayCaughtCrowsNest = false 
+~ MayCaughtSocks = false 
+~ MayCaughtFlyingFish = false 
+
 # THEME: white
 # DEFAULTTHEME: white
 # TITLE: THE COUNSEL IN THE CAVE
@@ -301,6 +306,7 @@ I can’t imagine fishing up my Counselor.
     -> nineB 
 
 = nineA
+~ MayGotFishingPole = true
 MOONDOG
 Aye. I’d be glad to have another angler here on Layers’ Edge. I think I have an artifact that may be of some use. 
 # DIR 
@@ -310,10 +316,13 @@ May takes the rod. She easily casts it into a nearby cloud.
 
 It's not long before she feels a tug. 
 + May draws a crow's nest from the depths. 
+    ~ MayCaughtCrowsNest = true
     -> nineAA ->
-+ May has caught a pair of bright striped socks. 
++ May has caught a pair of bright striped socks.
+    ~ MayCaughtSocks = true
     -> nineAB ->
 + May has hooked a giant flying goldfish by its harness. 
+    ~ MayCaughtFlyingFish = true 
     -> nineAC ->
 - 
 # DIA 

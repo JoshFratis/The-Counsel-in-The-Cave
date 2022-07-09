@@ -305,18 +305,90 @@ MOONDOG
 Aye. I’d be glad to have another angler here on Layers’ Edge. I think I have an artifact that may be of some use. 
 # DIR 
 Moondog gives a little whistle and his rod returns to him. Then he reels it in. On the end of the line is hooked another fishing rod, which he gives to May. 
+
+May takes the rod. She easily casts it into a nearby cloud. 
+
+It's not long before she feels a tug. 
++ May draws a crow's nest from the depths. 
+    -> nineAA ->
++ May has caught a pair of bright striped socks. 
+    -> nineAB ->
++ May has hooked a giant flying goldfish by its harness. 
+    -> nineAC ->
+- 
 # DIA 
-MOONDOG
-Take this on your journey. Good luck, my friend. You’re well on your way.   
---> ten 
+MAY 
+Thanks for your help, Moondog!
+
+MOONDOG 
+Don't mention it, kid. You're well on your way! 
+-> continue 
     
+
+= nineAA
+# DIR 
+The mast reaches down into the cloudy depths. The basket meets May's feet. It leans and creaks. 
+# DIA 
+MOONDOG 
+Well, what're you waiting for? The Layers have given you a gift! This appears to be a fine ship!
+
+MAY 
+You think this will take me where I want to go? 
+
+MOONDOG 
+On that, I can't be sure. But you stopped to listen to The Layers. I'd regard their answer carefully. This seems as good a path as any, does it not? 
+
+MAY 
+I guess you've got a point. 
+
+# DIR 
+May steps aboard the sturdy crow's nest. Almost instantly it begins to lean away, as if its hidden ship had launched into an unseen sea. It begins a journey across Layers' Edge. 
+
+May turns back to wave goodbye to Moondog. 
+->->
+
+= nineAB 
+# DIR 
+They quickly hop off the hook and dance a circle around May's ankles. She watches as they leap from one stepping stone to another closeby, beginning their escape through Layers' Edge. 
+# DIA 
+MOONDOG 
+Well, what're you waiting for? The Layers have given you a gift! After that catch! 
+
+MAY 
+(startled from her stupor)
+Right! 
+# DIR 
+May leaps after the pair of rogue socks, but not without turning to say a brief goodbye. 
+->-> 
+
+= nineAC 
+# DIR 
+It circles May and Moondog, awaiting a command. 
+
+# DIA 
+MOONDOG 
+Well, what're you waiting for? The Layers have given you a gift! This appears to be a fine beast!
+
+MAY 
+You think this fish will take me where I want to go? 
+
+MOONDOG 
+On that, I can't be sure. But you stopped to listen to The Layers. I'd regard their answer carefully. She seems as good a guide as any, does she not? 
+
+MAY 
+I guess you've got a point. 
+
+# DIR 
+May reels in the floating fish and climbs aboard. Its scales are shining in the multicolored light. Almost instantly it begins to swim away, pulling May along on Layers' Edge. 
+
+May turns back to wave goodbye to Moondog. 
+->-> 
+
 = nineB
 # DIA 
 MOONDOG
 Aye, suit yourself. The Layers’ Edge will take you as you are. I wish you the best of luck, my friend.
--> ten 
 
-= ten 
 # DIR 
 May nods. As if they had been listening, the surrounding stones slowly float to form a little path. With a grateful look over her shoulder, May begins her journey across Layers’ Edge. 
 -> continue 

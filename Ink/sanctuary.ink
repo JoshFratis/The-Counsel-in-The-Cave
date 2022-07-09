@@ -259,6 +259,12 @@ I kept wandering. And eventually, <>
 = ten 
 # DIR 
 Jason sinks lower, melting through the stone step beneath him. 
+# DIA 
+JASON 
+{
+    - MaySaysTheFutureIsHaunted: You said the future's haunted. Well, look who's haunted now. 
+    - MaySaysTheFutureHauntsHer: You said the future's haunting you. Well, look who's haunting now. 
+}
 
 # DIA 
 MAY

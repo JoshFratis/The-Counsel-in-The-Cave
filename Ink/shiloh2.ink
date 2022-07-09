@@ -28,6 +28,9 @@ VAR MaySawOneWaySigns = false           // aren't currently used
 ~ MayAndJasonPlayedGhostHunters = false
 ~ MayAndJasonPlayedPaleontologists = false
 
+~ MaySaysTheFutureIsHaunted = false 
+~ MaySaysTheFutureHauntsHer = false 
+
 # THEME: white
 # DEFAULTTHEME: white
 # TITLE: THE COUNSEL IN THE CAVE
@@ -559,9 +562,10 @@ MAY
 + No. Whenever I do, I get this terrible feeling. So I don’t. 
     Even though I should be happy to have been accepted. 
     It’s like the future is haunted. 
+    ~ MaySaysTheFutureIsHaunted = true 
 + You’ve got it backwards, Jason. I haven’t stopped thinking about it since I got accepted. 
-
     It’s like the future is haunting me. 
+    ~ MaySaysTheFutureHauntsHer = true
 -
 JASON
 But I know what you mean when you say you’re still not sure. Even though it’s a good school and all. 

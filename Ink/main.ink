@@ -6,10 +6,14 @@ INCLUDE fishermanFinaleTwoApart
 INCLUDE script.ink
 INCLUDE layersedge.ink
 
-// Set in Shiloh, Used...?
+// Set in Shiloh
+// Used in Sanctuary
 VAR MayAndJasonPlayedPirates = false
 VAR MayAndJasonPlayedGhostHunters = false
 VAR MayAndJasonPlayedPaleontologists = false
+
+VAR MaySaysTheFutureIsHaunted = false
+VAR MaySaysTheFutureHauntsHer = false
 
 // Set in Layers' Edge
 // Used in Sanctuary 

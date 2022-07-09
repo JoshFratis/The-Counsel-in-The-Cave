@@ -378,9 +378,17 @@ Then the two continue on, briefly dipping out of sight before rising higher on t
     -> sixO -> sixA
 + {MaySawCouch == false} May sees a spotty couch left by the forest's edge. 
     -> sixO -> sixB
-+ {shilohSixO >= 1} {MaySawTransmissionTower == false} May sets her eyes on the transmission tower.
++ {shilohSixO >= 1} May makes way for a wooden cart wheel rolling on its own.
+    -> sixO -> sixE
++ {shilohSixO >= 2} {MayAndJasonPlayedPirates} May spots a treasure chest strung up by vines.  
+    -> sixO -> sixFA
++ {shilohSixO >= 2} {MayAndJasonPlayedGhostHunters} May sees a ghost passing in between the trees.  
+    -> sixO -> sixFB
++ {shilohSixO >= 2} {MayAndJasonPlayedPaleontologists} May spots a stegosaurus munching on a leafy tree.  
+    -> sixO -> sixFC
++ {shilohSixO >= 3} {MaySawTransmissionTower == false} May sets her eyes on the transmission tower.
     -> sixO -> sixC
-+ {shilohSixO >= 2} {MaySawOneWaySigns == false} May spies two signposts sticking up from atop the hill. 
++ {shilohSixO >= 4} {MaySawOneWaySigns == false} May spies two signposts sticking up from atop the hill. 
     -> sixO -> sixD
 
 = sixO
@@ -551,6 +559,103 @@ Come on. I want to see what's up there.
 # DIR 
 The two continue on, climbing to the signs. 
 -> seven -> eightB
+
+= sixE 
+# DIR 
+A half-dozen others follow in a random arrangement. They leave thin tracks in the clovers. They roll over the field, then rattle across the rocky creek beds. May loses sight after they arc over the hill. 
+# DIA 
+MAY
+I wonder where they go. 
+JASON
+You think they're going anywhere? I always thought of them as tumbleweeds, rolling with the wind. 
+MAY
++ I know they have a mind of their own. They must be going somewhere.  
++ But what's rolling them? It's not the wind. 
+// Follow up with 'what could be rolling them' and 'where they must be going'
+--> six 
+
+= sixFA 
+# DIR 
+It's suspended far above them, tangled near the treetops. It looks as if it were an insect caught in a giant spider's web. 
+# DIA 
+JASON 
+How'd we'd never catch that one? I swear we found them all! 
+
+MAY 
+(teasing) 
+Speak for yourself. I first had my eye on this one over ten years ago.
+
+JASON 
+What! And you never mentioned it? There could be gold in there, May! 
+
+MAY 
++ I knew that if I ever told you, you'd break your neck getting it down. 
+
+    JASON 
+    That's not fair. 
+    
+    MAY 
+    You know it's true! 
+    
++ You want to mess with the spider-vines?
+    
+    JASON 
+    (thinking) 
+    No, I guess you're right. It'll stay there for another day. 
+    
+// + All that's ever in those chests is sand. 
+    MAY 
+- Besides, all that's ever in those chests is sand. 
+// Make this ^ one of the choices? 
+--> six 
+
+= sixFB 
+# DIR 
+It casts a half-shadow where it intersects the sunlight, so we can always see its silhouette. May points out the half-there person. 
+# DIA 
+JASON 
+I haven't seen a ghost since we were kids. You don't know her, do you? 
+MAY 
++ Actually, I do. 
+    I met her a few years ago, when I ate my lunch in the woods. She's sweet. But a little skittish. 
++ No, I've never talked to her. 
+    <> I think she's a little skittish. 
+-
+JASON 
+That makes sense. Probably best not to stare, right? 
+
+MAY 
+Yeah. We're not ghost-hunters anymore. 
+--> six 
+
+= sixFC 
+# DIR 
+For such a massive creature, it's surprisingly easy to miss. It's emerald plates and scales blend well with the trees. It makes no movements that aren't needed. Otherwise, it's still. May points it out to Jason. 
+# DIA 
+JASON 
+I haven't seen one of those since we were kids. Do you see them often? 
+
+MAY 
++ They're a pretty common sight, if you're not too loud. 
+    
+    JASON 
+    I guess that's why I haven't seen one in so long. 
+    
+    MAY 
+    Well, I wasn't going to say it...
+    
+    JASON 
+    (teasing) 
+    But you totally did. 
+    
+    MAY 
+    (smiling) 
+    Yeah... I guess I did. 
+    
++ No, not since we were kids. 
+    You know... climate change. 
+    It's good to see they're still around. I never get tired of seeing them do their thing. 
+--> six 
 
 = seven
 # PB

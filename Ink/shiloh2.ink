@@ -21,12 +21,17 @@ VAR MaySawClovers = false
 VAR shilohSixO = 0
 VAR MaySawTruck = false 
 VAR MaySawCouch = false 
+VAR MaySawWheel = false
+VAR MaySawMemory = false
 VAR MaySawTransmissionTower = false     // these ones here 
 VAR MaySawOneWaySigns = false           // aren't currently used
 
 ~ MayAndJasonPlayedPirates = false
 ~ MayAndJasonPlayedGhostHunters = false
 ~ MayAndJasonPlayedPaleontologists = false
+
+~ MaySaysTheFutureIsHaunted = false 
+~ MaySaysTheFutureHauntsHer = false 
 
 # THEME: white
 # DEFAULTTHEME: white
@@ -56,10 +61,10 @@ Two teenagers, Jason and May, enter the foreground from a gravel path that overl
         As they pass by the hill, May stops to look.
         # DIA 
         MAY 
-        Hold on, Jason. I want to take a minute. Just look at all of this.
+        Jason, wait up. Take a look at all of this. 
 }
 # DIR
-+ {MaySawBrush == false} May gazes to the thicket growing wild on our left. 
++ {MaySawBrush == false} May gazes through the thicket growing wild on our left. 
     -> twoO -> twoB
 + {MaySawForest == false} May peers between the slender trees, waiting on the right. 
     -> twoO -> twoA
@@ -79,12 +84,12 @@ Two teenagers, Jason and May, enter the foreground from a gravel path that overl
 She remembers in the forest’s center, not far from here, there's a well kept lawn and a sturdy pavilion for picnic benches. Sidewalk chalk decorates its floor. All around it, gravel walking paths weave between the trees. Some extend further past the forest’s other side, through soccer fields and parking lots, to Shiloh Hills Elementary School. 
 #DIA
 MAY
-Do you remember when we’d play make believe here as kids?
-+ When we’d imagine we were pirates, searching for buried treasure?
+Do you remember when we’d play make-believe here as kids?
++ We’d imagine we were pirates, searching for buried treasure?
     -> twoAA ->
-+ When we’d wander through the woods hunting ghosts?
++ We’d wander through the woods hunting ghosts?
     -> twoAB ->
-+ When all we’d do was dig up rocks and we pretended they were fossils?
++ All we’d do was dig up rocks and we pretended they were fossils?
     -> twoAC ->
 -
 MAY
@@ -93,7 +98,7 @@ But it’s strange to think about, isn't it? We're about to graduate... to be a 
 
 = twoAA 
 ~ MayAndJasonPlayedPirates = true
-The pavillion was our island fortress, and some fallen log our ship? We would draw maps for ourselves in the dirt and pretend we knew where we were going. 
+The pavilion was our island fortress, and some fallen log our ship? We would draw maps for ourselves in the dirt and pretend we knew where we were going. 
     
 JASON 
 #INF 
@@ -119,7 +124,7 @@ MAY
 You mean you were terrified. I wasn't scared.
 
 JASON 
-If that's how you rememeber it.
+If that's how you remember it.
 ->->
 
 = twoAC
@@ -149,24 +154,23 @@ Yeah, I was pretty self-obsessed, wasn't I?
 = twoB
 ~ MaySawBrush = true
 # DIR 
-Low tangled trees root from rocky creek-beds. Dense brushes push against one another. Mosquitoes buzz and hum. 
-There, May spies an old rowboat split by a twisted vine. 
+Little can be seen through the dense canopy of low tangled trees. Beneath the brush, mosquitoes buzz and hum. Resting on a rocky creek bed written with tree-roots, May spies an old rowboat split by a twisted vine.
 # DIA 
 JASON
-Whoah. Do you think your dad could fix that? You’re still helping him on the weekends, aren't you?
+Whoah. You think your dad could fix that? You’re still helping him on weekends, aren't you?
 
 MAY
-+ Yeah. I never would have thought I’d be spending my last weeks of high school fixing boats with my dad.
-    But I like it. He needs the help, too. I'm not sure what he's going to do once I leave for college. If I leave for college, that is. 
++ Yeah, I am. It’s strange to be spending my last weeks of high school in the shop with my dad.
+    But I’m happy to help. . I'm not sure what he’ll do once I leave for college. If I even go to college, that is. 
 + That thing down there is pretty far gone. It’s beyond repair. 
-    Still, I can see him lugging that old thing back to the shop. He’ll put hours into patching that shattered hull, for no good reason other than to find what he imagines it could be. 
+    Still, I can see him lugging that old thing back to the shop. He’d put hours into patching that shattered hull, for no good reason other than to uncover what he imagines it could be. 
     He’s like that. And I love him for it.
 --> two
 
 = twoC
 ~ MaySawFarmland = true
 # DIR 
-Each one's shade is a different green or yellow. Dark lines between lend the texture of a coloring book. 
+Each one's shade is a different green or yellow. Dark lines between the patches lend them the texture of a coloring book. 
 
 # DIA
 JASON
@@ -209,20 +213,20 @@ No college around here is any good for music. But in a few months I’ll be on m
 ->->
 
 = twoCMay
-I saw a class at Lehigh called...
+I saw one class at Lehigh that got me so excited. It’s called...
     /*+ Back to the Land
         It's about how people living in communes engage with nature.  Don't you want to know more about that? The only thing people around here think nature is good for is feeding cows and hunting deer. */
     + One Hundred Poems
-        I think that one is what it says on the tin. But don't you want to read one hundred poems?!
-    + Linguistic Antropology
-        It's about how different languages shape societies. No one even thinks about that kind of thing around here.
+        I think that one’s what it says on the tin. But don't you want to read a hundred poems?
+    + Linguistic Anthropology
+        It's about how different languages shape societies. I’d never even thought about that before. 
     + Queer Futures
         It's a poetry class. You'd never hear anyone around here talk about 'queer futures.'
 - There's just so much out there to learn. 
 
 - # DIA 
 But still...
-+ There's still so much left for me here.
++ There's so much left for me here.
     These little places I've carved out for myself. The friends I've worked so hard to make. My dad! 
     How can I leave all that behind? 
     
@@ -242,10 +246,10 @@ But still...
 The field exists in some space between the lofty wooded park and the unkempt abandon. It’s kept clean of trees for the power lines above, but is not without thick washes of long kept clovers. Your feet would sink down if you stepped into the field, leaving tracks of trampled clovers where you went. 
 
 + May lets a lady-bug rest on her finger. 
-    She lifts it up to her eye to look at it closely. Sunlight fills the cracks in its red carapace. Then she blows it away, sending it off into the near-summer air.  
+    She lifts it up to her eye to look at it closely. Sunlight fills the cracks in its red carapace. Then she blows it away, sending it off through the near-summer air.  
     -> twoDA
 + May picks a dandelion growing between clovers. 
-    Then she blows away the seeds, scattering white whisps through the near-summer air.
+    Then she blows away the seeds, scattering white wisps into the near-summer air.
     -> twoDA
     
 = twoDA
@@ -253,17 +257,18 @@ The field exists in some space between the lofty wooded park and the unkempt aba
     JASON 
     What'd you wish for? 
     MAY 
-    + {MayAndJasonPlayedPirates} For one thousand gold dubloons... 
+    + {MayAndJasonPlayedPirates} For one thousand gold doubloons... 
         -> twoDAA ->
     + {MayAndJasonPlayedGhostHunters} To see a real ghost. 
         -> twoDAB ->
-    + {MayAndJasonPlayedPaleontologists} That the Jason-osaurus was real. 
+    + {MayAndJasonPlayedPaleontologists} Just that the Jason-osaurus was real. 
         -> twoDAC ->
     + Only that I didn't have to graduate just yet.
         -> twoDB ->
     + Well if I told you, it wouldn't come true. 
             Everyone knows that, Jason.
         JASON 
+        (smiles)
         How could I forget?
 --> three
 
@@ -274,14 +279,15 @@ Why's that?
 
 MAY 
 + Because there's too much here to leave behind. 
-+ Becuase  my friends are moving away.
++ Because my friends are moving away.
 + Because I don't know if I should stay or go. 
 -->->
 
 = twoDAA 
 # DIA 
 JASON 
-    Sounds like someone hasn't given up on Captain May-Beard and Scallywag Jason. 
+(grinning)
+Sounds like someone hasn't given up on Captain May-Beard and Scallywag Jason. 
     MAY 
     + I don't know why they still live in my head. 
         They just haven't found a reason to leave, I guess.
@@ -346,7 +352,7 @@ This hill is so different each time we’re here. It only took two weeks for eve
 But can you see the parallel paths we took two weeks ago? They’re still there, pressed into the field.
 */
 
-It's then that Jason startles May with an observation of his own.
+Jason startles May with an observation of his own.
 # DIA 
 JASON
 Check out all these clovers, May! How they flood the hill? They’re different each time we come here, you know. Remember last time? It was only dry grasses? Those huge dragonflies? Now there are all these little round flowers.
@@ -368,16 +374,25 @@ Then the two continue on, briefly dipping out of sight before rising higher on t
 {
     - shilohSixO == 0: Then May stops walking to take in the view from above.
     - shilohSixO == 1: May isn't ready to move on.
-    - shilohSixO == 2: Now Jason lingers on the landscape too.
-    - shilohSixO == 3: Jason wonders what May's thinking. 
+    - shilohSixO == 2: May isn't ready to move on.
+    - shilohSixO == 3: Now Jason lingers on the landscape.
+    - shilohSixO == 4: Jason wonders what May's thinking. 
 }
 + {MaySawTruck == false} May spots a rusty truck nestled in the underbrush. 
     -> sixO -> sixA
-+ {MaySawCouch == false} May sees a spotty couch left by the forest's edge. 
++ {MaySawCouch == false} May sees a spotty sofa left by the forest's edge. 
     -> sixO -> sixB
-+ {shilohSixO >= 1} {MaySawTransmissionTower == false} May sets her eyes on the transmission tower.
++ {shilohSixO >= 1} {MaySawWheel == false} May makes way for a wooden cart wheel rolling on its own.
+    -> sixO -> sixE
++ {shilohSixO >= 2} {MayAndJasonPlayedPirates} {MaySawMemory == false} May spots a treasure chest strung up by vines.  
+    -> sixO -> sixFA
++ {shilohSixO >= 2} {MayAndJasonPlayedGhostHunters} {MaySawMemory == false} May sees a ghost passing in between the trees.  
+    -> sixO -> sixFB
++ {shilohSixO >= 2} {MayAndJasonPlayedPaleontologists} {MaySawMemory == false} May spots a stegosaurus munching on a leafy tree.  
+    -> sixO -> sixFC
++ {shilohSixO >= 3} {MaySawTransmissionTower == false} Jason sets her eyes on the transmission tower.
     -> sixO -> sixC
-+ {shilohSixO >= 2} {MaySawOneWaySigns == false} May spies two signposts sticking up from atop the hill. 
++ {shilohSixO >= 4} {MaySawOneWaySigns == false} Jason spies two signposts sticking up from atop the hill. 
     -> sixO -> sixD
 
 = sixO
@@ -387,7 +402,7 @@ Then the two continue on, briefly dipping out of sight before rising higher on t
 = sixA
 ~ MaySawTruck = true
 # DIR 
-Tanged in the thicket at the bottom of the hill, a pickup truck sits crooked. It has no tires or windshield. It’s colonized by rust, so much so that its blue paint can barely be seen beneath orange.
+Tangled in the thicket at the bottom of the hill, a pickup truck sits crooked. It has no tires or windshield. It’s colonized by rust, so much so that its blue paint can barely be seen beneath orange.
 # DIA 
 MAY
 It reminds me of Saige’s truck. 
@@ -432,7 +447,7 @@ MAY
 The worn-out couch sits sheltered in the shade, though clearly it's seen better days. It faces west, as if someone sat here watching the sun go down. 
 # DIA 
 MAY
-Do you remember the time we tied a sofa to your car? And you dragged it down Penn Ave like a trailer, with Saige and I sitting on it?
+Do you remember that time we tied a sofa to your car? And you dragged it down Penn Ave like a trailer, with Saige and I sitting on it?
 
 JASON
 Of course I do! That was one of my best ideas yet.
@@ -470,12 +485,12 @@ MAY
 -
 MAY
 + We nearly got arrested!
-    The cops were not impressed with your engineering. Especially after you drove right past the station!
+    The cops were not impressed with your feat of engineering. Especially after you drove right past the station!
 + It almost caught on fire!
     We had to stomp it out in the McDonald's parking lot! 
         ++ I swore I'd never go back there! 
             They paid me minimum wage, for god's sake.
-        ++ It was so embarassing!
+        ++ It was so embarrassing!
 -
 JASON
 And now we have a great story to tell when we go to college!
@@ -527,7 +542,9 @@ The two continue on, climbing towards the tower.
 # DIA 
 It was this massive mobile hidden in the forest. When the wind blew, it would make the most beautiful music. 
 + Like overgrown wind chimes.
+	With a random rhythm that reminded you of music. 
 + Like an organ set on the loose.
+	No one at the keys to control it. 
 -
 + My dad and I found it together by following the sound.
     We'd do that, him and I. Always sneaking off to chase down curiosities.
@@ -543,11 +560,114 @@ Wow. That sounds incredible.
 # DIR 
 Stuck crooked in the clovers is a rusty metal rail, to the top of which is pinned a rectangular sign in black and white. Just past it is another  like it, leaning to the other side. May can't make out what either says from here. 
 # DIA 
+JASON
+What do you think those two signs say?
 MAY 
-Come on. I want to see what's up there. 
+I’m not sure. I can’t read them from here. Come on, let's get closer. 
 # DIR 
 The two continue on, climbing to the signs. 
 -> seven -> eightB
+
+= sixE 
+~ MaySawWheel = true
+# DIR 
+A half-dozen others follow in a random arrangement. They leave thin tracks in the clovers. They roll over the field, then rattle across the rocky creek beds. May loses sight after they arc over the hill. 
+# DIA 
+MAY
+I wonder where they go. 
+JASON
+You think they're going anywhere? I always thought of them as tumbleweeds, rolling with the wind. 
+MAY
++ I know they have a mind of their own. They must be going somewhere.  
++ But what's rolling them? It's not the wind. 
+// Follow up with 'what could be rolling them' and 'where they must be going'
+--> six 
+
+= sixFA 
+~ MaySawMemory = true
+# DIR 
+It's suspended far above them, tangled near the treetops. It looks as if it were an insect caught in a giant spider's web. 
+# DIA 
+JASON 
+How'd we'd never catch that one? I swear we found them all! 
+
+MAY 
+(teasing) 
+Speak for yourself. I first had my eye on this one over ten years ago.
+
+JASON 
+What! And you never mentioned it? There could be gold in there, May! 
+
+MAY 
++ I knew that if I ever told you, you'd break your neck getting it down. 
+
+    JASON 
+    That's not fair. 
+    
+    MAY 
+    You know it's true! 
+    
++ You want to mess with the spider-vines?
+    
+    JASON 
+    (thinking) 
+    No, I guess you're right. It'll stay there for another day. 
+    
+// + All that's ever in those chests is sand. 
+    MAY 
+- Besides, all that's ever in those chests is sand. 
+// Make this ^ one of the choices? 
+--> six 
+
+= sixFB 
+~ MaySawMemory = true
+# DIR 
+It casts a half-shadow where it intersects the sunlight, so we can always see its silhouette. May points out the half-there person. 
+# DIA 
+JASON 
+I haven't seen a ghost since we were kids. You don't know her, do you? 
+MAY 
++ Actually, I do. 
+    I met her a few years ago, when I ate my lunch in the woods. She's sweet. But a little skittish. 
++ No, I've never talked to her. 
+    <> I think she's a little skittish. 
+-
+JASON 
+That makes sense. Probably best not to stare, right? 
+
+MAY 
+Yeah. We're not ghost-hunters anymore. 
+--> six 
+
+= sixFC 
+~ MaySawMemory = true
+# DIR 
+For such a massive creature, it's surprisingly easy to miss. It's emerald plates and scales blend well with the trees. It makes no movements that aren't needed. Otherwise, it's still. May points it out to Jason. 
+# DIA 
+JASON 
+I haven't seen one of those since we were kids. Do you see them often? 
+
+MAY 
++ They're a pretty common sight, if you're not too loud. 
+    
+    JASON 
+    I guess that's why I haven't seen one in so long. 
+    
+    MAY 
+    Well, I wasn't going to say it...
+    
+    JASON 
+    (teasing) 
+    But you totally did. 
+    
+    MAY 
+    (smiling) 
+    Yeah... I guess I did. 
+    
++ No, not since we were kids. 
+    You know... climate change. 
+    It's good to see they're still around. I never get tired of seeing them do their thing. 
+--> six 
 
 = seven
 # PB
@@ -559,9 +679,10 @@ MAY
 + No. Whenever I do, I get this terrible feeling. So I don’t. 
     Even though I should be happy to have been accepted. 
     It’s like the future is haunted. 
+    ~ MaySaysTheFutureIsHaunted = true 
 + You’ve got it backwards, Jason. I haven’t stopped thinking about it since I got accepted. 
-
     It’s like the future is haunting me. 
+    ~ MaySaysTheFutureHauntsHer = true
 -
 JASON
 But I know what you mean when you say you’re still not sure. Even though it’s a good school and all. 
@@ -572,7 +693,7 @@ Yeah. I don’t know what to do.
 
 = eightA
 # PB 
-Jason and May reach the transmission tower. It's legs are made of a latticework of welded metal. Its steel boots are buried in the clovers, rooted there like trees. Above them, the weight of lofty power lines is hung on strong steel arms. 
+Jason and May reach the transmission tower. Its legs are made of a latticework of welded metal. Its steel boots are buried in the clovers, rooted there like trees. Above them, the weight of lofty power lines is hung on strong steel arms. 
 
 Hidden in the latticework, a spider's web stretches between steel beams.
 -> nine
@@ -585,7 +706,7 @@ Beside the transmission tower, a government sign stands vigilant in the center o
 
 "ONE WAY" it reads, pointing to the left. 
 
-Just a few feet beyond it is another just like it. Only this second sign points to the right. 
+Just a few feet beyond it is another just like it. Only this second sign is pointing to the right. 
 # DIA 
 JASON 
 That's hilarious. 
@@ -595,13 +716,13 @@ MAY
 Well now I don't know what to do! Which one way should we go? 
 
 JASON 
-It might just be a mystery. Besides, I think this spot is good enough as it is. 
+I think it might just be a mystery. Besides, I think this spot is good enough as it is. 
+# PB 
 -> nine
 
 
 = nine 
 # DIR 
-# PB 
 The two teenagers sit side by side in the clovers. 
 # DIA 
 JASON
@@ -618,11 +739,16 @@ MAY
     Jason frowns. He’s thinking of a solution.
 - # DIA 
 JASON
-Have you met with the school guidance counselor? They’re strangely reclusive, but good to talk to if you can manage to find them. Before I knew what I wanted, they helped me. 
+Have you met the school guidance counselor? They’re strangely reclusive, but good to talk to if you can manage to find them. Before I knew what I wanted, they helped me. 
 
 How about this? Tomorrow, I’ll take you to see them. It’s a bit of a maze, finding their office. But I know the way. We’ll ask them for advice. They’ll help you decide what to do.
 MAY
 + If you think it’ll help… sure, we can try tomorrow.
+
+    JASON
+	(nods, smiles)
+	Sounds like a plan.
+
 + Really? Can we see them now? 
 	
     JASON
@@ -634,6 +760,8 @@ MAY
 
 = ten 
 # DIR 
+May smiles. She’s happy to have his help.
+
 Now we watch them sit there– One, Two beneath the power lines, {eightB: their backs to the signposts forbidding them go further.} {eightA: their backs to the lattice that holds them aloft.}
 
 Jason leans back to look up into the power lines. 

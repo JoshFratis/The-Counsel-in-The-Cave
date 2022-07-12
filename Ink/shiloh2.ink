@@ -17,6 +17,7 @@ VAR MaySawBrush = false
 VAR MaySawForest = false 
 VAR MaySawFarmland = false
 VAR MaySawClovers = false
+VAR MaySawObelisks = false
 
 VAR shilohSixO = 0
 VAR MaySawTruck = false 
@@ -43,7 +44,8 @@ VAR MaySawOneWaySigns = false           // aren't currently used
 
 = one 
 #DIA 
-Late spring, 2016. A field behind Shiloh Hills Elementary School. Berks County. 
+Late spring. Six weeks from graduation. 
+A field behind Shiloh Hills Elementary School. Berks County. 
 #IMAGE: img/shiloh.jpg
 #SCENETITLE: SHILOH HILLS
 #DIR
@@ -64,14 +66,16 @@ Two teenagers, Jason and May, enter the foreground from a gravel path that overl
         Jason, wait up. Take a look at all of this. 
 }
 # DIR
-+ {MaySawBrush == false} May gazes through the thicket growing wild on our left. 
++ {MaySawBrush == false} May gazes through the thicket growing opaque on our left, and wonders what's hidden within.
     -> twoO -> twoB
-+ {MaySawForest == false} May peers between the slender trees, waiting on the right. 
++ {MaySawForest == false} May peers between slender trees on the right, sunlight streaming through them, and remembers the many years she's spent here. 
     -> twoO -> twoA
-+ {shilohTwoO >= 1} {MaySawFarmland == false} May scans the small squares of tilled farmland, patched into the distant hills.
++ {shilohTwoO >= 1} {MaySawFarmland == false} May scans the small squares of tilled farmland in the distance, and recognizes her home in the hills.
     -> twoO -> twoC
-+ {shilohTwoO >= 2} {MaySawClovers == false} May inspects the clovers at her feet. 
-    -> twoO -> twoD
+//+ {shilohTwoO >= 2} {MaySawClovers == false} May inspects the clovers at her feet. 
+//    -> twoO -> twoD
++ {shilohTwoO >= 2} {MaySawObelisks == false} May looks on the obelisks floating over the forest.
+    -> twoO -> twoE
 //* twoD -> twoD
 
 = twoO
@@ -104,7 +108,11 @@ JASON
 #INF 
 (laughing)
 #DIA 
-Of course I remember! How could I forget Captain May-Beard and Scallywag Jason?
+Of course I remember! How could I forget Captain May-Beard and Scallywag Jason? We dug up some good treasure, didn't we?
+
+MAY 
+(smiling) 
+Of course we did. 
 ->->
     
 = twoAB
@@ -124,7 +132,11 @@ MAY
 You mean you were terrified. I wasn't scared.
 
 JASON 
-If that's how you remember it.
+If that's how you remember it. Even so, we made good friends with those ghosts, didn't we?
+
+MAY 
+(smiling) 
+Of course we did. 
 ->->
 
 = twoAC
@@ -148,7 +160,12 @@ JASON
 #INF 
 (laughing)
 #DIA 
-Yeah, I was pretty self-obsessed, wasn't I?
+Yeah, I was pretty self-obsessed, wasn't I? 
+Still, we saw some cool dinosaurs, didn't we? Even if there were no Jason-osauruses. 
+
+MAY 
+(smiling) 
+Of course we did. 
 ->->
 
 = twoB
@@ -161,10 +178,16 @@ Whoah. You think your dad could fix that? You’re still helping him on weekends
 
 MAY
 + Yeah, I am. It’s strange to be spending my last weeks of high school in the shop with my dad.
-    But I’m happy to help. . I'm not sure what he’ll do once I leave for college. If I even go to college, that is. 
+    But I’m happy to help. I'm not sure what he’ll do once I leave for college. If I even go to college, that is. 
+    
+    JASON 
+    I don't think it's a bad thing. I wish I still had that time with my mom. 
 + That thing down there is pretty far gone. It’s beyond repair. 
     Still, I can see him lugging that old thing back to the shop. He’d put hours into patching that shattered hull, for no good reason other than to uncover what he imagines it could be. 
     He’s like that. And I love him for it.
+    
+    JASON 
+    I know what you mean. My mom could be that way too. 
 --> two
 
 = twoC
@@ -184,14 +207,7 @@ MAY
 //    <> What else is out there besides forests and farms, you know?  
     
     <> What I might miss if I don't go to college. I think about it all the time. 
-    
-    JASON 
-    See, you get what I mean!
-    -> twoCJason ->
-    
-    MAY
-    I never want to stop learning.
-    -> twoCMay -> two
+     -> twoCMay -> two
     
 + It's not all that bad.
     You don't like driving through the hills, or listening to the crickets?
@@ -213,9 +229,19 @@ No college around here is any good for music. But in a few months I’ll be on m
 ->->
 
 = twoCMay
+# DIA 
++ I could finally learn to be a real writer. 
+    I could write stories! Ones people would read! I could finally put these possible worlds on paper. I could create... I don't know, art!  
++ I could actually make the world a better place. 
+    I could learn all about what's wrong with the environment. I could be someone who helps save it! And then these places that mean so much... they wouldn't have to be temporary. 
+    ++ I could study political science. I could change the way things are run. 
++ I could become an expert on something obscure and teach it to others forever.
+    Like burial archeology! Or the history of astronomy! Or I don't know, honeybee anatomy! It doesn't matter what. Just something worth knowing for the sake of it. For the beauty and purpose of passing it on. 
+
+/*
 I saw one class at Lehigh that got me so excited. It’s called...
     /*+ Back to the Land
-        It's about how people living in communes engage with nature.  Don't you want to know more about that? The only thing people around here think nature is good for is feeding cows and hunting deer. */
+        It's about how people living in communes engage with nature.  Don't you want to know more about that? The only thing people around here think nature is good for is feeding cows and hunting deer. 
     + One Hundred Poems
         I think that one’s what it says on the tin. But don't you want to read a hundred poems?
     + Linguistic Anthropology
@@ -223,11 +249,14 @@ I saw one class at Lehigh that got me so excited. It’s called...
     + Queer Futures
         It's a poetry class. You'd never hear anyone around here talk about 'queer futures.'
 - There's just so much out there to learn. 
+*/
 
 - # DIA 
 But still...
 + There's so much left for me here.
-    These little places I've carved out for myself. The friends I've worked so hard to make. My dad! 
+    These little places I've carved out for myself. The windowsill where I read in the library. The corner where we meet after school. This field that's been here for me my whole life. 
+    The friends I've worked so hard to make. You and Saige. 
+    My dad! 
     How can I leave all that behind? 
     
     JASON 
@@ -247,15 +276,19 @@ The field exists in some space between the lofty wooded park and the unkempt aba
 
 + May lets a lady-bug rest on her finger. 
     She lifts it up to her eye to look at it closely. Sunlight fills the cracks in its red carapace. Then she blows it away, sending it off through the near-summer air.  
+    
+    JASON 
+    What'd you wish for? 
     -> twoDA
 + May picks a dandelion growing between clovers. 
     Then she blows away the seeds, scattering white wisps into the near-summer air.
+
+    JASON 
+    What'd you wish for? 
     -> twoDA
     
 = twoDA
 # DIA 
-    JASON 
-    What'd you wish for? 
     MAY 
     + {MayAndJasonPlayedPirates} For one thousand gold doubloons... 
         -> twoDAA ->
@@ -342,6 +375,28 @@ JASON
         I don't know. I don't think much about those times anymore. 
 -->->
 
+= twoE 
+They hover there between the treetops, the black glass tips pointing to the earth. 
+
+MAY 
+I always found it strange how they don't cast shadows. It made me think they were just some trick of the light. 
+
+JASON 
+No, they're real. I saw Katherine climb a tree to touched one, once.
+
+# DIR 
+May presses her thumbs and pointer fingers into a diamond pointed down, hidden behind her back. She closes her eyes and concentrates long enough for a single thought.
+
+# DIA 
+MAY 
+Do you believe that you can wish on them?
+
+JASON 
+(smiles) 
+I believe you just did. What'd you wish for?
+
+-> twoDA
+
 = three
 #PB
 # DIR 
@@ -392,7 +447,7 @@ Then the two continue on, briefly dipping out of sight before rising higher on t
     -> sixO -> sixFC
 + {shilohSixO >= 3} {MaySawTransmissionTower == false} Jason sets her eyes on the transmission tower.
     -> sixO -> sixC
-+ {shilohSixO >= 4} {MaySawOneWaySigns == false} Jason spies two signposts sticking up from atop the hill. 
++ {shilohSixO >= 4} {MaySawOneWaySigns == false} Jason spies a signpost sticking up from atop the hill. 
     -> sixO -> sixD
 
 = sixO
@@ -484,13 +539,10 @@ MAY
     Listen May, your ideas are universally better thought-through than mine. This was no exception. 
 -
 MAY
-+ We nearly got arrested!
++ We almost got arrested!
     The cops were not impressed with your feat of engineering. Especially after you drove right past the station!
-+ It almost caught on fire!
-    We had to stomp it out in the McDonald's parking lot! 
-        ++ I swore I'd never go back there! 
-            They paid me minimum wage, for god's sake.
-        ++ It was so embarrassing!
++ Your mom nearly killed us!
+    She couldn't believe it! I've never seen her at a total loss for words. I didn't think anything could ever get to her, but apparently you managed it!
 -
 JASON
 And now we have a great story to tell when we go to college!
@@ -540,7 +592,7 @@ The two continue on, climbing towards the tower.
 
 = sixCA 
 # DIA 
-It was this massive mobile hidden in the forest. When the wind blew, it would make the most beautiful music. 
+It was this massive mobile hidden in the forest. Ten, twenty, thirty-foot pipes, silver where they caught the moonlight in the dark, hung down between the tree branches, balanced by wieghts and balloons so they'd spiral, and when the wind blew, they would create the most beautiful music. 
 + Like overgrown wind chimes.
 	With a random rhythm that reminded you of music. 
 + Like an organ set on the loose.
@@ -558,10 +610,10 @@ Wow. That sounds incredible.
 = sixD
 ~ MaySawOneWaySigns = true
 # DIR 
-Stuck crooked in the clovers is a rusty metal rail, to the top of which is pinned a rectangular sign in black and white. Just past it is another  like it, leaning to the other side. May can't make out what either says from here. 
+Stuck crooked in the clovers is a rusty metal rail, to the top of which are pinned two rectangular signs in black and white, intersecting at right angles like street signs. 
 # DIA 
 JASON
-What do you think those two signs say?
+What do you think those signs say?
 MAY 
 I’m not sure. I can’t read them from here. Come on, let's get closer. 
 # DIR 
@@ -693,7 +745,9 @@ Yeah. I don’t know what to do.
 
 = eightA
 # PB 
-Jason and May reach the transmission tower. Its legs are made of a latticework of welded metal. Its steel boots are buried in the clovers, rooted there like trees. Above them, the weight of lofty power lines is hung on strong steel arms. 
+Jason and May reach the transmission tower. Its legs are made of a latticework of welded metal. Its steel boots are buried in the clovers, rooted there like trees. 
+
+Above them, the lofty power lines are strung on its strong steel arms. But past the transmission tower, the arrangement come undone. The power lines fly in empty air without another tower in the distance. They wave like the electric tentacles of a giant jellyfish.
 
 Hidden in the latticework, a spider's web stretches between steel beams.
 -> nine
@@ -702,19 +756,20 @@ Hidden in the latticework, a spider's web stretches between steel beams.
 = eightB
 # PB
 # DIR 
-Beside the transmission tower, a government sign stands vigilant in the center of the path. 
+Standing beside the transmission tower, two stacked signs share one post. "ONE WAY" each reads. One points left. The other points right. 
 
-"ONE WAY" it reads, pointing to the left. 
-
-Just a few feet beyond it is another just like it. Only this second sign is pointing to the right. 
 # DIA 
 JASON 
 That's hilarious. 
 
 MAY 
 (laughing) 
-Well now I don't know what to do! Which one way should we go? 
+Well now I don't know what to do! Which one way should we go?
 
+# DIR 
+As if it were listening, the wind blows past them, spinning the signs as if they were weathervanes. They circle around and around, but come to rest in the same contradictory arrangement. 
+
+# DIA 
 JASON 
 I think it might just be a mystery. Besides, I think this spot is good enough as it is. 
 # PB 

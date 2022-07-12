@@ -47,7 +47,7 @@ May enters from the audience. She should occupy the entirety of the performance 
 + She wears the same flannel she had on Shiloh Hills. 
     <> Only there's a new patch sewn onto its shoulder. 
 -
-It’s then that we see Jason. He stands from a seat among the audience. He appears to be a ghost, passing through the rows and flitting between pillars. We can’t discern his precise form– it wavers and fades. But it's clear that he’s frightened, hiding in the dark.
+It’s then that we see Jason. He stands from a seat among the audience. He appears to be a ghost, passing through the rows and flitting between pillars. We can’t discern his precise form– it wavers and fades. But it's clear that he’s frightened. He hides in the dark.
 -> two 
 
 = two 
@@ -67,7 +67,7 @@ It’s then that we see Jason. He stands from a seat among the audience. He appe
 
 = twoA 
 ~ MaySawPortalMundane = true
-Far above, we see a reflection of the mundane world. Suspended, upside-down, is The Old Band Room, as if it were submerged in a body of water that we were observing from below. It’s filled with students playing music, arranged in rings that mirror the amphitheater. It waves like an image on restless water. It looks like a portal home. 
+Far above, we see a reflection of the mundane world. Suspended, upside-down, is The Old Band Room, as if it were submerged in a body of water we're observing from below. It’s filled with students playing music, arranged in rings that mirror the amphitheater. It looks like a portal home. 
     ->-> 
 
 = twoB
@@ -79,11 +79,11 @@ May leans over the edge to peer into the void, but stays careful not to fall.
 
 = twoC
 ~ MaySawAtlas = true
-The pillar's broken base lays crumbled on the floor. There kneels in the remains a titanic human figure, its palms pressed against the severed column's underside. The statue drives the pillar to the ceiling and braces the weight of the theater ceiling on its back.
+The pillar's broken base lays crumbled on the floor. There kneels in the remains a titanic statue of a human figure, its palms pressed against the severed column's underside. The statue drives the pillar to the ceiling, bracing the weight of the theater ceiling on its back.
 
 # DIA 
 MAY
-He’s like Atlas. Holding up the sky.
+It's like Atlas. Holding up the sky.
 Who’s sky are you supporting, Atlas?
 
 # DIR 
@@ -284,6 +284,7 @@ It’s not your fault, May. I chose to come here. And I wasn’t ready. I’m le
 MAY
 It’ll be okay, Jason. You can still go home.
 
+#PB 
 JASON
 I don’t know if I can! I was so set on graduating. On leaving Berks County. For what?
 + So I could pretend that high school never happened?
@@ -620,8 +621,9 @@ I’m different here. I know I’d be different at college. And that would be ok
 ~ MayEntersLayers = true
 I’ve learned so much on Layers’ Edge. I think I finally understand why I never could decide if I should leave my home for Lehigh, or build my future in Berks County. Because neither are what I need, at least right now.  
 + I’ve got so much left to learn. 
+    I have questions about who I want to be. <>
 + I still have my doubts. 
-- I have questions about who I want to be. But they can only be answered by wandering. By being okay with being lost. 
+- But they can only be answered by wandering. By being okay with being lost. 
 I’ve fallen in love with the unknown that grows here, Jason. I’ve fallen in love with who I become when I’m willing to embrace my doubt. 
 But Jason, your doubt is eating you away! 
 ->->

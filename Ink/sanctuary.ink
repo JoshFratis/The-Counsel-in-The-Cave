@@ -47,7 +47,7 @@ May enters from the audience. She should occupy the entirety of the performance 
 + She wears the same flannel she had on Shiloh Hills. 
     <> Only there's a new patch sewn onto its shoulder. 
 -
-It’s then that we see Jason. He stands from a seat among the audience. He appears to be a ghost, passing through the rows and flitting between pillars. We can’t discern his precise form– it wavers and fades. But it's clear that he’s frightened, hiding in the dark.
+It’s then that we see Jason. He stands from a seat among the audience. He appears to be a ghost, passing through the rows and flitting between pillars. We can’t discern his precise form– it wavers and fades. But it's clear that he’s frightened. He hides in the dark.
 -> two 
 
 = two 
@@ -67,7 +67,7 @@ It’s then that we see Jason. He stands from a seat among the audience. He appe
 
 = twoA 
 ~ MaySawPortalMundane = true
-Far above, we see a reflection of the mundane world. Suspended, upside-down, is The Old Band Room, as if it were submerged in a body of water that we were observing from below. It’s filled with students playing music, arranged in rings that mirror the amphitheater. It waves like an image on restless water. It looks like a portal home. 
+Far above, we see a reflection of the mundane world. Suspended, upside-down, is The Old Band Room, as if it were submerged in a body of water we're observing from below. It’s filled with students playing music, arranged in rings that mirror the amphitheater. It looks like a portal home. 
     ->-> 
 
 = twoB
@@ -79,11 +79,11 @@ May leans over the edge to peer into the void, but stays careful not to fall.
 
 = twoC
 ~ MaySawAtlas = true
-The pillar's broken base lays crumbled on the floor. There kneels in the remains a titanic human figure, its palms pressed against the severed column's underside. The statue drives the pillar to the ceiling and braces the weight of the theater ceiling on its back.
+The pillar's broken base lays crumbled on the floor. There kneels in the remains a titanic statue of a human figure, its palms pressed against the severed column's underside. The statue drives the pillar to the ceiling, bracing the weight of the theater ceiling on its back.
 
 # DIA 
 MAY
-He’s like Atlas. Holding up the sky.
+It's like Atlas. Holding up the sky.
 Who’s sky are you supporting, Atlas?
 
 # DIR 
@@ -267,11 +267,15 @@ I kept wandering. And eventually, <>
 = ten 
 # DIR 
 Jason sinks lower, melting through the stone step beneath him. 
-# DIA 
-JASON 
 {
-    - MaySaysTheFutureIsHaunted: You said the future's haunted. Well, look who's haunted now. 
-    - MaySaysTheFutureHauntsHer: You said the future's haunting you. Well, look who's haunting now. 
+    - MaySaysTheFutureIsHaunted: 
+    # DIA 
+    JASON 
+    You said the future's haunted. Well, look who's haunted now. 
+    - MaySaysTheFutureHauntsHer: 
+    # DIA 
+    JASON 
+    You said the future's haunting you. Well, look who's haunting now. 
 }
 
 # DIA 
@@ -284,6 +288,7 @@ It’s not your fault, May. I chose to come here. And I wasn’t ready. I’m le
 MAY
 It’ll be okay, Jason. You can still go home.
 
+#PB 
 JASON
 I don’t know if I can! I was so set on graduating. On leaving Berks County. For what?
 + So I could pretend that high school never happened?
@@ -320,8 +325,7 @@ May… where is this coming from? Last time we talked… you weren’t okay. I c
 
 MAY
 I thought I needed help too. That’s why I came looking for The Counselor. But I’ve learned so much since then. 
-I met a friend who helped me as best he could.
-
+Thankfully, I met a friend when I first came to Layers' Edge.
 {
     - MayGotFishingPole: 
         He's the one who gave me this! 
@@ -340,7 +344,7 @@ I met a friend who helped me as best he could.
         <> I caught led me across Layers' Edge. 
         
     - else: 
-        I don't think it's his fault he couldn't help me find them. It's not really what you do on Layers' edge. But that's what I expected anyway, so it didn't take  long for me to get totally lost. 
+        I don't think it's his fault he couldn't help me find them. It's not really what you do on Layers' Edge. But that's what I expected. So it didn't take long for me to get totally lost. 
 }
 
 + I wandered to the Darkened University, floating in the snow.
@@ -380,9 +384,9 @@ Miners collect the crystals that grow there in the atmosphere. The ever-shifting
 = thirteenA
 ~ MayMetRoger = true
 He was planning a journey to the other side of The Layers, with a collection of clocks to calaculate the time it would take. The whole time he talked, he just kept winding and unwinding, recalculating as the seconds passed. He said he needed to know before he departed. 
-But I realized he would never elave. Not with a cart full of clocks. Not if he never started. 
+But I realized he would never leave. Not with a cart full of clocks. Not if he never started. 
 So I left him there. I forgot the time. 
-He wasn't the kind of counselor I expected to find. but I sure learned something important. 
+He wasn't the kind of counselor I expected to find. But I sure learned something important. 
 ->->
 
 = thirteenB
@@ -458,28 +462,31 @@ I tried my best to find them. I searched for so long. But then I realized…
 + They didn’t want to be found. 
     They came here to be lost. Maybe that’s what they were trying to tell me all along, if only from afar. 
 + I didn’t need them any more. 
-    There was a moment... <>
-    {
-        - MayMetCartographer: after I threw away the map the Cartographer gave me...
-        - MayMetAstrologer: after I disregarded the prediction the Astrologer gave me...
-    }
-    <> when I actually forgot my quest to find them. Not long after, I found <>
-    {
-        - MayVisitedPaintedHarbor: The Painted Harbor.
-        - MayVisitedDragonHive: The Dragon-Hive.
-        - MayVisitedAtlasOrigin: The Atlas-Origin. 
-    }
-    I found what I was really searching for–
-    ++ Somewhere I can feel safe
-    ++ Who I really want to be
-    - <>–
-    from within myself. That’s when I realized that I didn’t need to look for them. I could find my own way by letting myself be lost.
+    -> sixteenA 
+--> seventeen 
+
+= sixteenA 
+There was a moment... <>
+{
+    - MayMetCartographer: after I threw away the map the Cartographer gave me...
+    - MayMetAstrologer: after I disregarded the prediction the Astrologer gave me...
+}
+<> when I actually forgot my quest to find them. Not long after, I found <>
+{
+    - MayVisitedPaintedHarbor: The Painted Harbor.
+    - MayVisitedDragonHive: The Dragon-Hive.
+    - MayVisitedAtlasOrigin: The Atlas-Origin. 
+}
+I found what I was really searching for–
+    + Somewhere I can feel safe
+    + Who I really want to be
+<>–from within myself. That’s when I realized that I didn’t need to look for them. I could find my own way by letting myself be lost.
 --> seventeen
 
 = seventeen
 # PB
-//# DIR 
-//Jason looks down through his fading hands, as if that's the last thing he wanted to hear. 
+# DIR 
+Jason looks down through his fading feet. 
 
 # DIA 
 JASON 
@@ -620,8 +627,9 @@ I’m different here. I know I’d be different at college. And that would be ok
 ~ MayEntersLayers = true
 I’ve learned so much on Layers’ Edge. I think I finally understand why I never could decide if I should leave my home for Lehigh, or build my future in Berks County. Because neither are what I need, at least right now.  
 + I’ve got so much left to learn. 
+    I have questions about who I want to be. <>
 + I still have my doubts. 
-- I have questions about who I want to be. But they can only be answered by wandering. By being okay with being lost. 
+- But they can only be answered by wandering. By being okay with being lost. 
 I’ve fallen in love with the unknown that grows here, Jason. I’ve fallen in love with who I become when I’m willing to embrace my doubt. 
 But Jason, your doubt is eating you away! 
 ->->

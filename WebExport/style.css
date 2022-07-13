@@ -133,6 +133,7 @@ img {
     position: relative;
     display: block;
     margin: 0 auto;
+    margin-bottom: 2em;
     max-width: 100%;
     z-index: 2;
 }

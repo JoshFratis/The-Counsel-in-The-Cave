@@ -22,6 +22,7 @@ JASON
 --> two 
 
 = two 
+# DIA 
 MOONDOG
 No use loligagging! I’ve got places to be!
 
@@ -49,6 +50,7 @@ Fishing.
 
 = threeA
 # PB
+# DIR 
 // FIRE ESCAPE
 May leads the way. She grabs ahold of the spiral fire escape.
 {
@@ -59,6 +61,7 @@ May leads the way. She grabs ahold of the spiral fire escape.
 
 = threeB
 # PB
+# DIR 
 // GONDOLA
 May leads the way. She climbs aboard the balloon-less basket. 
 {

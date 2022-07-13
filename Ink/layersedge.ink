@@ -10,7 +10,6 @@ VAR sevenConditionOne = false
 VAR sevenConditionTwo = false
 
 VAR MayWasPoliteToMoondog = false
-VAR MoondogMovedToMay = false
 
 ~ MayGotFishingPole = false
 ~ MayCaughtCrowsNest = false 
@@ -29,13 +28,13 @@ VAR MoondogMovedToMay = false
 # DIR 
 May tumbles down through rows of smoke, turning over and over until she loses all sense of direction. She glimpses dizzy visions of her past and of her future. 
 
-She sees herself and Jason searching their school in vain for their missing guidance counselor. She sees the clues come to light.– They point to something magical at play. May watches as she wanders off alone, searching for some secret world hidden beneath the school. She sees a portal open up before her. She sees herself enter. 
+She sees herself and Jason searching their school in vain for their missing guidance counselor. May watches as she wanders off alone on her counselor's trail, searching for some secret world hidden beneath the school. She sees a portal open up before her. She sees herself enter. 
 
-May passes by her memories. She closes her eyes, unable to consider what she’s seen. She falls down, further down into The Layers. 
+May passes by her memories. She shuts her eyes tight, unable to consider what she’s seen. She falls down, further down to Layers' Edge. 
 
 Blackout. 
 
-By a single spotlight, we see May alone. She’s resting on a wide slab of stone. A jagged chunk of earth paved with cobblestone, like a broken piece of road. As she wakes, the lights rise. Together we see where May has arrived. 
+By a single spotlight, we see May alone. She’s resting on a jagged chunk of earth, the top paved smooth with cobblestone like a broken piece of road. The lights rise as she wakes. Together we see where May has arrived. 
 
 The stone is suspended in a sea of clouds. They drift through slanted rays of multicolored light. There’s no land below, nor clear sky above. All around, paths of floating stepping stones arc into the distant mists. Glowing globes of gas float along the air, creating little constellations close at hand. 
 
@@ -64,7 +63,7 @@ MAY
 + Well, I’m a little lost. I could use your help. 
 
     MOONDOG
-    I’m flattered by your asking, but I can’t be sure how helpful I would be. I’m just a simple fisherman, you see. I’m quite lost myself. In fact, I’d say round here you’d find few honest folk who wouldn’t say the same. No, not here. Not Layers’ Edge. 
+    I’m flattered by your asking, but I can’t be sure how helpful I would be. I’m just a simple fisherman, you see. And I’m quite lost myself! In fact, I’d say round here you’d find few honest folk who wouldn’t say the same. No, not here. Not on Layers’ Edge. 
     
     The name’s Moondog, by the way. Pleasure to meet you.
 
@@ -78,10 +77,8 @@ MAY
 # DIA 
 # PB
 MAY
-+ Layers’ Edge?
-    # DIR 
-    Moondog’s eyes alight. At once, he steps his floating stone, as if he wished to cast himself into the clouds. But another floating stepping stone appears beneath his feet. He continues this way to where May stands, walking on a hardly-formed path. He leaves his rod behind and it remains in place, floating in the air.
-    ~ MoondogMovedToMay = true
++ What do you mean, 'Layers' Edge?'
+    -> fourA ->
     # DIA 
     MOONDOG
     Aye, Layers’ Edge. A border between worlds! The one above you come from…
@@ -97,11 +94,14 @@ MAY
     Take a look around, my friend. 
 + {MayWasPoliteToMoondog == false} It’s good to meet you too. 
     ~ MayWasPoliteToMoondog = true
-    Moondog smiles, glad to see another friendly face.
+    # DIR 
+    Moondog smiles, happy to see another friendly face.
     -> four 
 + What do you fish out here in the clouds?
+    -> fourA ->
+    # DIA 
     MOONDOG
-    Oh, many curiosities. Once, I caught a window frame that led to somewhere else. When I spied through it, I could see another land. 
+    Oh, many curiosities. Once, I caught a window frame that led to somewhere else. When I put my eye to it, I could see through to another land. 
     
     MAY
     Like a portal?
@@ -116,34 +116,35 @@ MAY
     Take a look around, my friend. 
 --> five
 
+= fourA 
+# DIR
+Moondog’s eyes alight. At once, he steps off his floating stone, as if he wished to cast himself into the clouds. But another floating stepping stone appears beneath his feet. He continues on this hardly-formed path to where May stands. He leaves his rod behind and it remains in place, floating in the air.
+->->
+
 = five 
 # DIR 
 May peers into the bright abyss below. 
 
 It's like looking in a lake, where one’s view shifts between the mirrored sky and darkened depths below the surface. Here, layer upon layer of such surfaces intersect one another. They’re stacked down, further down into infinity. Each one reflects a unique reality.
-
-{
-    - MoondogMovedToMay == false: Moondog’s eyes alight. At once, he steps his floating stone, as if he wished to cast himself into the clouds. But another floating stepping stone appears beneath his feet. He continues this way to where May stands, walking on a hardly-formed path. He leaves his rod behind and it remains in place, floating in the air.
-        ~ MoondogMovedToMay = true
-}
  -> six 
  
  = six 
+ # PB 
+ # DIR 
  // Requires player to fulfill two conditions to move on 
  // One: See all three observations of one of three categories (Layers' Edge, The Layers, Moondog)
  // Two: See at least one observation from the sixB category (The Layers)
- # DIR 
 + {sixAOVAR == 0} May tries to reach a little globe of gas, floating close at hand.
     -> sixAO -> sixAA ->
 + {sixAOVAR == 1} May waves her hand into a colored cloud, wondering what they’re made of.
     -> sixAO -> sixAB ->
 + {sixAOVAR == 2} May looks on the landscape as if it were the surface of a lake, reflecting light and color.
     -> sixAO -> sixAC ->
-+ {sixBOVAR == 0} Looking through The Layers, May can see flying manta rays passing between islands. 
++ {sixBOVAR == 0} May can see flying manta rays passing between islands in the sky.
     -> sixBO -> sixBA ->
-+ {sixBOVAR == 1} One world below reflects a field of purple grass, long and waving in the wind, atop towering sea-cliffs. 
++ {sixBOVAR == 1} A world below reflects a field of purple grass atop towering sea-cliffs. 
     -> sixBO -> sixBB ->
-+ {sixBOVAR == 2} As deep as she can see, May finds a lonely lighthouse on a subterranean sea.   
++ {sixBOVAR == 2} As deep as she can see, May finds a lonely lighthouse on an inky sea.   
     -> sixBO -> sixBC ->
 + {sixCOVAR == 0} May examines Moondog’s weathered hands.
     -> sixCO -> sixCA ->
@@ -180,7 +181,7 @@ MAY
 What’d you do with it?
 
 MOONDOG
-Oh, I tried to let him go. But he wouldn’t leave me be! He followed me around. Wouldn’t let me fish in peace!
+Oh, I tried to let him go. But he wouldn’t leave me be! He followed me around. I couldn't fish in peace!
 
 So I sighed and said, “Come on, you! Let’s wander for a while.” And that’s naturally what we did. 
 
@@ -222,15 +223,15 @@ Ha! They don’t! The riders surrender themselves to the creatures’ wills. Tha
 = sixBB
 # DIA 
 MOONDOG
-I remember an old empire staked its claim atop those cliffs. Now of them you won’t hear more than mention. Save from the speaking reeds that echo calls of dead men.
+I remember an old empire staked its claim atop those cliffs. Now of them you won’t hear more than mention. Save from the speaking reeds that echo calls of dead men. They're the man-high grasses that color the cliffs purple. 
 
-Things often go awry where The Layers intersect. Here, The Subterranean Sea crashes against The Fields of Speaking Reeds. From the confluence comes disaster for any would-be conqueror. 
+Things often go awry where The Layers intersect. There, The Subterranean Sea crashes against The Fields of Speaking Reeds. From the confluence comes disaster for any would-be conqueror. 
 ->->
 
 = sixBC 
 # DIA 
 MOONDOG
-Aye! The Subterranean Sea of which I speak! When The Lone Lighthouse goes dark, the fish begin to glow. Some say they look like stars, the deep sea a dark night sky. 
+Aye! The Subterranean Sea of which I speak! When The Lonely Lighthouse goes dark, the fish begin to glow. Some say they look like stars. 
 
 MAY
 Do you fish there?
@@ -299,20 +300,20 @@ MAY
 = nine 
 # DIA 
 MAY
-I can’t imagine fishing up my Counselor.
+I can’t imagine fishing up my Counselor...
 + But I think you’re onto something, Moondog. I’ll give it a try.
     -> nineA 
-+ I can’t wait for them to come to me. I'm going to find them.
++ I can’t wait for them to come to me. I'll have to seek them out. 
     -> nineB 
 
 = nineA
 ~ MayGotFishingPole = true
 MOONDOG
-Aye. I’d be glad to have another angler here on Layers’ Edge. I think I have an artifact that may be of some use. 
+Aye. I’d be glad to have another angler here on Layers’ Edge. I think I know an artifact that may be of some use. 
 # DIR 
-Moondog gives a little whistle and his rod returns to him. Then he reels it in. On the end of the line is hooked another fishing rod, which he gives to May. 
+Moondog gives a little whistle and his rod returns to him. Then he reels it in. On the end of the line, another fishing rod is hooked! This he gives to May. 
 
-May takes the rod. She easily casts it into a nearby cloud. 
+May takes the rod. She easily casts her line into a nearby cloud. 
 
 It's not long before she feels a tug. 
 + May draws a crow's nest from the depths. 
@@ -336,10 +337,10 @@ Don't mention it, kid. You're well on your way!
 
 = nineAA
 # DIR 
-The mast reaches down into the cloudy depths. The basket meets May's feet. It leans and creaks. 
+The mast reaches down into the cloudz. The basket meets May's feet. It leans and creaks. 
 # DIA 
 MOONDOG 
-Well, what're you waiting for? The Layers have given you a gift! This appears to be a fine ship!
+Well, what're you waiting for? The Layers have given you a gift! This seems to be a fine ship!
 
 MAY 
 You think this will take me where I want to go? 
@@ -350,6 +351,7 @@ On that, I can't be sure. But you stopped to listen to The Layers. I'd regard th
 MAY 
 I guess you've got a point. 
 
+# PB 
 # DIR 
 May steps aboard the sturdy crow's nest. Almost instantly it begins to lean away, as if its hidden ship had launched into an unseen sea. It begins a journey across Layers' Edge. 
 
@@ -358,7 +360,8 @@ May turns back to wave goodbye to Moondog.
 
 = nineAB 
 # DIR 
-They quickly hop off the hook and dance a circle around May's ankles. She watches as they leap from one stepping stone to another closeby, beginning their escape through Layers' Edge. 
+They quickly hop off the hook and dance a circle around May's ankles. She watches as they leap from one stepping stone to another, beginning their escape through Layers' Edge. 
+# PB 
 # DIA 
 MOONDOG 
 Well, what're you waiting for? The Layers have given you a gift! After that catch! 
@@ -373,7 +376,7 @@ May leaps after the pair of rogue socks, but not without turning to say a brief 
 = nineAC 
 # DIR 
 It circles May and Moondog, awaiting a command. 
-
+# PB 
 # DIA 
 MOONDOG 
 Well, what're you waiting for? The Layers have given you a gift! This appears to be a fine beast!
@@ -386,15 +389,23 @@ On that, I can't be sure. But you stopped to listen to The Layers. I'd regard th
 
 MAY 
 I guess you've got a point. 
-
+# PB 
 # DIR 
-May reels in the floating fish and climbs aboard. Its scales are shining in the multicolored light. Almost instantly it begins to swim away, pulling May along on Layers' Edge. 
+May reels in the floating fish and climbs aboard its saddle. Its scales are shining in the multicolored light. Almost instantly it begins to swim away, pulling May along on Layers' Edge. 
 
 May turns back to wave goodbye to Moondog. 
 ->-> 
 
 = nineB
 # DIA 
+Would you know where I should start? If I'm looking for my Counselor?
+
+MOONDOG 
+Nay, my directions are no help. I'm rather estranged from the ways of navigation. 
+
+MAY 
+Then I guess I'll have to find them on my own. 
+
 MOONDOG
 Aye, suit yourself. The Layers’ Edge will take you as you are. I wish you the best of luck, my friend.
 

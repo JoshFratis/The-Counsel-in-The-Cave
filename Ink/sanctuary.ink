@@ -267,11 +267,15 @@ I kept wandering. And eventually, <>
 = ten 
 # DIR 
 Jason sinks lower, melting through the stone step beneath him. 
-# DIA 
-JASON 
 {
-    - MaySaysTheFutureIsHaunted: You said the future's haunted. Well, look who's haunted now. 
-    - MaySaysTheFutureHauntsHer: You said the future's haunting you. Well, look who's haunting now. 
+    - MaySaysTheFutureIsHaunted: 
+    # DIA 
+    JASON 
+    You said the future's haunted. Well, look who's haunted now. 
+    - MaySaysTheFutureHauntsHer: 
+    # DIA 
+    JASON 
+    You said the future's haunting you. Well, look who's haunting now. 
 }
 
 # DIA 
@@ -321,8 +325,7 @@ May… where is this coming from? Last time we talked… you weren’t okay. I c
 
 MAY
 I thought I needed help too. That’s why I came looking for The Counselor. But I’ve learned so much since then. 
-I met a friend who helped me as best he could.
-
+Thankfully, I met a friend when I first came to Layers' Edge.
 {
     - MayGotFishingPole: 
         He's the one who gave me this! 
@@ -341,7 +344,7 @@ I met a friend who helped me as best he could.
         <> I caught led me across Layers' Edge. 
         
     - else: 
-        I don't think it's his fault he couldn't help me find them. It's not really what you do on Layers' edge. But that's what I expected anyway, so it didn't take  long for me to get totally lost. 
+        I don't think it's his fault he couldn't help me find them. It's not really what you do on Layers' Edge. But that's what I expected. So it didn't take long for me to get totally lost. 
 }
 
 + I wandered to the Darkened University, floating in the snow.
@@ -381,9 +384,9 @@ Miners collect the crystals that grow there in the atmosphere. The ever-shifting
 = thirteenA
 ~ MayMetRoger = true
 He was planning a journey to the other side of The Layers, with a collection of clocks to calaculate the time it would take. The whole time he talked, he just kept winding and unwinding, recalculating as the seconds passed. He said he needed to know before he departed. 
-But I realized he would never elave. Not with a cart full of clocks. Not if he never started. 
+But I realized he would never leave. Not with a cart full of clocks. Not if he never started. 
 So I left him there. I forgot the time. 
-He wasn't the kind of counselor I expected to find. but I sure learned something important. 
+He wasn't the kind of counselor I expected to find. But I sure learned something important. 
 ->->
 
 = thirteenB
@@ -459,28 +462,31 @@ I tried my best to find them. I searched for so long. But then I realized…
 + They didn’t want to be found. 
     They came here to be lost. Maybe that’s what they were trying to tell me all along, if only from afar. 
 + I didn’t need them any more. 
-    There was a moment... <>
-    {
-        - MayMetCartographer: after I threw away the map the Cartographer gave me...
-        - MayMetAstrologer: after I disregarded the prediction the Astrologer gave me...
-    }
-    <> when I actually forgot my quest to find them. Not long after, I found <>
-    {
-        - MayVisitedPaintedHarbor: The Painted Harbor.
-        - MayVisitedDragonHive: The Dragon-Hive.
-        - MayVisitedAtlasOrigin: The Atlas-Origin. 
-    }
-    I found what I was really searching for–
-    ++ Somewhere I can feel safe
-    ++ Who I really want to be
-    - <>–
-    from within myself. That’s when I realized that I didn’t need to look for them. I could find my own way by letting myself be lost.
+    -> sixteenA 
+--> seventeen 
+
+= sixteenA 
+There was a moment... <>
+{
+    - MayMetCartographer: after I threw away the map the Cartographer gave me...
+    - MayMetAstrologer: after I disregarded the prediction the Astrologer gave me...
+}
+<> when I actually forgot my quest to find them. Not long after, I found <>
+{
+    - MayVisitedPaintedHarbor: The Painted Harbor.
+    - MayVisitedDragonHive: The Dragon-Hive.
+    - MayVisitedAtlasOrigin: The Atlas-Origin. 
+}
+I found what I was really searching for–
+    + Somewhere I can feel safe
+    + Who I really want to be
+<>–from within myself. That’s when I realized that I didn’t need to look for them. I could find my own way by letting myself be lost.
 --> seventeen
 
 = seventeen
 # PB
-//# DIR 
-//Jason looks down through his fading hands, as if that's the last thing he wanted to hear. 
+# DIR 
+Jason looks down through his fading feet. 
 
 # DIA 
 JASON 

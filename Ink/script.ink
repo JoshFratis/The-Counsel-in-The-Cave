@@ -28,8 +28,8 @@ May is reserved, observant, and thoughtful. She appreciates her environment and 
 JASON
 Late teens, man. 
 A teenage boy soon to graduate, fixated on one future he envisions for himself.
-Jason has been accepted to Temple University, a prestigious school for music in the heart of Philadelphia, where he intends to compete in trumpet performance. 
-Jason was always the kind of kid that couldn't wait to grow up. But despite his best efforts, he's retained his childlike knack for imagining the fantastic. This habit is so instinctual that he'll often inspires or frightens himself.
+Jason has been accepted to Temple University, a prestigious school for music in the heart of Philadelphia, where he intends to compete in trumpet performance. He's dead set on escaping his hometown and proving himself in the wider world.  
+Jason was always the kind of kid that couldn't wait to grow up. But despite his best efforts, he's retained his childlike knack for imagining the fantastic. This habit is so instinctual that he often inspires, and frightens, himself.
 -> contents
     
 = contents

@@ -2,6 +2,8 @@
 -> start 
 
 = start 
+~ MoondogFishesFireEscape = false
+~ MoondogFishesGondola = false
 -> one 
 
 = one 

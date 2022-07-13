@@ -68,7 +68,7 @@ Then Moondog unspools his line and lets the basket gently fall. May watches  Jas
 = two
 # PB
 There is a pause. 
-{MoondogFishesGondola} The basket soon returns on Moondog's line, empty. 
+{MoondogFishesGondola: The basket soon returns on Moondog's line, empty.} 
 
 MOONDOG
 Well, kid? You gonna see this through? 
@@ -101,6 +101,7 @@ Fishing.
 
 = three 
 # PB
+# DIR 
 {
     - MoondogFishesFireEscape: -> threeA ->
     - MoondogFishesGondola: -> threeB ->

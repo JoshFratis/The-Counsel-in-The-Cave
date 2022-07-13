@@ -14,7 +14,7 @@
 
     // Initialize height tracker for accumulated pages 
     var storyHeight = 0;
-    var pageNumber = 1;
+    var pageNumber = "";
 
     // Global tags - those at the top of the ink file
     var globalTags = story.globalTags;
@@ -65,10 +65,12 @@
     // Set initial save point
     savePoint = story.state.toJson();
 
-    // Kick off the start of the story!
+    // Added Variables
     var previousBottomEdge = 0;
     var delay = 0;
-
+    var pageNumberActive = false;
+    
+    // Kick off the start of the story! 
     continueStory(true);
 
     // Main story processing function. Each time this is called it generates
@@ -197,22 +199,34 @@
                     sceneTitle = splitTag.val;
                 }
 
+                // Page Number 
+                else if (splitTag && splitTag.property == "PN") {
+                    if (splitTag.val == "") {
+                        pageNumberActive = false;
+                    }
+                    else {
+                        pageNumberActive = true;
+                        pageNumber = splitTag.val;
+                    }
+                }
+
                 // Page Break
                 else if (tag == "PB") {
                     
                     // Create new elements for current page
-                    // Create footer container
+                    // Create Footer Conatiner
                     footerContainer = document.createElement('div');
                     footerContainer.classList.add('fadeable', 'footerContainer');
                     pageContainer.append(footerContainer);
 
-                    // Create footer element
-                    pageNumberElement = document.createElement('h3');
-                    pageNumberElement.innerHTML = '- '+pageNumber.toString()+' -';
-                    pageNumberElement.classList.add('pageNumber', 'fadeable');
-                    footerContainer.append(pageNumberElement);
-                    pageNumber++;
-
+                    // If Page Number is activated, add it to the Footer Container
+                    if (pageNumberActive) {
+                        pageNumberElement = document.createElement('h3');
+                        pageNumberElement.innerHTML = '- '+pageNumber+' -';
+                        pageNumberElement.classList.add('pageNumber', 'fadeable');
+                        footerContainer.append(pageNumberElement);
+                    }
+                   
                     // Get current height of story
                     storyHeight = contentBottomEdgeY();
 
@@ -253,10 +267,24 @@
                     showAfter(delay, footerContainer);
                     delay += 50.0;
 
-                    // Fade in previous page's Page Number 
-                    showAfter(delay, pageNumberElement);
-                    delay += 50.0;
-
+                    // If a Page Number exists on the previous page
+                    if (pageNumberActive) {
+                        // Fade in previous page's Page Number 
+                        showAfter(delay, pageNumberElement);
+                        delay += 50.0;
+    
+                         // If Page Number is not a number, deactivate page number
+                         if (isNaN(pageNumber)) {
+                            pageNumberActive = false;
+                        }
+                        // If Page Number is a number, increment
+                        // pageNumber is always a string, so we must detect if that String contains a number.
+                        // If so, we must convert it to an integer, increment it, then convert it back to a string.
+                        else {
+                            pageNumber = (1 + parseInt(pageNumber)).toString();
+                        }
+                    }
+                    
                     // Fade in New Page 
                     showCard(delay, pageContainer);
                     delay += 200.0;
@@ -357,8 +385,12 @@
                 choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`
             }
         
-            // Check for Page Turn Symbol ('<') to Style
             // Add choice to story
+            // Tracks if last choice is a "<" or ">". 
+            // In which case, a line break is required to increase the storyContainer's height to include the "<" or ">".
+            var addSpace = false; 
+
+            // Check for Page Turn Symbol ("<") to Style
             if ((choice.text == "<") || (choice.text == ">")) {
                 if (choice.text == "<") {
                     choiceParagraphElement.classList.add("pageTurnLeft");
@@ -370,6 +402,7 @@
                 pageTurnContainer.classList.add("pageTurnContainer");
                 pageTurnContainer.appendChild(choiceParagraphElement);
                 storyContainer.appendChild(pageTurnContainer);
+                addSpace = true;
             }
             else {
                 choiceParagraphElement.classList.add(style);
@@ -379,6 +412,11 @@
             // Set first line's top margin to 0
             if (choiceParagraphElement == storyContainer.firstChild) {
                 choiceParagraphElement.style.marginTop = '0';
+            }
+
+            if (addSpace) {
+                removeAll('br'); 
+                storyContainer.appendChild(document.createElement('br'));
             }
 
             // Fade choice in after a short delay
@@ -626,6 +664,10 @@
         pageContainer.appendChild(headerContainer);
         pageContainer.appendChild(storyContainer);
         outerScrollContainer.appendChild(pageContainer);
+
+        // Reset Page Number
+        pageNumberActive = false;
+        pageNumber = "";
 
         // Set first page height
         storyContainer.style.height = "auto";

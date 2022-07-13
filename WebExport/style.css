@@ -133,6 +133,7 @@ img {
     position: relative;
     display: block;
     margin: 0 auto;
+    margin-bottom: 2em;
     max-width: 100%;
     z-index: 2;
 }
@@ -221,7 +222,7 @@ p.pageTurnLeft {
     position: absolute;
 
     margin: 0em;
-    top: 4em;
+    top: 0em;
     left: 0em;
 }
 
@@ -229,7 +230,7 @@ p.pageTurnRight {
     position: absolute;
 
     margin: 0em;
-    top: 4em;
+    top: 0em;
     right: 0em;
 }
 
